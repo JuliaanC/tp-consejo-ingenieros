@@ -1,103 +1,103 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 2.0.3
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 2.0.3
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * SQLSRV Database Adapter Class
- *
- * Note: _DB is an extender class that the app controller
- * creates dynamically based on whether the query builder
- * class is being used or not.
- *
- * @package		CodeIgniter
- * @subpackage	Drivers
- * @category	Database
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/database/
- */
+	* SQLSRV Database Adapter Class
+	*
+	* Note: _DB is an extender class that the app controller
+	* creates dynamically based on whether the query builder
+	* class is being used or not.
+	*
+	* @package		CodeIgniter
+	* @subpackage	Drivers
+	* @category	Database
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/database/
+	*/
 class CI_DB_sqlsrv_driver extends CI_DB {
 
 	/**
-	 * Database driver
-	 *
-	 * @var	string
-	 */
+		* Database driver
+		*
+		* @var	string
+		*/
 	public $dbdriver = 'sqlsrv';
 
 	/**
-	 * Scrollable flag
-	 *
-	 * Determines what cursor type to use when executing queries.
-	 *
-	 * FALSE or SQLSRV_CURSOR_FORWARD would increase performance,
-	 * but would disable num_rows() (and possibly insert_id())
-	 *
-	 * @var	mixed
-	 */
+		* Scrollable flag
+		*
+		* Determines what cursor type to use when executing queries.
+		*
+		* FALSE or SQLSRV_CURSOR_FORWARD would increase performance,
+		* but would disable num_rows() (and possibly insert_id())
+		*
+		* @var	mixed
+		*/
 	public $scrollable;
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * ORDER BY random keyword
-	 *
-	 * @var	array
-	 */
+		* ORDER BY random keyword
+		*
+		* @var	array
+		*/
 	protected $_random_keyword = array('NEWID()', 'RAND(%d)');
 
 	/**
-	 * Quoted identifier flag
-	 *
-	 * Whether to use SQL-92 standard quoted identifier
-	 * (double quotes) or brackets for identifier escaping.
-	 *
-	 * @var	bool
-	 */
+		* Quoted identifier flag
+		*
+		* Whether to use SQL-92 standard quoted identifier
+		* (double quotes) or brackets for identifier escaping.
+		*
+		* @var	bool
+		*/
 	protected $_quoted_identifier = TRUE;
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Class constructor
-	 *
-	 * @param	array	$params
-	 * @return	void
-	 */
+		* Class constructor
+		*
+		* @param	array	$params
+		* @return	void
+		*/
 	public function __construct($params)
 	{
 		parent::__construct($params);
@@ -114,11 +114,11 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Database connection
-	 *
-	 * @param	bool	$pooling
-	 * @return	resource
-	 */
+		* Database connection
+		*
+		* @param	bool	$pooling
+		* @return	resource
+		*/
 	public function db_connect($pooling = FALSE)
 	{
 		$charset = in_array(strtolower($this->char_set), array('utf-8', 'utf8'), TRUE)
@@ -156,11 +156,11 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Select the database
-	 *
-	 * @param	string	$database
-	 * @return	bool
-	 */
+		* Select the database
+		*
+		* @param	string	$database
+		* @return	bool
+		*/
 	public function db_select($database = '')
 	{
 		if ($database === '')
@@ -181,11 +181,11 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Execute the query
-	 *
-	 * @param	string	$sql	an SQL query
-	 * @return	resource
-	 */
+		* Execute the query
+		*
+		* @param	string	$sql	an SQL query
+		* @return	resource
+		*/
 	protected function _execute($sql)
 	{
 		return ($this->scrollable === FALSE OR $this->is_write_type($sql))
@@ -196,10 +196,10 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Begin Transaction
-	 *
-	 * @return	bool
-	 */
+		* Begin Transaction
+		*
+		* @return	bool
+		*/
 	protected function _trans_begin()
 	{
 		return sqlsrv_begin_transaction($this->conn_id);
@@ -208,10 +208,10 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Commit Transaction
-	 *
-	 * @return	bool
-	 */
+		* Commit Transaction
+		*
+		* @return	bool
+		*/
 	protected function _trans_commit()
 	{
 		return sqlsrv_commit($this->conn_id);
@@ -220,10 +220,10 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Rollback Transaction
-	 *
-	 * @return	bool
-	 */
+		* Rollback Transaction
+		*
+		* @return	bool
+		*/
 	protected function _trans_rollback()
 	{
 		return sqlsrv_rollback($this->conn_id);
@@ -232,10 +232,10 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Affected Rows
-	 *
-	 * @return	int
-	 */
+		* Affected Rows
+		*
+		* @return	int
+		*/
 	public function affected_rows()
 	{
 		return sqlsrv_rows_affected($this->result_id);
@@ -244,12 +244,12 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Insert ID
-	 *
-	 * Returns the last id created in the Identity column.
-	 *
-	 * @return	string
-	 */
+		* Insert ID
+		*
+		* Returns the last id created in the Identity column.
+		*
+		* @return	string
+		*/
 	public function insert_id()
 	{
 		return $this->query('SELECT SCOPE_IDENTITY() AS insert_id')->row()->insert_id;
@@ -258,10 +258,10 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Database version number
-	 *
-	 * @return	string
-	 */
+		* Database version number
+		*
+		* @return	string
+		*/
 	public function version()
 	{
 		if (isset($this->data_cache['version']))
@@ -280,13 +280,13 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * List table query
-	 *
-	 * Generates a platform-specific query string so that the table names can be fetched
-	 *
-	 * @param	bool
-	 * @return	string	$prefix_limit
-	 */
+		* List table query
+		*
+		* Generates a platform-specific query string so that the table names can be fetched
+		*
+		* @param	bool
+		* @return	string	$prefix_limit
+		*/
 	protected function _list_tables($prefix_limit = FALSE)
 	{
 		$sql = 'SELECT '.$this->escape_identifiers('name')
@@ -305,13 +305,13 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * List column query
-	 *
-	 * Generates a platform-specific query string so that the column names can be fetched
-	 *
-	 * @param	string	$table
-	 * @return	string
-	 */
+		* List column query
+		*
+		* Generates a platform-specific query string so that the column names can be fetched
+		*
+		* @param	string	$table
+		* @return	string
+		*/
 	protected function _list_columns($table = '')
 	{
 		return 'SELECT COLUMN_NAME
@@ -322,11 +322,11 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Returns an object with field data
-	 *
-	 * @param	string	$table
-	 * @return	array
-	 */
+		* Returns an object with field data
+		*
+		* @param	string	$table
+		* @return	array
+		*/
 	public function field_data($table)
 	{
 		$sql = 'SELECT COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, NUMERIC_PRECISION, COLUMN_DEFAULT
@@ -355,13 +355,13 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Error
-	 *
-	 * Returns an array containing code and message of the last
-	 * database error that has occurred.
-	 *
-	 * @return	array
-	 */
+		* Error
+		*
+		* Returns an array containing code and message of the last
+		* database error that has occurred.
+		*
+		* @return	array
+		*/
 	public function error()
 	{
 		$error = array('code' => '00000', 'message' => '');
@@ -393,14 +393,14 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Update statement
-	 *
-	 * Generates a platform-specific update string from the supplied data
-	 *
-	 * @param	string	$table
-	 * @param	array	$values
-	 * @return	string
-	 */
+		* Update statement
+		*
+		* Generates a platform-specific update string from the supplied data
+		*
+		* @param	string	$table
+		* @param	array	$values
+		* @return	string
+		*/
 	protected function _update($table, $values)
 	{
 		$this->qb_limit = FALSE;
@@ -411,16 +411,16 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Truncate statement
-	 *
-	 * Generates a platform-specific truncate string from the supplied data
-	 *
-	 * If the database does not support the TRUNCATE statement,
-	 * then this method maps to 'DELETE FROM table'
-	 *
-	 * @param	string	$table
-	 * @return	string
-	 */
+		* Truncate statement
+		*
+		* Generates a platform-specific truncate string from the supplied data
+		*
+		* If the database does not support the TRUNCATE statement,
+		* then this method maps to 'DELETE FROM table'
+		*
+		* @param	string	$table
+		* @return	string
+		*/
 	protected function _truncate($table)
 	{
 		return 'TRUNCATE TABLE '.$table;
@@ -429,13 +429,13 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Delete statement
-	 *
-	 * Generates a platform-specific delete string from the supplied data
-	 *
-	 * @param	string	$table
-	 * @return	string
-	 */
+		* Delete statement
+		*
+		* Generates a platform-specific delete string from the supplied data
+		*
+		* @param	string	$table
+		* @return	string
+		*/
 	protected function _delete($table)
 	{
 		if ($this->qb_limit)
@@ -449,13 +449,13 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * LIMIT
-	 *
-	 * Generates a platform-specific LIMIT clause
-	 *
-	 * @param	string	$sql	SQL Query
-	 * @return	string
-	 */
+		* LIMIT
+		*
+		* Generates a platform-specific LIMIT clause
+		*
+		* @param	string	$sql	SQL Query
+		* @return	string
+		*/
 	protected function _limit($sql)
 	{
 		// As of SQL Server 2012 (11.0.*) OFFSET is supported
@@ -508,15 +508,15 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Insert batch statement
-	 *
-	 * Generates a platform-specific insert string from the supplied data.
-	 *
-	 * @param	string	$table	Table name
-	 * @param	array	$keys	INSERT keys
-	 * @param	array	$values	INSERT values
-	 * @return	string|bool
-	 */
+		* Insert batch statement
+		*
+		* Generates a platform-specific insert string from the supplied data.
+		*
+		* @param	string	$table	Table name
+		* @param	array	$keys	INSERT keys
+		* @param	array	$values	INSERT values
+		* @return	string|bool
+		*/
 	protected function _insert_batch($table, $keys, $values)
 	{
 		// Multiple-value inserts are only supported as of SQL Server 2008
@@ -531,10 +531,10 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Close DB Connection
-	 *
-	 * @return	void
-	 */
+		* Close DB Connection
+		*
+		* @return	void
+		*/
 	protected function _close()
 	{
 		sqlsrv_close($this->conn_id);

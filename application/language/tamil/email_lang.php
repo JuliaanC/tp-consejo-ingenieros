@@ -1,12 +1,12 @@
 <?php
 /**
- * System messages translation for CodeIgniter(tm)
- *
- * @author	CodeIgniter community
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- */
+	* System messages translation for CodeIgniter(tm)
+	*
+	* @author	CodeIgniter community
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['email_must_be_array'] = 'மின்னஞ்சல் சரிபார்த்தல் முறை ஒரு வரிசையை செலுத்தியிருக்க வேண்டும்.';

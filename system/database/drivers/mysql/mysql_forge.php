@@ -1,73 +1,73 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * MySQL Forge Class
- *
- * @category	Database
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/database/
- */
+	* MySQL Forge Class
+	*
+	* @category	Database
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/database/
+	*/
 class CI_DB_mysql_forge extends CI_DB_forge {
 
 	/**
-	 * CREATE DATABASE statement
-	 *
-	 * @var	string
-	 */
+		* CREATE DATABASE statement
+		*
+		* @var	string
+		*/
 	protected $_create_database	= 'CREATE DATABASE %s CHARACTER SET %s COLLATE %s';
 
 	/**
-	 * CREATE TABLE keys flag
-	 *
-	 * Whether table keys are created from within the
-	 * CREATE TABLE statement.
-	 *
-	 * @var	bool
-	 */
+		* CREATE TABLE keys flag
+		*
+		* Whether table keys are created from within the
+		* CREATE TABLE statement.
+		*
+		* @var	bool
+		*/
 	protected $_create_table_keys	= TRUE;
 
 	/**
-	 * UNSIGNED support
-	 *
-	 * @var	array
-	 */
+		* UNSIGNED support
+		*
+		* @var	array
+		*/
 	protected $_unsigned		= array(
 		'TINYINT',
 		'SMALLINT',
@@ -84,20 +84,20 @@ class CI_DB_mysql_forge extends CI_DB_forge {
 	);
 
 	/**
-	 * NULL value representation in CREATE/ALTER TABLE statements
-	 *
-	 * @var	string
-	 */
+		* NULL value representation in CREATE/ALTER TABLE statements
+		*
+		* @var	string
+		*/
 	protected $_null = 'NULL';
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * CREATE TABLE attributes
-	 *
-	 * @param	array	$attributes	Associative array of table attributes
-	 * @return	string
-	 */
+		* CREATE TABLE attributes
+		*
+		* @param	array	$attributes	Associative array of table attributes
+		* @return	string
+		*/
 	protected function _create_table_attr($attributes)
 	{
 		$sql = '';
@@ -126,13 +126,13 @@ class CI_DB_mysql_forge extends CI_DB_forge {
 	// --------------------------------------------------------------------
 
 	/**
-	 * ALTER TABLE
-	 *
-	 * @param	string	$alter_type	ALTER type
-	 * @param	string	$table		Table name
-	 * @param	mixed	$field		Column definition
-	 * @return	string|string[]
-	 */
+		* ALTER TABLE
+		*
+		* @param	string	$alter_type	ALTER type
+		* @param	string	$table		Table name
+		* @param	mixed	$field		Column definition
+		* @return	string|string[]
+		*/
 	protected function _alter_table($alter_type, $table, $field)
 	{
 		if ($alter_type === 'DROP')
@@ -170,11 +170,11 @@ class CI_DB_mysql_forge extends CI_DB_forge {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Process column
-	 *
-	 * @param	array	$field
-	 * @return	string
-	 */
+		* Process column
+		*
+		* @param	array	$field
+		* @return	string
+		*/
 	protected function _process_column($field)
 	{
 		$extra_clause = isset($field['after'])
@@ -201,11 +201,11 @@ class CI_DB_mysql_forge extends CI_DB_forge {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Process indexes
-	 *
-	 * @param	string	$table	(ignored)
-	 * @return	string
-	 */
+		* Process indexes
+		*
+		* @param	string	$table	(ignored)
+		* @return	string
+		*/
 	protected function _process_indexes($table)
 	{
 		$sql = '';

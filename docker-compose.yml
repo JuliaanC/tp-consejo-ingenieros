@@ -1,0 +1,26 @@
+version: '2.1'
+
+services:
+  db:
+    image: mysql/mysql-server
+    environment:
+      - MYSQL_PASSWORD=mysql-password
+      - MYSQL_USER=mysql-user
+      - MYSQL_DATABASE=mysql-db
+      - MYSQL_ROOT_PASSWORD=root-pwd-secret
+
+    restart: always
+
+  web:
+    build: .
+    
+    volumes:
+      - .:/var/www/html
+
+    restart: always
+
+    ports:
+      - 80:80
+      
+    depends_on:
+      - db

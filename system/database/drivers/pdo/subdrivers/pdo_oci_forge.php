@@ -1,89 +1,89 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 3.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 3.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * PDO Oracle Forge Class
- *
- * @category	Database
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/database/
- */
+	* PDO Oracle Forge Class
+	*
+	* @category	Database
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/database/
+	*/
 class CI_DB_pdo_oci_forge extends CI_DB_pdo_forge {
 
 	/**
-	 * CREATE DATABASE statement
-	 *
-	 * @var	string
-	 */
+		* CREATE DATABASE statement
+		*
+		* @var	string
+		*/
 	protected $_create_database	= FALSE;
 
 	/**
-	 * CREATE TABLE IF statement
-	 *
-	 * @var	string
-	 */
+		* CREATE TABLE IF statement
+		*
+		* @var	string
+		*/
 	protected $_create_table_if	= FALSE;
 
 	/**
-	 * DROP DATABASE statement
-	 *
-	 * @var	string
-	 */
+		* DROP DATABASE statement
+		*
+		* @var	string
+		*/
 	protected $_drop_database	= FALSE;
 
 	/**
-	 * UNSIGNED support
-	 *
-	 * @var	bool|array
-	 */
+		* UNSIGNED support
+		*
+		* @var	bool|array
+		*/
 	protected $_unsigned		= FALSE;
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * ALTER TABLE
-	 *
-	 * @param	string	$alter_type	ALTER type
-	 * @param	string	$table		Table name
-	 * @param	mixed	$field		Column definition
-	 * @return	string|string[]
-	 */
+		* ALTER TABLE
+		*
+		* @param	string	$alter_type	ALTER type
+		* @param	string	$table		Table name
+		* @param	mixed	$field		Column definition
+		* @return	string|string[]
+		*/
 	protected function _alter_table($alter_type, $table, $field)
 	{
 		if ($alter_type === 'DROP')
@@ -135,25 +135,25 @@ class CI_DB_pdo_oci_forge extends CI_DB_pdo_forge {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Field attribute AUTO_INCREMENT
-	 *
-	 * @param	array	&$attributes
-	 * @param	array	&$field
-	 * @return	void
-	 */
+		* Field attribute AUTO_INCREMENT
+		*
+		* @param	array	&$attributes
+		* @param	array	&$field
+		* @return	void
+		*/
 	protected function _attr_auto_increment(&$attributes, &$field)
 	{
 		// Not supported - sequences and triggers must be used instead
 	}
 
 	/**
-	 * Field attribute TYPE
-	 *
-	 * Performs a data type mapping between different databases.
-	 *
-	 * @param	array	&$attributes
-	 * @return	void
-	 */
+		* Field attribute TYPE
+		*
+		* Performs a data type mapping between different databases.
+		*
+		* @param	array	&$attributes
+		* @return	void
+		*/
 	protected function _attr_type(&$attributes)
 	{
 		switch (strtoupper($attributes['TYPE']))

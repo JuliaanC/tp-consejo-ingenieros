@@ -1,67 +1,67 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Trackback Class
- *
- * Trackback Sending/Receiving Class
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Trackbacks
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/libraries/trackback.html
- */
+	* Trackback Class
+	*
+	* Trackback Sending/Receiving Class
+	*
+	* @package		CodeIgniter
+	* @subpackage	Libraries
+	* @category	Trackbacks
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/libraries/trackback.html
+	*/
 class CI_Trackback {
 
 	/**
-	 * Character set
-	 *
-	 * @var	string
-	 */
+		* Character set
+		*
+		* @var	string
+		*/
 	public $charset = 'UTF-8';
 
 	/**
-	 * Trackback data
-	 *
-	 * @var	array
-	 */
+		* Trackback data
+		*
+		* @var	array
+		*/
 	public $data = array(
 		'url' => '',
 		'title' => '',
@@ -71,36 +71,36 @@ class CI_Trackback {
 	);
 
 	/**
-	 * Convert ASCII flag
-	 *
-	 * Whether to convert high-ASCII and MS Word
-	 * characters to HTML entities.
-	 *
-	 * @var	bool
-	 */
+		* Convert ASCII flag
+		*
+		* Whether to convert high-ASCII and MS Word
+		* characters to HTML entities.
+		*
+		* @var	bool
+		*/
 	public $convert_ascii = TRUE;
 
 	/**
-	 * Response
-	 *
-	 * @var	string
-	 */
+		* Response
+		*
+		* @var	string
+		*/
 	public $response = '';
 
 	/**
-	 * Error messages list
-	 *
-	 * @var	string[]
-	 */
+		* Error messages list
+		*
+		* @var	string[]
+		*/
 	public $error_msg = array();
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Constructor
-	 *
-	 * @return	void
-	 */
+		* Constructor
+		*
+		* @return	void
+		*/
 	public function __construct()
 	{
 		log_message('info', 'Trackback Class Initialized');
@@ -109,11 +109,11 @@ class CI_Trackback {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Send Trackback
-	 *
-	 * @param	array
-	 * @return	bool
-	 */
+		* Send Trackback
+		*
+		* @param	array
+		* @return	bool
+		*/
 	public function send($tb_data)
 	{
 		if ( ! is_array($tb_data))
@@ -179,15 +179,15 @@ class CI_Trackback {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Receive Trackback  Data
-	 *
-	 * This function simply validates the incoming TB data.
-	 * It returns FALSE on failure and TRUE on success.
-	 * If the data is valid it is set to the $this->data array
-	 * so that it can be inserted into a database.
-	 *
-	 * @return	bool
-	 */
+		* Receive Trackback  Data
+		*
+		* This function simply validates the incoming TB data.
+		* It returns FALSE on failure and TRUE on success.
+		* If the data is valid it is set to the $this->data array
+		* so that it can be inserted into a database.
+		*
+		* @return	bool
+		*/
 	public function receive()
 	{
 		foreach (array('url', 'title', 'blog_name', 'excerpt') as $val)
@@ -228,15 +228,15 @@ class CI_Trackback {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Send Trackback Error Message
-	 *
-	 * Allows custom errors to be set. By default it
-	 * sends the "incomplete information" error, as that's
-	 * the most common one.
-	 *
-	 * @param	string
-	 * @return	void
-	 */
+		* Send Trackback Error Message
+		*
+		* Allows custom errors to be set. By default it
+		* sends the "incomplete information" error, as that's
+		* the most common one.
+		*
+		* @param	string
+		* @return	void
+		*/
 	public function send_error($message = 'Incomplete Information')
 	{
 		exit('<?xml version="1.0" encoding="utf-8"?'.">\n<response>\n<error>1</error>\n<message>".$message."</message>\n</response>");
@@ -245,13 +245,13 @@ class CI_Trackback {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Send Trackback Success Message
-	 *
-	 * This should be called when a trackback has been
-	 * successfully received and inserted.
-	 *
-	 * @return	void
-	 */
+		* Send Trackback Success Message
+		*
+		* This should be called when a trackback has been
+		* successfully received and inserted.
+		*
+		* @return	void
+		*/
 	public function send_success()
 	{
 		exit('<?xml version="1.0" encoding="utf-8"?'.">\n<response>\n<error>0</error>\n</response>");
@@ -260,11 +260,11 @@ class CI_Trackback {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Fetch a particular item
-	 *
-	 * @param	string
-	 * @return	string
-	 */
+		* Fetch a particular item
+		*
+		* @param	string
+		* @return	string
+		*/
 	public function data($item)
 	{
 		return isset($this->data[$item]) ? $this->data[$item] : '';
@@ -273,15 +273,15 @@ class CI_Trackback {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Process Trackback
-	 *
-	 * Opens a socket connection and passes the data to
-	 * the server. Returns TRUE on success, FALSE on failure
-	 *
-	 * @param	string
-	 * @param	string
-	 * @return	bool
-	 */
+		* Process Trackback
+		*
+		* Opens a socket connection and passes the data to
+		* the server. Returns TRUE on success, FALSE on failure
+		*
+		* @param	string
+		* @param	string
+		* @return	bool
+		*/
 	public function process($url, $data)
 	{
 		$target = parse_url($url);
@@ -335,15 +335,15 @@ class CI_Trackback {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Extract Trackback URLs
-	 *
-	 * This function lets multiple trackbacks be sent.
-	 * It takes a string of URLs (separated by comma or
-	 * space) and puts each URL into an array
-	 *
-	 * @param	string
-	 * @return	string
-	 */
+		* Extract Trackback URLs
+		*
+		* This function lets multiple trackbacks be sent.
+		* It takes a string of URLs (separated by comma or
+		* space) and puts each URL into an array
+		*
+		* @param	string
+		* @return	string
+		*/
 	public function extract_urls($urls)
 	{
 		// Remove the pesky white space and replace with a comma, then replace doubles.
@@ -359,13 +359,13 @@ class CI_Trackback {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Validate URL
-	 *
-	 * Simply adds "http://" if missing
-	 *
-	 * @param	string
-	 * @return	void
-	 */
+		* Validate URL
+		*
+		* Simply adds "http://" if missing
+		*
+		* @param	string
+		* @return	void
+		*/
 	public function validate_url(&$url)
 	{
 		$url = trim($url);
@@ -379,11 +379,11 @@ class CI_Trackback {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Find the Trackback URL's ID
-	 *
-	 * @param	string
-	 * @return	string
-	 */
+		* Find the Trackback URL's ID
+		*
+		* @param	string
+		* @return	string
+		*/
 	public function get_id($url)
 	{
 		$tb_id = '';
@@ -420,11 +420,11 @@ class CI_Trackback {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Convert Reserved XML characters to Entities
-	 *
-	 * @param	string
-	 * @return	string
-	 */
+		* Convert Reserved XML characters to Entities
+		*
+		* @param	string
+		* @return	string
+		*/
 	public function convert_xml($str)
 	{
 		$temp = '__TEMP_AMPERSANDS__';
@@ -441,15 +441,15 @@ class CI_Trackback {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Character limiter
-	 *
-	 * Limits the string based on the character count. Will preserve complete words.
-	 *
-	 * @param	string
-	 * @param	int
-	 * @param	string
-	 * @return	string
-	 */
+		* Character limiter
+		*
+		* Limits the string based on the character count. Will preserve complete words.
+		*
+		* @param	string
+		* @param	int
+		* @param	string
+		* @return	string
+		*/
 	public function limit_characters($str, $n = 500, $end_char = '&#8230;')
 	{
 		if (strlen($str) < $n)
@@ -478,14 +478,14 @@ class CI_Trackback {
 	// --------------------------------------------------------------------
 
 	/**
-	 * High ASCII to Entities
-	 *
-	 * Converts Hight ascii text and MS Word special chars
-	 * to character entities
-	 *
-	 * @param	string
-	 * @return	string
-	 */
+		* High ASCII to Entities
+		*
+		* Converts Hight ascii text and MS Word special chars
+		* to character entities
+		*
+		* @param	string
+		* @return	string
+		*/
 	public function convert_ascii($str)
 	{
 		$count	= 1;
@@ -528,11 +528,11 @@ class CI_Trackback {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set error message
-	 *
-	 * @param	string
-	 * @return	void
-	 */
+		* Set error message
+		*
+		* @param	string
+		* @return	void
+		*/
 	public function set_error($msg)
 	{
 		log_message('error', $msg);
@@ -542,12 +542,12 @@ class CI_Trackback {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Show error messages
-	 *
-	 * @param	string
-	 * @param	string
-	 * @return	string
-	 */
+		* Show error messages
+		*
+		* @param	string
+		* @param	string
+		* @return	string
+		*/
 	public function display_errors($open = '<p>', $close = '</p>')
 	{
 		return (count($this->error_msg) > 0) ? $open.implode($close.$open, $this->error_msg).$close : '';

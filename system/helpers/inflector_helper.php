@@ -1,64 +1,64 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CodeIgniter Inflector Helpers
- *
- * @package		CodeIgniter
- * @subpackage	Helpers
- * @category	Helpers
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/helpers/inflector_helper.html
- */
+	* CodeIgniter Inflector Helpers
+	*
+	* @package		CodeIgniter
+	* @subpackage	Helpers
+	* @category	Helpers
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/helpers/inflector_helper.html
+	*/
 
 // --------------------------------------------------------------------
 
 if ( ! function_exists('singular'))
 {
 	/**
-	 * Singular
-	 *
-	 * Takes a plural word and makes it singular
-	 *
-	 * @param	string	$str	Input string
-	 * @return	string
-	 */
+		* Singular
+		*
+		* Takes a plural word and makes it singular
+		*
+		* @param	string	$str	Input string
+		* @return	string
+		*/
 	function singular($str)
 	{
 		$result = strval($str);
@@ -116,13 +116,13 @@ if ( ! function_exists('singular'))
 if ( ! function_exists('plural'))
 {
 	/**
-	 * Plural
-	 *
-	 * Takes a singular word and makes it plural
-	 *
-	 * @param	string	$str	Input string
-	 * @return	string
-	 */
+		* Plural
+		*
+		* Takes a singular word and makes it plural
+		*
+		* @param	string	$str	Input string
+		* @return	string
+		*/
 	function plural($str)
 	{
 		$result = strval($str);
@@ -173,13 +173,13 @@ if ( ! function_exists('plural'))
 if ( ! function_exists('camelize'))
 {
 	/**
-	 * Camelize
-	 *
-	 * Takes multiple words separated by spaces or underscores and camelizes them
-	 *
-	 * @param	string	$str	Input string
-	 * @return	string
-	 */
+		* Camelize
+		*
+		* Takes multiple words separated by spaces or underscores and camelizes them
+		*
+		* @param	string	$str	Input string
+		* @return	string
+		*/
 	function camelize($str)
 	{
 		return strtolower($str[0]).substr(str_replace(' ', '', ucwords(preg_replace('/[\s_]+/', ' ', $str))), 1);
@@ -191,13 +191,13 @@ if ( ! function_exists('camelize'))
 if ( ! function_exists('underscore'))
 {
 	/**
-	 * Underscore
-	 *
-	 * Takes multiple words separated by spaces and underscores them
-	 *
-	 * @param	string	$str	Input string
-	 * @return	string
-	 */
+		* Underscore
+		*
+		* Takes multiple words separated by spaces and underscores them
+		*
+		* @param	string	$str	Input string
+		* @return	string
+		*/
 	function underscore($str)
 	{
 		return preg_replace('/[\s]+/', '_', trim(MB_ENABLED ? mb_strtolower($str) : strtolower($str)));
@@ -209,14 +209,14 @@ if ( ! function_exists('underscore'))
 if ( ! function_exists('humanize'))
 {
 	/**
-	 * Humanize
-	 *
-	 * Takes multiple words separated by the separator and changes them to spaces
-	 *
-	 * @param	string	$str		Input string
-	 * @param 	string	$separator	Input separator
-	 * @return	string
-	 */
+		* Humanize
+		*
+		* Takes multiple words separated by the separator and changes them to spaces
+		*
+		* @param	string	$str		Input string
+		* @param 	string	$separator	Input separator
+		* @return	string
+		*/
 	function humanize($str, $separator = '_')
 	{
 		return ucwords(preg_replace('/['.preg_quote($separator).']+/', ' ', trim(MB_ENABLED ? mb_strtolower($str) : strtolower($str))));
@@ -228,11 +228,11 @@ if ( ! function_exists('humanize'))
 if ( ! function_exists('is_countable'))
 {
 	/**
-	 * Checks if the given word has a plural version.
-	 *
-	 * @param	string	$word	Word to check
-	 * @return	bool
-	 */
+		* Checks if the given word has a plural version.
+		*
+		* @param	string	$word	Word to check
+		* @return	bool
+		*/
 	function is_countable($word)
 	{
 		return ! in_array(

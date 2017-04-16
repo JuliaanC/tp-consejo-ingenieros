@@ -1,110 +1,110 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Jquery Class
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Loader
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/libraries/javascript.html
- */
+	* Jquery Class
+	*
+	* @package		CodeIgniter
+	* @subpackage	Libraries
+	* @category	Loader
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/libraries/javascript.html
+	*/
 class CI_Jquery extends CI_Javascript {
 
 	/**
-	 * JavaScript directory location
-	 *
-	 * @var	string
-	 */
+		* JavaScript directory location
+		*
+		* @var	string
+		*/
 	protected $_javascript_folder = 'js';
 
 	/**
-	 * JQuery code for load
-	 *
-	 * @var	array
-	 */
+		* JQuery code for load
+		*
+		* @var	array
+		*/
 	public $jquery_code_for_load = array();
 
 	/**
-	 * JQuery code for compile
-	 *
-	 * @var	array
-	 */
+		* JQuery code for compile
+		*
+		* @var	array
+		*/
 	public $jquery_code_for_compile = array();
 
 	/**
-	 * JQuery corner active flag
-	 *
-	 * @var	bool
-	 */
+		* JQuery corner active flag
+		*
+		* @var	bool
+		*/
 	public $jquery_corner_active = FALSE;
 
 	/**
-	 * JQuery table sorter active flag
-	 *
-	 * @var	bool
-	 */
+		* JQuery table sorter active flag
+		*
+		* @var	bool
+		*/
 	public $jquery_table_sorter_active = FALSE;
 
 	/**
-	 * JQuery table sorter pager active
-	 *
-	 * @var	bool
-	 */
+		* JQuery table sorter pager active
+		*
+		* @var	bool
+		*/
 	public $jquery_table_sorter_pager_active = FALSE;
 
 	/**
-	 * JQuery AJAX image
-	 *
-	 * @var	string
-	 */
+		* JQuery AJAX image
+		*
+		* @var	string
+		*/
 	public $jquery_ajax_img = '';
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Constructor
-	 *
-	 * @param	array	$params
-	 * @return	void
-	 */
+		* Constructor
+		*
+		* @param	array	$params
+		* @return	void
+		*/
 	public function __construct($params)
 	{
 		$this->CI =& get_instance();
@@ -123,14 +123,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Blur
-	 *
-	 * Outputs a jQuery blur event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Blur
+		*
+		* Outputs a jQuery blur event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _blur($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'blur');
@@ -139,14 +139,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Change
-	 *
-	 * Outputs a jQuery change event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Change
+		*
+		* Outputs a jQuery change event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _change($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'change');
@@ -155,15 +155,15 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Click
-	 *
-	 * Outputs a jQuery click event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @param	bool	whether or not to return false
-	 * @return	string
-	 */
+		* Click
+		*
+		* Outputs a jQuery click event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @param	bool	whether or not to return false
+		* @return	string
+		*/
 	protected function _click($element = 'this', $js = '', $ret_false = TRUE)
 	{
 		is_array($js) OR $js = array($js);
@@ -179,14 +179,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Double Click
-	 *
-	 * Outputs a jQuery dblclick event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Double Click
+		*
+		* Outputs a jQuery dblclick event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _dblclick($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'dblclick');
@@ -195,14 +195,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Error
-	 *
-	 * Outputs a jQuery error event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Error
+		*
+		* Outputs a jQuery error event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _error($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'error');
@@ -211,14 +211,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Focus
-	 *
-	 * Outputs a jQuery focus event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Focus
+		*
+		* Outputs a jQuery focus event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _focus($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'focus');
@@ -227,15 +227,15 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Hover
-	 *
-	 * Outputs a jQuery hover event
-	 *
-	 * @param	string	- element
-	 * @param	string	- Javascript code for mouse over
-	 * @param	string	- Javascript code for mouse out
-	 * @return	string
-	 */
+		* Hover
+		*
+		* Outputs a jQuery hover event
+		*
+		* @param	string	- element
+		* @param	string	- Javascript code for mouse over
+		* @param	string	- Javascript code for mouse out
+		* @return	string
+		*/
 	protected function _hover($element = 'this', $over = '', $out = '')
 	{
 		$event = "\n\t$(".$this->_prep_element($element).").hover(\n\t\tfunction()\n\t\t{\n\t\t\t{$over}\n\t\t}, \n\t\tfunction()\n\t\t{\n\t\t\t{$out}\n\t\t});\n";
@@ -248,14 +248,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Keydown
-	 *
-	 * Outputs a jQuery keydown event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Keydown
+		*
+		* Outputs a jQuery keydown event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _keydown($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'keydown');
@@ -264,14 +264,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Keyup
-	 *
-	 * Outputs a jQuery keydown event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Keyup
+		*
+		* Outputs a jQuery keydown event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _keyup($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'keyup');
@@ -280,14 +280,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Load
-	 *
-	 * Outputs a jQuery load event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Load
+		*
+		* Outputs a jQuery load event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _load($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'load');
@@ -296,14 +296,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Mousedown
-	 *
-	 * Outputs a jQuery mousedown event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Mousedown
+		*
+		* Outputs a jQuery mousedown event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _mousedown($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'mousedown');
@@ -312,14 +312,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Mouse Out
-	 *
-	 * Outputs a jQuery mouseout event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Mouse Out
+		*
+		* Outputs a jQuery mouseout event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _mouseout($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'mouseout');
@@ -328,14 +328,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Mouse Over
-	 *
-	 * Outputs a jQuery mouseover event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Mouse Over
+		*
+		* Outputs a jQuery mouseover event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _mouseover($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'mouseover');
@@ -344,14 +344,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Mouseup
-	 *
-	 * Outputs a jQuery mouseup event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Mouseup
+		*
+		* Outputs a jQuery mouseup event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _mouseup($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'mouseup');
@@ -360,13 +360,13 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Output
-	 *
-	 * Outputs script directly
-	 *
-	 * @param	array	$array_js = array()
-	 * @return	void
-	 */
+		* Output
+		*
+		* Outputs script directly
+		*
+		* @param	array	$array_js = array()
+		* @return	void
+		*/
 	protected function _output($array_js = array())
 	{
 		if ( ! is_array($array_js))
@@ -383,14 +383,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Resize
-	 *
-	 * Outputs a jQuery resize event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Resize
+		*
+		* Outputs a jQuery resize event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _resize($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'resize');
@@ -399,14 +399,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Scroll
-	 *
-	 * Outputs a jQuery scroll event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Scroll
+		*
+		* Outputs a jQuery scroll event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _scroll($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'scroll');
@@ -415,14 +415,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Unload
-	 *
-	 * Outputs a jQuery unload event
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @return	string
-	 */
+		* Unload
+		*
+		* Outputs a jQuery unload event
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @return	string
+		*/
 	protected function _unload($element = 'this', $js = '')
 	{
 		return $this->_add_event($element, $js, 'unload');
@@ -433,14 +433,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Add Class
-	 *
-	 * Outputs a jQuery addClass event
-	 *
-	 * @param	string	$element
-	 * @param	string	$class
-	 * @return	string
-	 */
+		* Add Class
+		*
+		* Outputs a jQuery addClass event
+		*
+		* @param	string	$element
+		* @param	string	$class
+		* @return	string
+		*/
 	protected function _addClass($element = 'this', $class = '')
 	{
 		$element = $this->_prep_element($element);
@@ -450,16 +450,16 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Animate
-	 *
-	 * Outputs a jQuery animate event
-	 *
-	 * @param	string	$element
-	 * @param	array	$params
-	 * @param	string	$speed	'slow', 'normal', 'fast', or time in milliseconds
-	 * @param	string	$extra
-	 * @return	string
-	 */
+		* Animate
+		*
+		* Outputs a jQuery animate event
+		*
+		* @param	string	$element
+		* @param	array	$params
+		* @param	string	$speed	'slow', 'normal', 'fast', or time in milliseconds
+		* @param	string	$extra
+		* @return	string
+		*/
 	protected function _animate($element = 'this', $params = array(), $speed = '', $extra = '')
 	{
 		$element = $this->_prep_element($element);
@@ -490,15 +490,15 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Fade In
-	 *
-	 * Outputs a jQuery hide event
-	 *
-	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
-	 * @param	string	- Javascript callback function
-	 * @return	string
-	 */
+		* Fade In
+		*
+		* Outputs a jQuery hide event
+		*
+		* @param	string	- element
+		* @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+		* @param	string	- Javascript callback function
+		* @return	string
+		*/
 	protected function _fadeIn($element = 'this', $speed = '', $callback = '')
 	{
 		$element = $this->_prep_element($element);
@@ -515,15 +515,15 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Fade Out
-	 *
-	 * Outputs a jQuery hide event
-	 *
-	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
-	 * @param	string	- Javascript callback function
-	 * @return	string
-	 */
+		* Fade Out
+		*
+		* Outputs a jQuery hide event
+		*
+		* @param	string	- element
+		* @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+		* @param	string	- Javascript callback function
+		* @return	string
+		*/
 	protected function _fadeOut($element = 'this', $speed = '', $callback = '')
 	{
 		$element = $this->_prep_element($element);
@@ -540,15 +540,15 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Hide
-	 *
-	 * Outputs a jQuery hide action
-	 *
-	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
-	 * @param	string	- Javascript callback function
-	 * @return	string
-	 */
+		* Hide
+		*
+		* Outputs a jQuery hide action
+		*
+		* @param	string	- element
+		* @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+		* @param	string	- Javascript callback function
+		* @return	string
+		*/
 	protected function _hide($element = 'this', $speed = '', $callback = '')
 	{
 		$element = $this->_prep_element($element);
@@ -565,14 +565,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Remove Class
-	 *
-	 * Outputs a jQuery remove class event
-	 *
-	 * @param	string	$element
-	 * @param	string	$class
-	 * @return	string
-	 */
+		* Remove Class
+		*
+		* Outputs a jQuery remove class event
+		*
+		* @param	string	$element
+		* @param	string	$class
+		* @return	string
+		*/
 	protected function _removeClass($element = 'this', $class = '')
 	{
 		$element = $this->_prep_element($element);
@@ -582,15 +582,15 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Slide Up
-	 *
-	 * Outputs a jQuery slideUp event
-	 *
-	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
-	 * @param	string	- Javascript callback function
-	 * @return	string
-	 */
+		* Slide Up
+		*
+		* Outputs a jQuery slideUp event
+		*
+		* @param	string	- element
+		* @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+		* @param	string	- Javascript callback function
+		* @return	string
+		*/
 	protected function _slideUp($element = 'this', $speed = '', $callback = '')
 	{
 		$element = $this->_prep_element($element);
@@ -607,15 +607,15 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Slide Down
-	 *
-	 * Outputs a jQuery slideDown event
-	 *
-	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
-	 * @param	string	- Javascript callback function
-	 * @return	string
-	 */
+		* Slide Down
+		*
+		* Outputs a jQuery slideDown event
+		*
+		* @param	string	- element
+		* @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+		* @param	string	- Javascript callback function
+		* @return	string
+		*/
 	protected function _slideDown($element = 'this', $speed = '', $callback = '')
 	{
 		$element = $this->_prep_element($element);
@@ -632,15 +632,15 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Slide Toggle
-	 *
-	 * Outputs a jQuery slideToggle event
-	 *
-	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
-	 * @param	string	- Javascript callback function
-	 * @return	string
-	 */
+		* Slide Toggle
+		*
+		* Outputs a jQuery slideToggle event
+		*
+		* @param	string	- element
+		* @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+		* @param	string	- Javascript callback function
+		* @return	string
+		*/
 	protected function _slideToggle($element = 'this', $speed = '', $callback = '')
 	{
 		$element = $this->_prep_element($element);
@@ -657,13 +657,13 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Toggle
-	 *
-	 * Outputs a jQuery toggle event
-	 *
-	 * @param	string	- element
-	 * @return	string
-	 */
+		* Toggle
+		*
+		* Outputs a jQuery toggle event
+		*
+		* @param	string	- element
+		* @return	string
+		*/
 	protected function _toggle($element = 'this')
 	{
 		$element = $this->_prep_element($element);
@@ -673,14 +673,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Toggle Class
-	 *
-	 * Outputs a jQuery toggle class event
-	 *
-	 * @param	string	$element
-	 * @param	string	$class
-	 * @return	string
-	 */
+		* Toggle Class
+		*
+		* Outputs a jQuery toggle class event
+		*
+		* @param	string	$element
+		* @param	string	$class
+		* @return	string
+		*/
 	protected function _toggleClass($element = 'this', $class = '')
 	{
 		$element = $this->_prep_element($element);
@@ -690,15 +690,15 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Show
-	 *
-	 * Outputs a jQuery show event
-	 *
-	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
-	 * @param	string	- Javascript callback function
-	 * @return	string
-	 */
+		* Show
+		*
+		* Outputs a jQuery show event
+		*
+		* @param	string	- element
+		* @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+		* @param	string	- Javascript callback function
+		* @return	string
+		*/
 	protected function _show($element = 'this', $speed = '', $callback = '')
 	{
 		$element = $this->_prep_element($element);
@@ -715,16 +715,16 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Updater
-	 *
-	 * An Ajax call that populates the designated DOM node with
-	 * returned content
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	the controller to run the call against
-	 * @param	string	optional parameters
-	 * @return	string
-	 */
+		* Updater
+		*
+		* An Ajax call that populates the designated DOM node with
+		* returned content
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	the controller to run the call against
+		* @param	string	optional parameters
+		* @return	string
+		*/
 
 	protected function _updater($container = 'this', $controller = '', $options = '')
 	{
@@ -760,13 +760,13 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Zebra tables
-	 *
-	 * @param	string	$class
-	 * @param	string	$odd
-	 * @param	string	$hover
-	 * @return	string
-	 */
+		* Zebra tables
+		*
+		* @param	string	$class
+		* @param	string	$odd
+		* @param	string	$hover
+		* @return	string
+		*/
 	protected function _zebraTables($class = '', $odd = 'odd', $hover = '')
 	{
 		$class = ($class !== '') ? '.'.$class : '';
@@ -787,13 +787,13 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Corner Plugin
-	 *
-	 * @link	http://www.malsup.com/jquery/corner/
-	 * @param	string	$element
-	 * @param	string	$corner_style
-	 * @return	string
-	 */
+		* Corner Plugin
+		*
+		* @link	http://www.malsup.com/jquery/corner/
+		* @param	string	$element
+		* @param	string	$corner_style
+		* @return	string
+		*/
 	public function corner($element = '', $corner_style = '')
 	{
 		// may want to make this configurable down the road
@@ -810,14 +810,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Modal window
-	 *
-	 * Load a thickbox modal window
-	 *
-	 * @param	string	$src
-	 * @param	bool	$relative
-	 * @return	void
-	 */
+		* Modal window
+		*
+		* Load a thickbox modal window
+		*
+		* @param	string	$src
+		* @param	bool	$relative
+		* @return	void
+		*/
 	public function modal($src, $relative = FALSE)
 	{
 		$this->jquery_code_for_load[] = $this->external($src, $relative);
@@ -826,14 +826,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Effect
-	 *
-	 * Load an Effect library
-	 *
-	 * @param	string	$src
-	 * @param	bool	$relative
-	 * @return	void
-	 */
+		* Effect
+		*
+		* Load an Effect library
+		*
+		* @param	string	$src
+		* @param	bool	$relative
+		* @return	void
+		*/
 	public function effect($src, $relative = FALSE)
 	{
 		$this->jquery_code_for_load[] = $this->external($src, $relative);
@@ -842,14 +842,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Plugin
-	 *
-	 * Load a plugin library
-	 *
-	 * @param	string	$src
-	 * @param	bool	$relative
-	 * @return	void
-	 */
+		* Plugin
+		*
+		* Load a plugin library
+		*
+		* @param	string	$src
+		* @param	bool	$relative
+		* @return	void
+		*/
 	public function plugin($src, $relative = FALSE)
 	{
 		$this->jquery_code_for_load[] = $this->external($src, $relative);
@@ -858,14 +858,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * UI
-	 *
-	 * Load a user interface library
-	 *
-	 * @param	string	$src
-	 * @param	bool	$relative
-	 * @return	void
-	 */
+		* UI
+		*
+		* Load a user interface library
+		*
+		* @param	string	$src
+		* @param	bool	$relative
+		* @return	void
+		*/
 	public function ui($src, $relative = FALSE)
 	{
 		$this->jquery_code_for_load[] = $this->external($src, $relative);
@@ -874,14 +874,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Sortable
-	 *
-	 * Creates a jQuery sortable
-	 *
-	 * @param	string	$element
-	 * @param	array	$options
-	 * @return	string
-	 */
+		* Sortable
+		*
+		* Creates a jQuery sortable
+		*
+		* @param	string	$element
+		* @param	array	$options
+		* @return	string
+		*/
 	public function sortable($element, $options = array())
 	{
 		if (count($options) > 0)
@@ -904,12 +904,12 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Table Sorter Plugin
-	 *
-	 * @param	string	table name
-	 * @param	string	plugin location
-	 * @return	string
-	 */
+		* Table Sorter Plugin
+		*
+		* @param	string	table name
+		* @param	string	plugin location
+		* @return	string
+		*/
 	public function tablesorter($table = '', $options = '')
 	{
 		$this->jquery_code_for_compile[] = "\t$(".$this->_prep_element($table).').tablesorter('.$options.");\n";
@@ -920,15 +920,15 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Add Event
-	 *
-	 * Constructs the syntax for an event, and adds to into the array for compilation
-	 *
-	 * @param	string	The element to attach the event to
-	 * @param	string	The code to execute
-	 * @param	string	The event to pass
-	 * @return	string
-	 */
+		* Add Event
+		*
+		* Constructs the syntax for an event, and adds to into the array for compilation
+		*
+		* @param	string	The element to attach the event to
+		* @param	string	The code to execute
+		* @param	string	The event to pass
+		* @return	string
+		*/
 	protected function _add_event($element, $js, $event)
 	{
 		if (is_array($js))
@@ -944,15 +944,15 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Compile
-	 *
-	 * As events are specified, they are stored in an array
-	 * This function compiles them all for output on a page
-	 *
-	 * @param	string	$view_var
-	 * @param	bool	$script_tags
-	 * @return	void
-	 */
+		* Compile
+		*
+		* As events are specified, they are stored in an array
+		* This function compiles them all for output on a page
+		*
+		* @param	string	$view_var
+		* @param	bool	$script_tags
+		* @return	void
+		*/
 	protected function _compile($view_var = 'script_foot', $script_tags = TRUE)
 	{
 		// External references
@@ -978,12 +978,12 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Clear Compile
-	 *
-	 * Clears the array of script events collected for output
-	 *
-	 * @return	void
-	 */
+		* Clear Compile
+		*
+		* Clears the array of script events collected for output
+		*
+		* @return	void
+		*/
 	protected function _clear_compile()
 	{
 		$this->jquery_code_for_compile = array();
@@ -992,13 +992,13 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Document Ready
-	 *
-	 * A wrapper for writing document.ready()
-	 *
-	 * @param	array	$js
-	 * @return	void
-	 */
+		* Document Ready
+		*
+		* A wrapper for writing document.ready()
+		*
+		* @param	array	$js
+		* @return	void
+		*/
 	protected function _document_ready($js)
 	{
 		is_array($js) OR $js = array($js);
@@ -1012,14 +1012,14 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Script Tag
-	 *
-	 * Outputs the script tag that loads the jquery.js file into an HTML document
-	 *
-	 * @param	string	$library_src
-	 * @param	bool	$relative
-	 * @return	string
-	 */
+		* Script Tag
+		*
+		* Outputs the script tag that loads the jquery.js file into an HTML document
+		*
+		* @param	string	$library_src
+		* @param	bool	$relative
+		* @return	string
+		*/
 	public function script($library_src = '', $relative = FALSE)
 	{
 		$library_src = $this->external($library_src, $relative);
@@ -1030,15 +1030,15 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Prep Element
-	 *
-	 * Puts HTML element in quotes for use in jQuery code
-	 * unless the supplied element is the Javascript 'this'
-	 * object, in which case no quotes are added
-	 *
-	 * @param	string
-	 * @return	string
-	 */
+		* Prep Element
+		*
+		* Puts HTML element in quotes for use in jQuery code
+		* unless the supplied element is the Javascript 'this'
+		* object, in which case no quotes are added
+		*
+		* @param	string
+		* @return	string
+		*/
 	protected function _prep_element($element)
 	{
 		if ($element !== 'this')
@@ -1052,13 +1052,13 @@ class CI_Jquery extends CI_Javascript {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Validate Speed
-	 *
-	 * Ensures the speed parameter is valid for jQuery
-	 *
-	 * @param	string
-	 * @return	string
-	 */
+		* Validate Speed
+		*
+		* Ensures the speed parameter is valid for jQuery
+		*
+		* @param	string
+		* @return	string
+		*/
 	protected function _validate_speed($speed)
 	{
 		if (in_array($speed, array('slow', 'normal', 'fast')))

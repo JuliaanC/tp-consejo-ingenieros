@@ -1,141 +1,141 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Output Class
- *
- * Responsible for sending final output to the browser.
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Output
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/libraries/output.html
- */
+	* Output Class
+	*
+	* Responsible for sending final output to the browser.
+	*
+	* @package		CodeIgniter
+	* @subpackage	Libraries
+	* @category	Output
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/libraries/output.html
+	*/
 class CI_Output {
 
 	/**
-	 * Final output string
-	 *
-	 * @var	string
-	 */
+		* Final output string
+		*
+		* @var	string
+		*/
 	public $final_output;
 
 	/**
-	 * Cache expiration time
-	 *
-	 * @var	int
-	 */
+		* Cache expiration time
+		*
+		* @var	int
+		*/
 	public $cache_expiration = 0;
 
 	/**
-	 * List of server headers
-	 *
-	 * @var	array
-	 */
+		* List of server headers
+		*
+		* @var	array
+		*/
 	public $headers = array();
 
 	/**
-	 * List of mime types
-	 *
-	 * @var	array
-	 */
+		* List of mime types
+		*
+		* @var	array
+		*/
 	public $mimes =	array();
 
 	/**
-	 * Mime-type for the current page
-	 *
-	 * @var	string
-	 */
+		* Mime-type for the current page
+		*
+		* @var	string
+		*/
 	protected $mime_type = 'text/html';
 
 	/**
-	 * Enable Profiler flag
-	 *
-	 * @var	bool
-	 */
+		* Enable Profiler flag
+		*
+		* @var	bool
+		*/
 	public $enable_profiler = FALSE;
 
 	/**
-	 * php.ini zlib.output_compression flag
-	 *
-	 * @var	bool
-	 */
+		* php.ini zlib.output_compression flag
+		*
+		* @var	bool
+		*/
 	protected $_zlib_oc = FALSE;
 
 	/**
-	 * CI output compression flag
-	 *
-	 * @var	bool
-	 */
+		* CI output compression flag
+		*
+		* @var	bool
+		*/
 	protected $_compress_output = FALSE;
 
 	/**
-	 * List of profiler sections
-	 *
-	 * @var	array
-	 */
+		* List of profiler sections
+		*
+		* @var	array
+		*/
 	protected $_profiler_sections =	array();
 
 	/**
-	 * Parse markers flag
-	 *
-	 * Whether or not to parse variables like {elapsed_time} and {memory_usage}.
-	 *
-	 * @var	bool
-	 */
+		* Parse markers flag
+		*
+		* Whether or not to parse variables like {elapsed_time} and {memory_usage}.
+		*
+		* @var	bool
+		*/
 	public $parse_exec_vars = TRUE;
 
 	/**
-	 * mbstring.func_overload flag
-	 *
-	 * @var	bool
-	 */
+		* mbstring.func_overload flag
+		*
+		* @var	bool
+		*/
 	protected static $func_overload;
 
 	/**
-	 * Class constructor
-	 *
-	 * Determines whether zLib output compression will be used.
-	 *
-	 * @return	void
-	 */
+		* Class constructor
+		*
+		* Determines whether zLib output compression will be used.
+		*
+		* @return	void
+		*/
 	public function __construct()
 	{
 		$this->_zlib_oc = (bool) ini_get('zlib.output_compression');
@@ -156,12 +156,12 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get Output
-	 *
-	 * Returns the current output string.
-	 *
-	 * @return	string
-	 */
+		* Get Output
+		*
+		* Returns the current output string.
+		*
+		* @return	string
+		*/
 	public function get_output()
 	{
 		return $this->final_output;
@@ -170,13 +170,13 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Output
-	 *
-	 * Sets the output string.
-	 *
-	 * @param	string	$output	Output data
-	 * @return	CI_Output
-	 */
+		* Set Output
+		*
+		* Sets the output string.
+		*
+		* @param	string	$output	Output data
+		* @return	CI_Output
+		*/
 	public function set_output($output)
 	{
 		$this->final_output = $output;
@@ -186,13 +186,13 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Append Output
-	 *
-	 * Appends data onto the output string.
-	 *
-	 * @param	string	$output	Data to append
-	 * @return	CI_Output
-	 */
+		* Append Output
+		*
+		* Appends data onto the output string.
+		*
+		* @param	string	$output	Data to append
+		* @return	CI_Output
+		*/
 	public function append_output($output)
 	{
 		$this->final_output .= $output;
@@ -202,17 +202,17 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Header
-	 *
-	 * Lets you set a server header which will be sent with the final output.
-	 *
-	 * Note: If a file is cached, headers will not be sent.
-	 * @todo	We need to figure out how to permit headers to be cached.
-	 *
-	 * @param	string	$header		Header
-	 * @param	bool	$replace	Whether to replace the old header value, if already set
-	 * @return	CI_Output
-	 */
+		* Set Header
+		*
+		* Lets you set a server header which will be sent with the final output.
+		*
+		* Note: If a file is cached, headers will not be sent.
+		* @todo	We need to figure out how to permit headers to be cached.
+		*
+		* @param	string	$header		Header
+		* @param	bool	$replace	Whether to replace the old header value, if already set
+		* @return	CI_Output
+		*/
 	public function set_header($header, $replace = TRUE)
 	{
 		// If zlib.output_compression is enabled it will compress the output,
@@ -231,12 +231,12 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Content-Type Header
-	 *
-	 * @param	string	$mime_type	Extension of the file we're outputting
-	 * @param	string	$charset	Character set (default: NULL)
-	 * @return	CI_Output
-	 */
+		* Set Content-Type Header
+		*
+		* @param	string	$mime_type	Extension of the file we're outputting
+		* @param	string	$charset	Character set (default: NULL)
+		* @return	CI_Output
+		*/
 	public function set_content_type($mime_type, $charset = NULL)
 	{
 		if (strpos($mime_type, '/') === FALSE)
@@ -272,10 +272,10 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get Current Content-Type Header
-	 *
-	 * @return	string	'text/html', if not already set
-	 */
+		* Get Current Content-Type Header
+		*
+		* @return	string	'text/html', if not already set
+		*/
 	public function get_content_type()
 	{
 		for ($i = 0, $c = count($this->headers); $i < $c; $i++)
@@ -292,11 +292,11 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get Header
-	 *
-	 * @param	string	$header
-	 * @return	string
-	 */
+		* Get Header
+		*
+		* @param	string	$header
+		* @return	string
+		*/
 	public function get_header($header)
 	{
 		// Combine headers already sent with our batched headers
@@ -326,15 +326,15 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set HTTP Status Header
-	 *
-	 * As of version 1.7.2, this is an alias for common function
-	 * set_status_header().
-	 *
-	 * @param	int	$code	Status code (default: 200)
-	 * @param	string	$text	Optional message
-	 * @return	CI_Output
-	 */
+		* Set HTTP Status Header
+		*
+		* As of version 1.7.2, this is an alias for common function
+		* set_status_header().
+		*
+		* @param	int	$code	Status code (default: 200)
+		* @param	string	$text	Optional message
+		* @return	CI_Output
+		*/
 	public function set_status_header($code = 200, $text = '')
 	{
 		set_status_header($code, $text);
@@ -344,11 +344,11 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Enable/disable Profiler
-	 *
-	 * @param	bool	$val	TRUE to enable or FALSE to disable
-	 * @return	CI_Output
-	 */
+		* Enable/disable Profiler
+		*
+		* @param	bool	$val	TRUE to enable or FALSE to disable
+		* @return	CI_Output
+		*/
 	public function enable_profiler($val = TRUE)
 	{
 		$this->enable_profiler = is_bool($val) ? $val : TRUE;
@@ -358,14 +358,14 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Profiler Sections
-	 *
-	 * Allows override of default/config settings for
-	 * Profiler section display.
-	 *
-	 * @param	array	$sections	Profiler sections
-	 * @return	CI_Output
-	 */
+		* Set Profiler Sections
+		*
+		* Allows override of default/config settings for
+		* Profiler section display.
+		*
+		* @param	array	$sections	Profiler sections
+		* @return	CI_Output
+		*/
 	public function set_profiler_sections($sections)
 	{
 		if (isset($sections['query_toggle_count']))
@@ -385,11 +385,11 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Cache
-	 *
-	 * @param	int	$time	Cache expiration time in minutes
-	 * @return	CI_Output
-	 */
+		* Set Cache
+		*
+		* @param	int	$time	Cache expiration time in minutes
+		* @return	CI_Output
+		*/
 	public function cache($time)
 	{
 		$this->cache_expiration = is_numeric($time) ? $time : 0;
@@ -399,19 +399,19 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Display Output
-	 *
-	 * Processes and sends finalized output data to the browser along
-	 * with any server headers and profile data. It also stops benchmark
-	 * timers so the page rendering speed and memory usage can be shown.
-	 *
-	 * Note: All "view" data is automatically put into $this->final_output
-	 *	 by controller class.
-	 *
-	 * @uses	CI_Output::$final_output
-	 * @param	string	$output	Output data override
-	 * @return	void
-	 */
+		* Display Output
+		*
+		* Processes and sends finalized output data to the browser along
+		* with any server headers and profile data. It also stops benchmark
+		* timers so the page rendering speed and memory usage can be shown.
+		*
+		* Note: All "view" data is automatically put into $this->final_output
+		*	 by controller class.
+		*
+		* @uses	CI_Output::$final_output
+		* @param	string	$output	Output data override
+		* @return	void
+		*/
 	public function _display($output = '')
 	{
 		// Note:  We use load_class() because we can't use $CI =& get_instance()
@@ -545,11 +545,11 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Write Cache
-	 *
-	 * @param	string	$output	Output data to cache
-	 * @return	void
-	 */
+		* Write Cache
+		*
+		* @param	string	$output	Output data to cache
+		* @return	void
+		*/
 	public function _write_cache($output)
 	{
 		$CI =& get_instance();
@@ -647,15 +647,15 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Update/serve cached output
-	 *
-	 * @uses	CI_Config
-	 * @uses	CI_URI
-	 *
-	 * @param	object	&$CFG	CI_Config class instance
-	 * @param	object	&$URI	CI_URI class instance
-	 * @return	bool	TRUE on success or FALSE on failure
-	 */
+		* Update/serve cached output
+		*
+		* @uses	CI_Config
+		* @uses	CI_URI
+		*
+		* @param	object	&$CFG	CI_Config class instance
+		* @param	object	&$URI	CI_URI class instance
+		* @return	bool	TRUE on success or FALSE on failure
+		*/
 	public function _display_cache(&$CFG, &$URI)
 	{
 		$cache_path = ($CFG->item('cache_path') === '') ? APPPATH.'cache/' : $CFG->item('cache_path');
@@ -729,11 +729,11 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Delete cache
-	 *
-	 * @param	string	$uri	URI string
-	 * @return	bool
-	 */
+		* Delete cache
+		*
+		* @param	string	$uri	URI string
+		* @return	bool
+		*/
 	public function delete_cache($uri = '')
 	{
 		$CI =& get_instance();
@@ -780,15 +780,15 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Cache Header
-	 *
-	 * Set the HTTP headers to match the server-side file cache settings
-	 * in order to reduce bandwidth.
-	 *
-	 * @param	int	$last_modified	Timestamp of when the page was last modified
-	 * @param	int	$expiration	Timestamp of when should the requested page expire from cache
-	 * @return	void
-	 */
+		* Set Cache Header
+		*
+		* Set the HTTP headers to match the server-side file cache settings
+		* in order to reduce bandwidth.
+		*
+		* @param	int	$last_modified	Timestamp of when the page was last modified
+		* @param	int	$expiration	Timestamp of when should the requested page expire from cache
+		* @return	void
+		*/
 	public function set_cache_header($last_modified, $expiration)
 	{
 		$max_age = $expiration - $_SERVER['REQUEST_TIME'];
@@ -810,11 +810,11 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Byte-safe strlen()
-	 *
-	 * @param	string	$str
-	 * @return	int
-	 */
+		* Byte-safe strlen()
+		*
+		* @param	string	$str
+		* @return	int
+		*/
 	protected static function strlen($str)
 	{
 		return (self::$func_overload)
@@ -825,13 +825,13 @@ class CI_Output {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Byte-safe substr()
-	 *
-	 * @param	string	$str
-	 * @param	int	$start
-	 * @param	int	$length
-	 * @return	string
-	 */
+		* Byte-safe substr()
+		*
+		* @param	string	$str
+		* @param	int	$start
+		* @param	int	$length
+		* @return	string
+		*/
 	protected static function substr($str, $start, $length = NULL)
 	{
 		if (self::$func_overload)

@@ -1,371 +1,371 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CodeIgniter Email Class
- *
- * Permits email to be sent using Mail, Sendmail, or SMTP.
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Libraries
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/libraries/email.html
- */
+	* CodeIgniter Email Class
+	*
+	* Permits email to be sent using Mail, Sendmail, or SMTP.
+	*
+	* @package		CodeIgniter
+	* @subpackage	Libraries
+	* @category	Libraries
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/libraries/email.html
+	*/
 class CI_Email {
 
 	/**
-	 * Used as the User-Agent and X-Mailer headers' value.
-	 *
-	 * @var	string
-	 */
+		* Used as the User-Agent and X-Mailer headers' value.
+		*
+		* @var	string
+		*/
 	public $useragent	= 'CodeIgniter';
 
 	/**
-	 * Path to the Sendmail binary.
-	 *
-	 * @var	string
-	 */
+		* Path to the Sendmail binary.
+		*
+		* @var	string
+		*/
 	public $mailpath	= '/usr/sbin/sendmail';	// Sendmail path
 
 	/**
-	 * Which method to use for sending e-mails.
-	 *
-	 * @var	string	'mail', 'sendmail' or 'smtp'
-	 */
+		* Which method to use for sending e-mails.
+		*
+		* @var	string	'mail', 'sendmail' or 'smtp'
+		*/
 	public $protocol	= 'mail';		// mail/sendmail/smtp
 
 	/**
-	 * STMP Server host
-	 *
-	 * @var	string
-	 */
+		* STMP Server host
+		*
+		* @var	string
+		*/
 	public $smtp_host	= '';
 
 	/**
-	 * SMTP Username
-	 *
-	 * @var	string
-	 */
+		* SMTP Username
+		*
+		* @var	string
+		*/
 	public $smtp_user	= '';
 
 	/**
-	 * SMTP Password
-	 *
-	 * @var	string
-	 */
+		* SMTP Password
+		*
+		* @var	string
+		*/
 	public $smtp_pass	= '';
 
 	/**
-	 * SMTP Server port
-	 *
-	 * @var	int
-	 */
+		* SMTP Server port
+		*
+		* @var	int
+		*/
 	public $smtp_port	= 25;
 
 	/**
-	 * SMTP connection timeout in seconds
-	 *
-	 * @var	int
-	 */
+		* SMTP connection timeout in seconds
+		*
+		* @var	int
+		*/
 	public $smtp_timeout	= 5;
 
 	/**
-	 * SMTP persistent connection
-	 *
-	 * @var	bool
-	 */
+		* SMTP persistent connection
+		*
+		* @var	bool
+		*/
 	public $smtp_keepalive	= FALSE;
 
 	/**
-	 * SMTP Encryption
-	 *
-	 * @var	string	empty, 'tls' or 'ssl'
-	 */
+		* SMTP Encryption
+		*
+		* @var	string	empty, 'tls' or 'ssl'
+		*/
 	public $smtp_crypto	= '';
 
 	/**
-	 * Whether to apply word-wrapping to the message body.
-	 *
-	 * @var	bool
-	 */
+		* Whether to apply word-wrapping to the message body.
+		*
+		* @var	bool
+		*/
 	public $wordwrap	= TRUE;
 
 	/**
-	 * Number of characters to wrap at.
-	 *
-	 * @see	CI_Email::$wordwrap
-	 * @var	int
-	 */
+		* Number of characters to wrap at.
+		*
+		* @see	CI_Email::$wordwrap
+		* @var	int
+		*/
 	public $wrapchars	= 76;
 
 	/**
-	 * Message format.
-	 *
-	 * @var	string	'text' or 'html'
-	 */
+		* Message format.
+		*
+		* @var	string	'text' or 'html'
+		*/
 	public $mailtype	= 'text';
 
 	/**
-	 * Character set (default: utf-8)
-	 *
-	 * @var	string
-	 */
+		* Character set (default: utf-8)
+		*
+		* @var	string
+		*/
 	public $charset		= 'UTF-8';
 
 	/**
-	 * Alternative message (for HTML messages only)
-	 *
-	 * @var	string
-	 */
+		* Alternative message (for HTML messages only)
+		*
+		* @var	string
+		*/
 	public $alt_message	= '';
 
 	/**
-	 * Whether to validate e-mail addresses.
-	 *
-	 * @var	bool
-	 */
+		* Whether to validate e-mail addresses.
+		*
+		* @var	bool
+		*/
 	public $validate	= FALSE;
 
 	/**
-	 * X-Priority header value.
-	 *
-	 * @var	int	1-5
-	 */
+		* X-Priority header value.
+		*
+		* @var	int	1-5
+		*/
 	public $priority	= 3;			// Default priority (1 - 5)
 
 	/**
-	 * Newline character sequence.
-	 * Use "\r\n" to comply with RFC 822.
-	 *
-	 * @link	http://www.ietf.org/rfc/rfc822.txt
-	 * @var	string	"\r\n" or "\n"
-	 */
+		* Newline character sequence.
+		* Use "\r\n" to comply with RFC 822.
+		*
+		* @link	http://www.ietf.org/rfc/rfc822.txt
+		* @var	string	"\r\n" or "\n"
+		*/
 	public $newline		= "\n";			// Default newline. "\r\n" or "\n" (Use "\r\n" to comply with RFC 822)
 
 	/**
-	 * CRLF character sequence
-	 *
-	 * RFC 2045 specifies that for 'quoted-printable' encoding,
-	 * "\r\n" must be used. However, it appears that some servers
-	 * (even on the receiving end) don't handle it properly and
-	 * switching to "\n", while improper, is the only solution
-	 * that seems to work for all environments.
-	 *
-	 * @link	http://www.ietf.org/rfc/rfc822.txt
-	 * @var	string
-	 */
+		* CRLF character sequence
+		*
+		* RFC 2045 specifies that for 'quoted-printable' encoding,
+		* "\r\n" must be used. However, it appears that some servers
+		* (even on the receiving end) don't handle it properly and
+		* switching to "\n", while improper, is the only solution
+		* that seems to work for all environments.
+		*
+		* @link	http://www.ietf.org/rfc/rfc822.txt
+		* @var	string
+		*/
 	public $crlf		= "\n";
 
 	/**
-	 * Whether to use Delivery Status Notification.
-	 *
-	 * @var	bool
-	 */
+		* Whether to use Delivery Status Notification.
+		*
+		* @var	bool
+		*/
 	public $dsn		= FALSE;
 
 	/**
-	 * Whether to send multipart alternatives.
-	 * Yahoo! doesn't seem to like these.
-	 *
-	 * @var	bool
-	 */
+		* Whether to send multipart alternatives.
+		* Yahoo! doesn't seem to like these.
+		*
+		* @var	bool
+		*/
 	public $send_multipart	= TRUE;
 
 	/**
-	 * Whether to send messages to BCC recipients in batches.
-	 *
-	 * @var	bool
-	 */
+		* Whether to send messages to BCC recipients in batches.
+		*
+		* @var	bool
+		*/
 	public $bcc_batch_mode	= FALSE;
 
 	/**
-	 * BCC Batch max number size.
-	 *
-	 * @see	CI_Email::$bcc_batch_mode
-	 * @var	int
-	 */
+		* BCC Batch max number size.
+		*
+		* @see	CI_Email::$bcc_batch_mode
+		* @var	int
+		*/
 	public $bcc_batch_size	= 200;
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Whether PHP is running in safe mode. Initialized by the class constructor.
-	 *
-	 * @var	bool
-	 */
+		* Whether PHP is running in safe mode. Initialized by the class constructor.
+		*
+		* @var	bool
+		*/
 	protected $_safe_mode		= FALSE;
 
 	/**
-	 * Subject header
-	 *
-	 * @var	string
-	 */
+		* Subject header
+		*
+		* @var	string
+		*/
 	protected $_subject		= '';
 
 	/**
-	 * Message body
-	 *
-	 * @var	string
-	 */
+		* Message body
+		*
+		* @var	string
+		*/
 	protected $_body		= '';
 
 	/**
-	 * Final message body to be sent.
-	 *
-	 * @var	string
-	 */
+		* Final message body to be sent.
+		*
+		* @var	string
+		*/
 	protected $_finalbody		= '';
 
 	/**
-	 * Final headers to send
-	 *
-	 * @var	string
-	 */
+		* Final headers to send
+		*
+		* @var	string
+		*/
 	protected $_header_str		= '';
 
 	/**
-	 * SMTP Connection socket placeholder
-	 *
-	 * @var	resource
-	 */
+		* SMTP Connection socket placeholder
+		*
+		* @var	resource
+		*/
 	protected $_smtp_connect	= '';
 
 	/**
-	 * Mail encoding
-	 *
-	 * @var	string	'8bit' or '7bit'
-	 */
+		* Mail encoding
+		*
+		* @var	string	'8bit' or '7bit'
+		*/
 	protected $_encoding		= '8bit';
 
 	/**
-	 * Whether to perform SMTP authentication
-	 *
-	 * @var	bool
-	 */
+		* Whether to perform SMTP authentication
+		*
+		* @var	bool
+		*/
 	protected $_smtp_auth		= FALSE;
 
 	/**
-	 * Whether to send a Reply-To header
-	 *
-	 * @var	bool
-	 */
+		* Whether to send a Reply-To header
+		*
+		* @var	bool
+		*/
 	protected $_replyto_flag	= FALSE;
 
 	/**
-	 * Debug messages
-	 *
-	 * @see	CI_Email::print_debugger()
-	 * @var	string
-	 */
+		* Debug messages
+		*
+		* @see	CI_Email::print_debugger()
+		* @var	string
+		*/
 	protected $_debug_msg		= array();
 
 	/**
-	 * Recipients
-	 *
-	 * @var	string[]
-	 */
+		* Recipients
+		*
+		* @var	string[]
+		*/
 	protected $_recipients		= array();
 
 	/**
-	 * CC Recipients
-	 *
-	 * @var	string[]
-	 */
+		* CC Recipients
+		*
+		* @var	string[]
+		*/
 	protected $_cc_array		= array();
 
 	/**
-	 * BCC Recipients
-	 *
-	 * @var	string[]
-	 */
+		* BCC Recipients
+		*
+		* @var	string[]
+		*/
 	protected $_bcc_array		= array();
 
 	/**
-	 * Message headers
-	 *
-	 * @var	string[]
-	 */
+		* Message headers
+		*
+		* @var	string[]
+		*/
 	protected $_headers		= array();
 
 	/**
-	 * Attachment data
-	 *
-	 * @var	array
-	 */
+		* Attachment data
+		*
+		* @var	array
+		*/
 	protected $_attachments		= array();
 
 	/**
-	 * Valid $protocol values
-	 *
-	 * @see	CI_Email::$protocol
-	 * @var	string[]
-	 */
+		* Valid $protocol values
+		*
+		* @see	CI_Email::$protocol
+		* @var	string[]
+		*/
 	protected $_protocols		= array('mail', 'sendmail', 'smtp');
 
 	/**
-	 * Base charsets
-	 *
-	 * Character sets valid for 7-bit encoding,
-	 * excluding language suffix.
-	 *
-	 * @var	string[]
-	 */
+		* Base charsets
+		*
+		* Character sets valid for 7-bit encoding,
+		* excluding language suffix.
+		*
+		* @var	string[]
+		*/
 	protected $_base_charsets	= array('us-ascii', 'iso-2022-');
 
 	/**
-	 * Bit depths
-	 *
-	 * Valid mail encodings
-	 *
-	 * @see	CI_Email::$_encoding
-	 * @var	string[]
-	 */
+		* Bit depths
+		*
+		* Valid mail encodings
+		*
+		* @see	CI_Email::$_encoding
+		* @var	string[]
+		*/
 	protected $_bit_depths		= array('7bit', '8bit');
 
 	/**
-	 * $priority translations
-	 *
-	 * Actual values to send with the X-Priority header
-	 *
-	 * @var	string[]
-	 */
+		* $priority translations
+		*
+		* Actual values to send with the X-Priority header
+		*
+		* @var	string[]
+		*/
 	protected $_priorities = array(
 		1 => '1 (Highest)',
 		2 => '2 (High)',
@@ -375,22 +375,22 @@ class CI_Email {
 	);
 
 	/**
-	 * mbstring.func_overload flag
-	 *
-	 * @var	bool
-	 */
+		* mbstring.func_overload flag
+		*
+		* @var	bool
+		*/
 	protected static $func_overload;
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Constructor - Sets Email Preferences
-	 *
-	 * The constructor can be passed an array of config values
-	 *
-	 * @param	array	$config = array()
-	 * @return	void
-	 */
+		* Constructor - Sets Email Preferences
+		*
+		* The constructor can be passed an array of config values
+		*
+		* @param	array	$config = array()
+		* @return	void
+		*/
 	public function __construct(array $config = array())
 	{
 		$this->charset = config_item('charset');
@@ -405,11 +405,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Initialize preferences
-	 *
-	 * @param	array	$config
-	 * @return	CI_Email
-	 */
+		* Initialize preferences
+		*
+		* @param	array	$config
+		* @return	CI_Email
+		*/
 	public function initialize(array $config = array())
 	{
 		$this->clear();
@@ -440,11 +440,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Initialize the Email Data
-	 *
-	 * @param	bool
-	 * @return	CI_Email
-	 */
+		* Initialize the Email Data
+		*
+		* @param	bool
+		* @return	CI_Email
+		*/
 	public function clear($clear_attachments = FALSE)
 	{
 		$this->_subject		= '';
@@ -471,13 +471,13 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set FROM
-	 *
-	 * @param	string	$from
-	 * @param	string	$name
-	 * @param	string	$return_path = NULL	Return-Path
-	 * @return	CI_Email
-	 */
+		* Set FROM
+		*
+		* @param	string	$from
+		* @param	string	$name
+		* @param	string	$return_path = NULL	Return-Path
+		* @return	CI_Email
+		*/
 	public function from($from, $name = '', $return_path = NULL)
 	{
 		if (preg_match('/\<(.*)\>/', $from, $match))
@@ -520,12 +520,12 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Reply-to
-	 *
-	 * @param	string
-	 * @param	string
-	 * @return	CI_Email
-	 */
+		* Set Reply-to
+		*
+		* @param	string
+		* @param	string
+		* @return	CI_Email
+		*/
 	public function reply_to($replyto, $name = '')
 	{
 		if (preg_match('/\<(.*)\>/', $replyto, $match))
@@ -561,11 +561,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Recipients
-	 *
-	 * @param	string
-	 * @return	CI_Email
-	 */
+		* Set Recipients
+		*
+		* @param	string
+		* @return	CI_Email
+		*/
 	public function to($to)
 	{
 		$to = $this->_str_to_array($to);
@@ -589,11 +589,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set CC
-	 *
-	 * @param	string
-	 * @return	CI_Email
-	 */
+		* Set CC
+		*
+		* @param	string
+		* @return	CI_Email
+		*/
 	public function cc($cc)
 	{
 		$cc = $this->clean_email($this->_str_to_array($cc));
@@ -616,12 +616,12 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set BCC
-	 *
-	 * @param	string
-	 * @param	string
-	 * @return	CI_Email
-	 */
+		* Set BCC
+		*
+		* @param	string
+		* @param	string
+		* @return	CI_Email
+		*/
 	public function bcc($bcc, $limit = '')
 	{
 		if ($limit !== '' && is_numeric($limit))
@@ -652,11 +652,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Email Subject
-	 *
-	 * @param	string
-	 * @return	CI_Email
-	 */
+		* Set Email Subject
+		*
+		* @param	string
+		* @return	CI_Email
+		*/
 	public function subject($subject)
 	{
 		$subject = $this->_prep_q_encoding($subject);
@@ -667,20 +667,20 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Body
-	 *
-	 * @param	string
-	 * @return	CI_Email
-	 */
+		* Set Body
+		*
+		* @param	string
+		* @return	CI_Email
+		*/
 	public function message($body)
 	{
 		$this->_body = rtrim(str_replace("\r", '', $body));
 
 		/* strip slashes only if magic quotes is ON
-		   if we do it with magic quotes OFF, it strips real, user-inputted chars.
+					if we do it with magic quotes OFF, it strips real, user-inputted chars.
 
-		   NOTE: In PHP 5.4 get_magic_quotes_gpc() will always return 0 and
-			 it will probably not exist in future versions at all.
+					NOTE: In PHP 5.4 get_magic_quotes_gpc() will always return 0 and
+				it will probably not exist in future versions at all.
 		*/
 		if ( ! is_php('5.4') && get_magic_quotes_gpc())
 		{
@@ -693,14 +693,14 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Assign file attachments
-	 *
-	 * @param	string	$file	Can be local path, URL or buffered content
-	 * @param	string	$disposition = 'attachment'
-	 * @param	string	$newname = NULL
-	 * @param	string	$mime = ''
-	 * @return	CI_Email
-	 */
+		* Assign file attachments
+		*
+		* @param	string	$file	Can be local path, URL or buffered content
+		* @param	string	$disposition = 'attachment'
+		* @param	string	$newname = NULL
+		* @param	string	$mime = ''
+		* @return	CI_Email
+		*/
 	public function attach($file, $disposition = '', $newname = NULL, $mime = '')
 	{
 		if ($mime === '')
@@ -740,13 +740,13 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set and return attachment Content-ID
-	 *
-	 * Useful for attached inline pictures
-	 *
-	 * @param	string	$filename
-	 * @return	string
-	 */
+		* Set and return attachment Content-ID
+		*
+		* Useful for attached inline pictures
+		*
+		* @param	string	$filename
+		* @return	string
+		*/
 	public function attachment_cid($filename)
 	{
 		for ($i = 0, $c = count($this->_attachments); $i < $c; $i++)
@@ -765,12 +765,12 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Add a Header Item
-	 *
-	 * @param	string
-	 * @param	string
-	 * @return	CI_Email
-	 */
+		* Add a Header Item
+		*
+		* @param	string
+		* @param	string
+		* @return	CI_Email
+		*/
 	public function set_header($header, $value)
 	{
 		$this->_headers[$header] = str_replace(array("\n", "\r"), '', $value);
@@ -780,11 +780,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Convert a String to an Array
-	 *
-	 * @param	string
-	 * @return	array
-	 */
+		* Convert a String to an Array
+		*
+		* @param	string
+		* @return	array
+		*/
 	protected function _str_to_array($email)
 	{
 		if ( ! is_array($email))
@@ -800,11 +800,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Multipart Value
-	 *
-	 * @param	string
-	 * @return	CI_Email
-	 */
+		* Set Multipart Value
+		*
+		* @param	string
+		* @return	CI_Email
+		*/
 	public function set_alt_message($str)
 	{
 		$this->alt_message = (string) $str;
@@ -814,11 +814,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Mailtype
-	 *
-	 * @param	string
-	 * @return	CI_Email
-	 */
+		* Set Mailtype
+		*
+		* @param	string
+		* @return	CI_Email
+		*/
 	public function set_mailtype($type = 'text')
 	{
 		$this->mailtype = ($type === 'html') ? 'html' : 'text';
@@ -828,11 +828,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Wordwrap
-	 *
-	 * @param	bool
-	 * @return	CI_Email
-	 */
+		* Set Wordwrap
+		*
+		* @param	bool
+		* @return	CI_Email
+		*/
 	public function set_wordwrap($wordwrap = TRUE)
 	{
 		$this->wordwrap = (bool) $wordwrap;
@@ -842,11 +842,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Protocol
-	 *
-	 * @param	string
-	 * @return	CI_Email
-	 */
+		* Set Protocol
+		*
+		* @param	string
+		* @return	CI_Email
+		*/
 	public function set_protocol($protocol = 'mail')
 	{
 		$this->protocol = in_array($protocol, $this->_protocols, TRUE) ? strtolower($protocol) : 'mail';
@@ -856,11 +856,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Priority
-	 *
-	 * @param	int
-	 * @return	CI_Email
-	 */
+		* Set Priority
+		*
+		* @param	int
+		* @return	CI_Email
+		*/
 	public function set_priority($n = 3)
 	{
 		$this->priority = preg_match('/^[1-5]$/', $n) ? (int) $n : 3;
@@ -870,11 +870,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Newline Character
-	 *
-	 * @param	string
-	 * @return	CI_Email
-	 */
+		* Set Newline Character
+		*
+		* @param	string
+		* @return	CI_Email
+		*/
 	public function set_newline($newline = "\n")
 	{
 		$this->newline = in_array($newline, array("\n", "\r\n", "\r")) ? $newline : "\n";
@@ -884,11 +884,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set CRLF
-	 *
-	 * @param	string
-	 * @return	CI_Email
-	 */
+		* Set CRLF
+		*
+		* @param	string
+		* @return	CI_Email
+		*/
 	public function set_crlf($crlf = "\n")
 	{
 		$this->crlf = ($crlf !== "\n" && $crlf !== "\r\n" && $crlf !== "\r") ? "\n" : $crlf;
@@ -898,10 +898,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get the Message ID
-	 *
-	 * @return	string
-	 */
+		* Get the Message ID
+		*
+		* @return	string
+		*/
 	protected function _get_message_id()
 	{
 		$from = str_replace(array('>', '<'), '', $this->_headers['Return-Path']);
@@ -911,11 +911,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get Mail Protocol
-	 *
-	 * @param	bool
-	 * @return	mixed
-	 */
+		* Get Mail Protocol
+		*
+		* @param	bool
+		* @return	mixed
+		*/
 	protected function _get_protocol($return = TRUE)
 	{
 		$this->protocol = strtolower($this->protocol);
@@ -930,11 +930,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get Mail Encoding
-	 *
-	 * @param	bool
-	 * @return	string
-	 */
+		* Get Mail Encoding
+		*
+		* @param	bool
+		* @return	string
+		*/
 	protected function _get_encoding($return = TRUE)
 	{
 		in_array($this->_encoding, $this->_bit_depths) OR $this->_encoding = '8bit';
@@ -956,10 +956,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get content type (text/html/attachment)
-	 *
-	 * @return	string
-	 */
+		* Get content type (text/html/attachment)
+		*
+		* @return	string
+		*/
 	protected function _get_content_type()
 	{
 		if ($this->mailtype === 'html')
@@ -979,10 +979,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set RFC 822 Date
-	 *
-	 * @return	string
-	 */
+		* Set RFC 822 Date
+		*
+		* @return	string
+		*/
 	protected function _set_date()
 	{
 		$timezone = date('Z');
@@ -996,10 +996,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Mime message
-	 *
-	 * @return	string
-	 */
+		* Mime message
+		*
+		* @return	string
+		*/
 	protected function _get_mime_message()
 	{
 		return 'This is a multi-part message in MIME format.'.$this->newline.'Your email application may not support this format.';
@@ -1008,11 +1008,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Validate Email Address
-	 *
-	 * @param	string
-	 * @return	bool
-	 */
+		* Validate Email Address
+		*
+		* @param	string
+		* @return	bool
+		*/
 	public function validate_email($email)
 	{
 		if ( ! is_array($email))
@@ -1036,11 +1036,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Email Validation
-	 *
-	 * @param	string
-	 * @return	bool
-	 */
+		* Email Validation
+		*
+		* @param	string
+		* @return	bool
+		*/
 	public function valid_email($email)
 	{
 		if (function_exists('idn_to_ascii') && $atpos = strpos($email, '@'))
@@ -1054,11 +1054,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Clean Extended Email Address: Joe Smith <joe@smith.com>
-	 *
-	 * @param	string
-	 * @return	string
-	 */
+		* Clean Extended Email Address: Joe Smith <joe@smith.com>
+		*
+		* @param	string
+		* @return	string
+		*/
 	public function clean_email($email)
 	{
 		if ( ! is_array($email))
@@ -1079,15 +1079,15 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Build alternative plain text message
-	 *
-	 * Provides the raw message for use in plain-text headers of
-	 * HTML-formatted emails.
-	 * If the user hasn't specified his own alternative message
-	 * it creates one by stripping the HTML
-	 *
-	 * @return	string
-	 */
+		* Build alternative plain text message
+		*
+		* Provides the raw message for use in plain-text headers of
+		* HTML-formatted emails.
+		* If the user hasn't specified his own alternative message
+		* it creates one by stripping the HTML
+		*
+		* @return	string
+		*/
 	protected function _get_alt_message()
 	{
 		if ( ! empty($this->alt_message))
@@ -1116,12 +1116,12 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Word Wrap
-	 *
-	 * @param	string
-	 * @param	int	line-length limit
-	 * @return	string
-	 */
+		* Word Wrap
+		*
+		* @param	string
+		* @param	int	line-length limit
+		* @return	string
+		*/
 	public function word_wrap($str, $charlim = NULL)
 	{
 		// Set the character limit, if not already present
@@ -1208,10 +1208,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Build final headers
-	 *
-	 * @return	void
-	 */
+		* Build final headers
+		*
+		* @return	void
+		*/
 	protected function _build_headers()
 	{
 		$this->set_header('User-Agent', $this->useragent);
@@ -1225,10 +1225,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Write Headers as a string
-	 *
-	 * @return	void
-	 */
+		* Write Headers as a string
+		*
+		* @return	void
+		*/
 	protected function _write_headers()
 	{
 		if ($this->protocol === 'mail')
@@ -1262,10 +1262,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Build Final Body and attachments
-	 *
-	 * @return	bool
-	 */
+		* Build Final Body and attachments
+		*
+		* @return	bool
+		*/
 	protected function _build_message()
 	{
 		if ($this->wordwrap === TRUE && $this->mailtype !== 'html')
@@ -1453,13 +1453,13 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Prepares attachment string
-	 *
-	 * @param	string	$body		Message body to append to
-	 * @param	string	$boundary	Multipart boundary
-	 * @param	string	$multipart	When provided, only attachments of this type will be processed
-	 * @return	string
-	 */
+		* Prepares attachment string
+		*
+		* @param	string	$body		Message body to append to
+		* @param	string	$boundary	Multipart boundary
+		* @param	string	$multipart	When provided, only attachments of this type will be processed
+		* @return	string
+		*/
 	protected function _append_attachments(&$body, $boundary, $multipart = null)
 	{
 		for ($i = 0, $c = count($this->_attachments); $i < $c; $i++)
@@ -1490,14 +1490,14 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Prep Quoted Printable
-	 *
-	 * Prepares string for Quoted-Printable Content-Transfer-Encoding
-	 * Refer to RFC 2045 http://www.ietf.org/rfc/rfc2045.txt
-	 *
-	 * @param	string
-	 * @return	string
-	 */
+		* Prep Quoted Printable
+		*
+		* Prepares string for Quoted-Printable Content-Transfer-Encoding
+		* Refer to RFC 2045 http://www.ietf.org/rfc/rfc2045.txt
+		*
+		* @param	string
+		* @return	string
+		*/
 	protected function _prep_quoted_printable($str)
 	{
 		// ASCII code numbers for "safe" characters that can always be
@@ -1597,15 +1597,15 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Prep Q Encoding
-	 *
-	 * Performs "Q Encoding" on a string for use in email headers.
-	 * It's related but not identical to quoted-printable, so it has its
-	 * own method.
-	 *
-	 * @param	string
-	 * @return	string
-	 */
+		* Prep Q Encoding
+		*
+		* Performs "Q Encoding" on a string for use in email headers.
+		* It's related but not identical to quoted-printable, so it has its
+		* own method.
+		*
+		* @param	string
+		* @return	string
+		*/
 	protected function _prep_q_encoding($str)
 	{
 		$str = str_replace(array("\r", "\n"), '', $str);
@@ -1676,11 +1676,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Send Email
-	 *
-	 * @param	bool	$auto_clear = TRUE
-	 * @return	bool
-	 */
+		* Send Email
+		*
+		* @param	bool	$auto_clear = TRUE
+		* @return	bool
+		*/
 	public function send($auto_clear = TRUE)
 	{
 		if ( ! isset($this->_headers['From']))
@@ -1734,10 +1734,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Batch Bcc Send. Sends groups of BCCs in batches
-	 *
-	 * @return	void
-	 */
+		* Batch Bcc Send. Sends groups of BCCs in batches
+		*
+		* @return	void
+		*/
 	public function batch_bcc_send()
 	{
 		$float = $this->bcc_batch_size - 1;
@@ -1791,10 +1791,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Unwrap special elements
-	 *
-	 * @return	void
-	 */
+		* Unwrap special elements
+		*
+		* @return	void
+		*/
 	protected function _unwrap_specials()
 	{
 		$this->_finalbody = preg_replace_callback('/\{unwrap\}(.*?)\{\/unwrap\}/si', array($this, '_remove_nl_callback'), $this->_finalbody);
@@ -1803,11 +1803,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Strip line-breaks via callback
-	 *
-	 * @param	string	$matches
-	 * @return	string
-	 */
+		* Strip line-breaks via callback
+		*
+		* @param	string	$matches
+		* @return	string
+		*/
 	protected function _remove_nl_callback($matches)
 	{
 		if (strpos($matches[1], "\r") !== FALSE OR strpos($matches[1], "\n") !== FALSE)
@@ -1821,10 +1821,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Spool mail to the mail server
-	 *
-	 * @return	bool
-	 */
+		* Spool mail to the mail server
+		*
+		* @return	bool
+		*/
 	protected function _spool_email()
 	{
 		$this->_unwrap_specials();
@@ -1843,20 +1843,20 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Validate email for shell
-	 *
-	 * Applies stricter, shell-safe validation to email addresses.
-	 * Introduced to prevent RCE via sendmail's -f option.
-	 *
-	 * @see	https://github.com/bcit-ci/CodeIgniter/issues/4963
-	 * @see	https://gist.github.com/Zenexer/40d02da5e07f151adeaeeaa11af9ab36
-	 * @license	https://creativecommons.org/publicdomain/zero/1.0/	CC0 1.0, Public Domain
-	 *
-	 * Credits for the base concept go to Paul Buonopane <paul@namepros.com>
-	 *
-	 * @param	string	$email
-	 * @return	bool
-	 */
+		* Validate email for shell
+		*
+		* Applies stricter, shell-safe validation to email addresses.
+		* Introduced to prevent RCE via sendmail's -f option.
+		*
+		* @see	https://github.com/bcit-ci/CodeIgniter/issues/4963
+		* @see	https://gist.github.com/Zenexer/40d02da5e07f151adeaeeaa11af9ab36
+		* @license	https://creativecommons.org/publicdomain/zero/1.0/	CC0 1.0, Public Domain
+		*
+		* Credits for the base concept go to Paul Buonopane <paul@namepros.com>
+		*
+		* @param	string	$email
+		* @return	bool
+		*/
 	protected function _validate_email_for_shell(&$email)
 	{
 		if (function_exists('idn_to_ascii') && $atpos = strpos($email, '@'))
@@ -1870,10 +1870,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Send using mail()
-	 *
-	 * @return	bool
-	 */
+		* Send using mail()
+		*
+		* @return	bool
+		*/
 	protected function _send_with_mail()
 	{
 		if (is_array($this->_recipients))
@@ -1900,10 +1900,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Send using Sendmail
-	 *
-	 * @return	bool
-	 */
+		* Send using Sendmail
+		*
+		* @return	bool
+		*/
 	protected function _send_with_sendmail()
 	{
 		// _validate_email_for_shell() below accepts by reference,
@@ -1943,10 +1943,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Send using SMTP
-	 *
-	 * @return	bool
-	 */
+		* Send using SMTP
+		*
+		* @return	bool
+		*/
 	protected function _send_with_smtp()
 	{
 		if ($this->smtp_host === '')
@@ -2027,12 +2027,12 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * SMTP End
-	 *
-	 * Shortcut to send RSET or QUIT depending on keep-alive
-	 *
-	 * @return	void
-	 */
+		* SMTP End
+		*
+		* Shortcut to send RSET or QUIT depending on keep-alive
+		*
+		* @return	void
+		*/
 	protected function _smtp_end()
 	{
 		($this->smtp_keepalive)
@@ -2043,10 +2043,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * SMTP Connect
-	 *
-	 * @return	string
-	 */
+		* SMTP Connect
+		*
+		* @return	string
+		*/
 	protected function _smtp_connect()
 	{
 		if (is_resource($this->_smtp_connect))
@@ -2091,12 +2091,12 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Send SMTP command
-	 *
-	 * @param	string
-	 * @param	string
-	 * @return	bool
-	 */
+		* Send SMTP command
+		*
+		* @param	string
+		* @param	string
+		* @return	bool
+		*/
 	protected function _send_command($cmd, $data = '')
 	{
 		switch ($cmd)
@@ -2175,10 +2175,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * SMTP Authenticate
-	 *
-	 * @return	bool
-	 */
+		* SMTP Authenticate
+		*
+		* @return	bool
+		*/
 	protected function _smtp_authenticate()
 	{
 		if ( ! $this->_smtp_auth)
@@ -2237,11 +2237,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Send SMTP data
-	 *
-	 * @param	string	$data
-	 * @return	bool
-	 */
+		* Send SMTP data
+		*
+		* @param	string	$data
+		* @return	bool
+		*/
 	protected function _send_data($data)
 	{
 		$data .= $this->newline;
@@ -2285,10 +2285,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get SMTP data
-	 *
-	 * @return	string
-	 */
+		* Get SMTP data
+		*
+		* @return	string
+		*/
 	protected function _get_smtp_data()
 	{
 		$data = '';
@@ -2309,16 +2309,16 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get Hostname
-	 *
-	 * There are only two legal types of hostname - either a fully
-	 * qualified domain name (eg: "mail.example.com") or an IP literal
-	 * (eg: "[1.2.3.4]").
-	 *
-	 * @link	https://tools.ietf.org/html/rfc5321#section-2.3.5
-	 * @link	http://cbl.abuseat.org/namingproblems.html
-	 * @return	string
-	 */
+		* Get Hostname
+		*
+		* There are only two legal types of hostname - either a fully
+		* qualified domain name (eg: "mail.example.com") or an IP literal
+		* (eg: "[1.2.3.4]").
+		*
+		* @link	https://tools.ietf.org/html/rfc5321#section-2.3.5
+		* @link	http://cbl.abuseat.org/namingproblems.html
+		* @return	string
+		*/
 	protected function _get_hostname()
 	{
 		if (isset($_SERVER['SERVER_NAME']))
@@ -2332,12 +2332,12 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get Debug Message
-	 *
-	 * @param	array	$include	List of raw data chunks to include in the output
-	 *					Valid options are: 'headers', 'subject', 'body'
-	 * @return	string
-	 */
+		* Get Debug Message
+		*
+		* @param	array	$include	List of raw data chunks to include in the output
+		*					Valid options are: 'headers', 'subject', 'body'
+		* @return	string
+		*/
 	public function print_debugger($include = array('headers', 'subject', 'body'))
 	{
 		$msg = '';
@@ -2375,12 +2375,12 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Message
-	 *
-	 * @param	string	$msg
-	 * @param	string	$val = ''
-	 * @return	void
-	 */
+		* Set Message
+		*
+		* @param	string	$msg
+		* @param	string	$val = ''
+		* @return	void
+		*/
 	protected function _set_error_message($msg, $val = '')
 	{
 		$CI =& get_instance();
@@ -2399,11 +2399,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Mime Types
-	 *
-	 * @param	string
-	 * @return	string
-	 */
+		* Mime Types
+		*
+		* @param	string
+		* @return	string
+		*/
 	protected function _mime_types($ext = '')
 	{
 		$ext = strtolower($ext);
@@ -2423,10 +2423,10 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Destructor
-	 *
-	 * @return	void
-	 */
+		* Destructor
+		*
+		* @return	void
+		*/
 	public function __destruct()
 	{
 		is_resource($this->_smtp_connect) && $this->_send_command('quit');
@@ -2435,11 +2435,11 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Byte-safe strlen()
-	 *
-	 * @param	string	$str
-	 * @return	int
-	 */
+		* Byte-safe strlen()
+		*
+		* @param	string	$str
+		* @return	int
+		*/
 	protected static function strlen($str)
 	{
 		return (self::$func_overload)
@@ -2450,13 +2450,13 @@ class CI_Email {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Byte-safe substr()
-	 *
-	 * @param	string	$str
-	 * @param	int	$start
-	 * @param	int	$length
-	 * @return	string
-	 */
+		* Byte-safe substr()
+		*
+		* @param	string	$str
+		* @param	int	$start
+		* @param	int	$length
+		* @return	string
+		*/
 	protected static function substr($str, $start, $length = NULL)
 	{
 		if (self::$func_overload)

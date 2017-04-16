@@ -1,90 +1,90 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Hooks Class
- *
- * Provides a mechanism to extend the base system without hacking.
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Libraries
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/general/hooks.html
- */
+	* Hooks Class
+	*
+	* Provides a mechanism to extend the base system without hacking.
+	*
+	* @package		CodeIgniter
+	* @subpackage	Libraries
+	* @category	Libraries
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/general/hooks.html
+	*/
 class CI_Hooks {
 
 	/**
-	 * Determines whether hooks are enabled
-	 *
-	 * @var	bool
-	 */
+		* Determines whether hooks are enabled
+		*
+		* @var	bool
+		*/
 	public $enabled = FALSE;
 
 	/**
-	 * List of all hooks set in config/hooks.php
-	 *
-	 * @var	array
-	 */
+		* List of all hooks set in config/hooks.php
+		*
+		* @var	array
+		*/
 	public $hooks =	array();
 
 	/**
-	 * Array with class objects to use hooks methods
-	 *
-	 * @var array
-	 */
+		* Array with class objects to use hooks methods
+		*
+		* @var array
+		*/
 	protected $_objects = array();
 
 	/**
-	 * In progress flag
-	 *
-	 * Determines whether hook is in progress, used to prevent infinte loops
-	 *
-	 * @var	bool
-	 */
+		* In progress flag
+		*
+		* Determines whether hook is in progress, used to prevent infinte loops
+		*
+		* @var	bool
+		*/
 	protected $_in_progress = FALSE;
 
 	/**
-	 * Class constructor
-	 *
-	 * @return	void
-	 */
+		* Class constructor
+		*
+		* @return	void
+		*/
 	public function __construct()
 	{
 		$CFG =& load_class('Config', 'core');
@@ -121,15 +121,15 @@ class CI_Hooks {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Call Hook
-	 *
-	 * Calls a particular hook. Called by CodeIgniter.php.
-	 *
-	 * @uses	CI_Hooks::_run_hook()
-	 *
-	 * @param	string	$which	Hook name
-	 * @return	bool	TRUE on success or FALSE on failure
-	 */
+		* Call Hook
+		*
+		* Calls a particular hook. Called by CodeIgniter.php.
+		*
+		* @uses	CI_Hooks::_run_hook()
+		*
+		* @param	string	$which	Hook name
+		* @return	bool	TRUE on success or FALSE on failure
+		*/
 	public function call_hook($which = '')
 	{
 		if ( ! $this->enabled OR ! isset($this->hooks[$which]))
@@ -155,13 +155,13 @@ class CI_Hooks {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Run Hook
-	 *
-	 * Runs a particular hook
-	 *
-	 * @param	array	$data	Hook details
-	 * @return	bool	TRUE on success or FALSE on failure
-	 */
+		* Run Hook
+		*
+		* Runs a particular hook
+		*
+		* @param	array	$data	Hook details
+		* @return	bool	TRUE on success or FALSE on failure
+		*/
 	protected function _run_hook($data)
 	{
 		// Closures/lambda functions and array($object, 'method') callables

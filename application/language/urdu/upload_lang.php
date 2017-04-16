@@ -1,13 +1,13 @@
 <?php
 /**
- * System messages translation for CodeIgniter(tm)
- *
- * @author CodeIgniter community
- * @author Muhammad Ali
- * @copyright Copyright (c) 2014 - 2016, British Columbia Institute of Technology (http://bcit.ca/)
- * @license http://opensource.org/licenses/MIT MIT Lic ense
- * @link http://codeigniter.com
- */
+	* System messages translation for CodeIgniter(tm)
+	*
+	* @author CodeIgniter community
+	* @author Muhammad Ali
+	* @copyright Copyright (c) 2014 - 2016, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license http://opensource.org/licenses/MIT MIT Lic ense
+	* @link http://codeigniter.com
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['upload_userfile_not_set']	= '.کے نام کا ایل پوسٹ ویریبل ڈھونڈنا ممکن نہیں ہو سکا userfile';

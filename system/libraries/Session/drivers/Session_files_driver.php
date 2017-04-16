@@ -1,103 +1,103 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 3.0.0
- * @filesource
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 3.0.0
+	* @filesource
 */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CodeIgniter Session Files Driver
- *
- * @package	CodeIgniter
- * @subpackage	Libraries
- * @category	Sessions
- * @author	Andrey Andreev
- * @link	https://codeigniter.com/user_guide/libraries/sessions.html
- */
+	* CodeIgniter Session Files Driver
+	*
+	* @package	CodeIgniter
+	* @subpackage	Libraries
+	* @category	Sessions
+	* @author	Andrey Andreev
+	* @link	https://codeigniter.com/user_guide/libraries/sessions.html
+	*/
 class CI_Session_files_driver extends CI_Session_driver implements SessionHandlerInterface {
 
 	/**
-	 * Save path
-	 *
-	 * @var	string
-	 */
+		* Save path
+		*
+		* @var	string
+		*/
 	protected $_save_path;
 
 	/**
-	 * File handle
-	 *
-	 * @var	resource
-	 */
+		* File handle
+		*
+		* @var	resource
+		*/
 	protected $_file_handle;
 
 	/**
-	 * File name
-	 *
-	 * @var	resource
-	 */
+		* File name
+		*
+		* @var	resource
+		*/
 	protected $_file_path;
 
 	/**
-	 * File new flag
-	 *
-	 * @var	bool
-	 */
+		* File new flag
+		*
+		* @var	bool
+		*/
 	protected $_file_new;
 
 	/**
-	 * Validate SID regular expression
-	 *
-	 * @var	string
-	 */
+		* Validate SID regular expression
+		*
+		* @var	string
+		*/
 	protected $_sid_regexp;
 
 	/**
-	 * mbstring.func_overload flag
-	 *
-	 * @var	bool
-	 */
+		* mbstring.func_overload flag
+		*
+		* @var	bool
+		*/
 	protected static $func_overload;
 
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Class constructor
-	 *
-	 * @param	array	$params	Configuration parameters
-	 * @return	void
-	 */
+		* Class constructor
+		*
+		* @param	array	$params	Configuration parameters
+		* @return	void
+		*/
 	public function __construct(&$params)
 	{
 		parent::__construct($params);
@@ -121,14 +121,14 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Open
-	 *
-	 * Sanitizes the save_path directory.
-	 *
-	 * @param	string	$save_path	Path to session files' directory
-	 * @param	string	$name		Session cookie name
-	 * @return	bool
-	 */
+		* Open
+		*
+		* Sanitizes the save_path directory.
+		*
+		* @param	string	$save_path	Path to session files' directory
+		* @param	string	$name		Session cookie name
+		* @return	bool
+		*/
 	public function open($save_path, $name)
 	{
 		if ( ! is_dir($save_path))
@@ -154,13 +154,13 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Read
-	 *
-	 * Reads session data and acquires a lock
-	 *
-	 * @param	string	$session_id	Session ID
-	 * @return	string	Serialized session data
-	 */
+		* Read
+		*
+		* Reads session data and acquires a lock
+		*
+		* @param	string	$session_id	Session ID
+		* @return	string	Serialized session data
+		*/
 	public function read($session_id)
 	{
 		// This might seem weird, but PHP 5.6 introduces session_reset(),
@@ -222,14 +222,14 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Write
-	 *
-	 * Writes (create / update) session data
-	 *
-	 * @param	string	$session_id	Session ID
-	 * @param	string	$session_data	Serialized session data
-	 * @return	bool
-	 */
+		* Write
+		*
+		* Writes (create / update) session data
+		*
+		* @param	string	$session_id	Session ID
+		* @param	string	$session_data	Serialized session data
+		* @return	bool
+		*/
 	public function write($session_id, $session_data)
 	{
 		// If the two IDs don't match, we have a session_regenerate_id() call
@@ -281,12 +281,12 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Close
-	 *
-	 * Releases locks and closes file descriptor.
-	 *
-	 * @return	bool
-	 */
+		* Close
+		*
+		* Releases locks and closes file descriptor.
+		*
+		* @return	bool
+		*/
 	public function close()
 	{
 		if (is_resource($this->_file_handle))
@@ -303,13 +303,13 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Destroy
-	 *
-	 * Destroys the current session.
-	 *
-	 * @param	string	$session_id	Session ID
-	 * @return	bool
-	 */
+		* Destroy
+		*
+		* Destroys the current session.
+		*
+		* @param	string	$session_id	Session ID
+		* @return	bool
+		*/
 	public function destroy($session_id)
 	{
 		if ($this->close() === $this->_success)
@@ -344,13 +344,13 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Garbage Collector
-	 *
-	 * Deletes expired sessions
-	 *
-	 * @param	int 	$maxlifetime	Maximum lifetime of sessions
-	 * @return	bool
-	 */
+		* Garbage Collector
+		*
+		* Deletes expired sessions
+		*
+		* @param	int 	$maxlifetime	Maximum lifetime of sessions
+		* @return	bool
+		*/
 	public function gc($maxlifetime)
 	{
 		if ( ! is_dir($this->_config['save_path']) OR ($directory = opendir($this->_config['save_path'])) === FALSE)
@@ -392,11 +392,11 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	// --------------------------------------------------------------------
 
 	/**
-	 * Byte-safe strlen()
-	 *
-	 * @param	string	$str
-	 * @return	int
-	 */
+		* Byte-safe strlen()
+		*
+		* @param	string	$str
+		* @return	int
+		*/
 	protected static function strlen($str)
 	{
 		return (self::$func_overload)

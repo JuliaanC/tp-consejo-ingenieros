@@ -1,13 +1,13 @@
 <?php
 /**
- * System messages translation for CodeIgniter(tm)
- *
- * @author    CodeIgniter community
- * @author    Gabriel Potkány <gadelat+codeigniter@gmail.com>
- * @copyright Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license   http://opensource.org/licenses/MIT MIT License
- * @link      https://codeigniter.com
- */
+	* System messages translation for CodeIgniter(tm)
+	*
+	* @author    CodeIgniter community
+	* @author    Gabriel Potkány <gadelat+codeigniter@gmail.com>
+	* @copyright Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license   http://opensource.org/licenses/MIT MIT License
+	* @link      https://codeigniter.com
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['email_must_be_array']         = 'Metóde na kontrolu e-mailu musí byť poslané pole.';

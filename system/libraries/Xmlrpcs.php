@@ -1,40 +1,40 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 if ( ! function_exists('xml_parser_create'))
@@ -50,50 +50,50 @@ if ( ! class_exists('CI_Xmlrpc', FALSE))
 // ------------------------------------------------------------------------
 
 /**
- * XML-RPC server class
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	XML-RPC
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/libraries/xmlrpc.html
- */
+	* XML-RPC server class
+	*
+	* @package		CodeIgniter
+	* @subpackage	Libraries
+	* @category	XML-RPC
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/libraries/xmlrpc.html
+	*/
 class CI_Xmlrpcs extends CI_Xmlrpc {
 
 	/**
-	 * Array of methods mapped to function names and signatures
-	 *
-	 * @var array
-	 */
+		* Array of methods mapped to function names and signatures
+		*
+		* @var array
+		*/
 	public $methods = array();
 
 	/**
-	 * Debug Message
-	 *
-	 * @var string
-	 */
+		* Debug Message
+		*
+		* @var string
+		*/
 	public $debug_msg = '';
 
 	/**
-	 * XML RPC Server methods
-	 *
-	 * @var array
-	 */
+		* XML RPC Server methods
+		*
+		* @var array
+		*/
 	public $system_methods	= array();
 
 	/**
-	 * Configuration object
-	 *
-	 * @var object
-	 */
+		* Configuration object
+		*
+		* @var object
+		*/
 	public $object = FALSE;
 
 	/**
-	 * Initialize XMLRPC class
-	 *
-	 * @param	array	$config
-	 * @return	void
-	 */
+		* Initialize XMLRPC class
+		*
+		* @param	array	$config
+		* @return	void
+		*/
 	public function __construct($config = array())
 	{
 		parent::__construct();
@@ -110,11 +110,11 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Initialize Prefs and Serve
-	 *
-	 * @param	mixed
-	 * @return	void
-	 */
+		* Initialize Prefs and Serve
+		*
+		* @param	mixed
+		* @return	void
+		*/
 	public function initialize($config = array())
 	{
 		if (isset($config['functions']) && is_array($config['functions']))
@@ -141,10 +141,10 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Setting of System Methods
-	 *
-	 * @return	void
-	 */
+		* Setting of System Methods
+		*
+		* @return	void
+		*/
 	public function set_system_methods()
 	{
 		$this->methods = array(
@@ -170,10 +170,10 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Main Server Function
-	 *
-	 * @return	void
-	 */
+		* Main Server Function
+		*
+		* @return	void
+		*/
 	public function serve()
 	{
 		$r = $this->parseRequest();
@@ -187,14 +187,14 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Add Method to Class
-	 *
-	 * @param	string	method name
-	 * @param	string	function
-	 * @param	string	signature
-	 * @param	string	docstring
-	 * @return	void
-	 */
+		* Add Method to Class
+		*
+		* @param	string	method name
+		* @param	string	function
+		* @param	string	signature
+		* @param	string	docstring
+		* @return	void
+		*/
 	public function add_to_map($methodname, $function, $sig, $doc)
 	{
 		$this->methods[$methodname] = array(
@@ -207,11 +207,11 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Parse Server Request
-	 *
-	 * @param	string	data
-	 * @return	object	xmlrpc response
-	 */
+		* Parse Server Request
+		*
+		* @param	string	data
+		* @return	object	xmlrpc response
+		*/
 	public function parseRequest($data = '')
 	{
 		//-------------------------------------
@@ -308,11 +308,11 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Executes the Method
-	 *
-	 * @param	object
-	 * @return	mixed
-	 */
+		* Executes the Method
+		*
+		* @param	object
+		* @return	mixed
+		*/
 	protected function _execute($m)
 	{
 		$methName = $m->method_name;
@@ -416,11 +416,11 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Server Function: List Methods
-	 *
-	 * @param	mixed
-	 * @return	object
-	 */
+		* Server Function: List Methods
+		*
+		* @param	mixed
+		* @return	object
+		*/
 	public function listMethods($m)
 	{
 		$v = new XML_RPC_Values();
@@ -443,11 +443,11 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Server Function: Return Signature for Method
-	 *
-	 * @param	mixed
-	 * @return	object
-	 */
+		* Server Function: Return Signature for Method
+		*
+		* @param	mixed
+		* @return	object
+		*/
 	public function methodSignature($m)
 	{
 		$parameters = $m->output_parameters();
@@ -483,11 +483,11 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Server Function: Doc String for Method
-	 *
-	 * @param	mixed
-	 * @return	object
-	 */
+		* Server Function: Doc String for Method
+		*
+		* @param	mixed
+		* @return	object
+		*/
 	public function methodHelp($m)
 	{
 		$parameters = $m->output_parameters();
@@ -508,11 +508,11 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Server Function: Multi-call
-	 *
-	 * @param	mixed
-	 * @return	object
-	 */
+		* Server Function: Multi-call
+		*
+		* @param	mixed
+		* @return	object
+		*/
 	public function multicall($m)
 	{
 		// Disabled
@@ -549,11 +549,11 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Multi-call Function: Error Handling
-	 *
-	 * @param	mixed
-	 * @return	object
-	 */
+		* Multi-call Function: Error Handling
+		*
+		* @param	mixed
+		* @return	object
+		*/
 	public function multicall_error($err)
 	{
 		$str = is_string($err) ? $this->xmlrpcstr["multicall_${err}"] : $err->faultString();
@@ -568,11 +568,11 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Multi-call Function: Processes method
-	 *
-	 * @param	mixed
-	 * @return	object
-	 */
+		* Multi-call Function: Processes method
+		*
+		* @param	mixed
+		* @return	object
+		*/
 	public function do_multicall($call)
 	{
 		if ($call->kindOf() !== 'struct')

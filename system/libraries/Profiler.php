@@ -1,64 +1,64 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CodeIgniter Profiler Class
- *
- * This class enables you to display benchmark, query, and other data
- * in order to help with debugging and optimization.
- *
- * Note: At some point it would be good to move all the HTML in this class
- * into a set of template files in order to allow customization.
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Libraries
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/general/profiling.html
- */
+	* CodeIgniter Profiler Class
+	*
+	* This class enables you to display benchmark, query, and other data
+	* in order to help with debugging and optimization.
+	*
+	* Note: At some point it would be good to move all the HTML in this class
+	* into a set of template files in order to allow customization.
+	*
+	* @package		CodeIgniter
+	* @subpackage	Libraries
+	* @category	Libraries
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/general/profiling.html
+	*/
 class CI_Profiler {
 
 	/**
-	 * List of profiler sections available to show
-	 *
-	 * @var array
-	 */
+		* List of profiler sections available to show
+		*
+		* @var array
+		*/
 	protected $_available_sections = array(
 		'benchmarks',
 		'get',
@@ -73,28 +73,28 @@ class CI_Profiler {
 	);
 
 	/**
-	 * Number of queries to show before making the additional queries togglable
-	 *
-	 * @var int
-	 */
+		* Number of queries to show before making the additional queries togglable
+		*
+		* @var int
+		*/
 	protected $_query_toggle_count = 25;
 
 	/**
-	 * Reference to the CodeIgniter singleton
-	 *
-	 * @var object
-	 */
+		* Reference to the CodeIgniter singleton
+		*
+		* @var object
+		*/
 	protected $CI;
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Class constructor
-	 *
-	 * Initialize Profiler
-	 *
-	 * @param	array	$config	Parameters
-	 */
+		* Class constructor
+		*
+		* Initialize Profiler
+		*
+		* @param	array	$config	Parameters
+		*/
 	public function __construct($config = array())
 	{
 		$this->CI =& get_instance();
@@ -116,13 +116,13 @@ class CI_Profiler {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Sections
-	 *
-	 * Sets the private _compile_* properties to enable/disable Profiler sections
-	 *
-	 * @param	mixed	$config
-	 * @return	void
-	 */
+		* Set Sections
+		*
+		* Sets the private _compile_* properties to enable/disable Profiler sections
+		*
+		* @param	mixed	$config
+		* @return	void
+		*/
 	public function set_sections($config)
 	{
 		if (isset($config['query_toggle_count']))
@@ -143,15 +143,15 @@ class CI_Profiler {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Auto Profiler
-	 *
-	 * This function cycles through the entire array of mark points and
-	 * matches any two points that are named identically (ending in "_start"
-	 * and "_end" respectively).  It then compiles the execution times for
-	 * all points and returns it as an array
-	 *
-	 * @return	array
-	 */
+		* Auto Profiler
+		*
+		* This function cycles through the entire array of mark points and
+		* matches any two points that are named identically (ending in "_start"
+		* and "_end" respectively).  It then compiles the execution times for
+		* all points and returns it as an array
+		*
+		* @return	array
+		*/
 	protected function _compile_benchmarks()
 	{
 		$profile = array();
@@ -190,10 +190,10 @@ class CI_Profiler {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Compile Queries
-	 *
-	 * @return	string
-	 */
+		* Compile Queries
+		*
+		* @return	string
+		*/
 	protected function _compile_queries()
 	{
 		$dbs = array();
@@ -293,10 +293,10 @@ class CI_Profiler {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Compile $_GET Data
-	 *
-	 * @return	string
-	 */
+		* Compile $_GET Data
+		*
+		* @return	string
+		*/
 	protected function _compile_get()
 	{
 		$output = "\n\n"
@@ -333,10 +333,10 @@ class CI_Profiler {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Compile $_POST Data
-	 *
-	 * @return	string
-	 */
+		* Compile $_POST Data
+		*
+		* @return	string
+		*/
 	protected function _compile_post()
 	{
 		$output = "\n\n"
@@ -385,10 +385,10 @@ class CI_Profiler {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Show query string
-	 *
-	 * @return	string
-	 */
+		* Show query string
+		*
+		* @return	string
+		*/
 	protected function _compile_uri_string()
 	{
 		return "\n\n"
@@ -403,10 +403,10 @@ class CI_Profiler {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Show the controller and function that were called
-	 *
-	 * @return	string
-	 */
+		* Show the controller and function that were called
+		*
+		* @return	string
+		*/
 	protected function _compile_controller_info()
 	{
 		return "\n\n"
@@ -420,12 +420,12 @@ class CI_Profiler {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Compile memory usage
-	 *
-	 * Display total used memory
-	 *
-	 * @return	string
-	 */
+		* Compile memory usage
+		*
+		* Display total used memory
+		*
+		* @return	string
+		*/
 	protected function _compile_memory_usage()
 	{
 		return "\n\n"
@@ -440,12 +440,12 @@ class CI_Profiler {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Compile header information
-	 *
-	 * Lists HTTP headers
-	 *
-	 * @return	string
-	 */
+		* Compile header information
+		*
+		* Lists HTTP headers
+		*
+		* @return	string
+		*/
 	protected function _compile_http_headers()
 	{
 		$output = "\n\n"
@@ -468,12 +468,12 @@ class CI_Profiler {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Compile config information
-	 *
-	 * Lists developer config variables
-	 *
-	 * @return	string
-	 */
+		* Compile config information
+		*
+		* Lists developer config variables
+		*
+		* @return	string
+		*/
 	protected function _compile_config()
 	{
 		$output = "\n\n"
@@ -499,10 +499,10 @@ class CI_Profiler {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Compile session userdata
-	 *
-	 * @return 	string
-	 */
+		* Compile session userdata
+		*
+		* @return 	string
+		*/
 	protected function _compile_session_data()
 	{
 		if ( ! isset($this->CI->session))
@@ -531,10 +531,10 @@ class CI_Profiler {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Run the Profiler
-	 *
-	 * @return	string
-	 */
+		* Run the Profiler
+		*
+		* @return	string
+		*/
 	public function run()
 	{
 		$output = '<div id="codeigniter_profiler" style="clear:both;background-color:#fff;padding:10px;">';

@@ -1,59 +1,59 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 3.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 3.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CodeIgniter Redis Caching Class
- *
- * @package	   CodeIgniter
- * @subpackage Libraries
- * @category   Core
- * @author	   Anton Lindqvist <anton@qvister.se>
- * @link
- */
+	* CodeIgniter Redis Caching Class
+	*
+	* @package	   CodeIgniter
+	* @subpackage Libraries
+	* @category   Core
+	* @author	   Anton Lindqvist <anton@qvister.se>
+	* @link
+	*/
 class CI_Cache_redis extends CI_Driver
 {
 	/**
-	 * Default config
-	 *
-	 * @static
-	 * @var	array
-	 */
+		* Default config
+		*
+		* @static
+		* @var	array
+		*/
 	protected static $_default_config = array(
 		'socket_type' => 'tcp',
 		'host' => '127.0.0.1',
@@ -63,32 +63,32 @@ class CI_Cache_redis extends CI_Driver
 	);
 
 	/**
-	 * Redis connection
-	 *
-	 * @var	Redis
-	 */
+		* Redis connection
+		*
+		* @var	Redis
+		*/
 	protected $_redis;
 
 	/**
-	 * An internal cache for storing keys of serialized values.
-	 *
-	 * @var	array
-	 */
+		* An internal cache for storing keys of serialized values.
+		*
+		* @var	array
+		*/
 	protected $_serialized = array();
 
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Class constructor
-	 *
-	 * Setup Redis
-	 *
-	 * Loads Redis config file if present. Will halt execution
-	 * if a Redis connection can't be established.
-	 *
-	 * @return	void
-	 * @see		Redis::connect()
-	 */
+		* Class constructor
+		*
+		* Setup Redis
+		*
+		* Loads Redis config file if present. Will halt execution
+		* if a Redis connection can't be established.
+		*
+		* @return	void
+		* @see		Redis::connect()
+		*/
 	public function __construct()
 	{
 		if ( ! $this->is_supported())
@@ -144,11 +144,11 @@ class CI_Cache_redis extends CI_Driver
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Get cache
-	 *
-	 * @param	string	$key	Cache ID
-	 * @return	mixed
-	 */
+		* Get cache
+		*
+		* @param	string	$key	Cache ID
+		* @return	mixed
+		*/
 	public function get($key)
 	{
 		$value = $this->_redis->get($key);
@@ -164,14 +164,14 @@ class CI_Cache_redis extends CI_Driver
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Save cache
-	 *
-	 * @param	string	$id	Cache ID
-	 * @param	mixed	$data	Data to save
-	 * @param	int	$ttl	Time to live in seconds
-	 * @param	bool	$raw	Whether to store the raw value (unused)
-	 * @return	bool	TRUE on success, FALSE on failure
-	 */
+		* Save cache
+		*
+		* @param	string	$id	Cache ID
+		* @param	mixed	$data	Data to save
+		* @param	int	$ttl	Time to live in seconds
+		* @param	bool	$raw	Whether to store the raw value (unused)
+		* @return	bool	TRUE on success, FALSE on failure
+		*/
 	public function save($id, $data, $ttl = 60, $raw = FALSE)
 	{
 		if (is_array($data) OR is_object($data))
@@ -196,11 +196,11 @@ class CI_Cache_redis extends CI_Driver
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Delete from cache
-	 *
-	 * @param	string	$key	Cache key
-	 * @return	bool
-	 */
+		* Delete from cache
+		*
+		* @param	string	$key	Cache key
+		* @return	bool
+		*/
 	public function delete($key)
 	{
 		if ($this->_redis->delete($key) !== 1)
@@ -220,12 +220,12 @@ class CI_Cache_redis extends CI_Driver
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Increment a raw value
-	 *
-	 * @param	string	$id	Cache ID
-	 * @param	int	$offset	Step/value to add
-	 * @return	mixed	New value on success or FALSE on failure
-	 */
+		* Increment a raw value
+		*
+		* @param	string	$id	Cache ID
+		* @param	int	$offset	Step/value to add
+		* @return	mixed	New value on success or FALSE on failure
+		*/
 	public function increment($id, $offset = 1)
 	{
 		return $this->_redis->incr($id, $offset);
@@ -234,12 +234,12 @@ class CI_Cache_redis extends CI_Driver
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Decrement a raw value
-	 *
-	 * @param	string	$id	Cache ID
-	 * @param	int	$offset	Step/value to reduce by
-	 * @return	mixed	New value on success or FALSE on failure
-	 */
+		* Decrement a raw value
+		*
+		* @param	string	$id	Cache ID
+		* @param	int	$offset	Step/value to reduce by
+		* @return	mixed	New value on success or FALSE on failure
+		*/
 	public function decrement($id, $offset = 1)
 	{
 		return $this->_redis->decr($id, $offset);
@@ -248,11 +248,11 @@ class CI_Cache_redis extends CI_Driver
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Clean cache
-	 *
-	 * @return	bool
-	 * @see		Redis::flushDB()
-	 */
+		* Clean cache
+		*
+		* @return	bool
+		* @see		Redis::flushDB()
+		*/
 	public function clean()
 	{
 		return $this->_redis->flushDB();
@@ -261,14 +261,14 @@ class CI_Cache_redis extends CI_Driver
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Get cache driver info
-	 *
-	 * @param	string	$type	Not supported in Redis.
-	 *				Only included in order to offer a
-	 *				consistent cache API.
-	 * @return	array
-	 * @see		Redis::info()
-	 */
+		* Get cache driver info
+		*
+		* @param	string	$type	Not supported in Redis.
+		*				Only included in order to offer a
+		*				consistent cache API.
+		* @return	array
+		* @see		Redis::info()
+		*/
 	public function cache_info($type = NULL)
 	{
 		return $this->_redis->info();
@@ -277,11 +277,11 @@ class CI_Cache_redis extends CI_Driver
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Get cache metadata
-	 *
-	 * @param	string	$key	Cache key
-	 * @return	array
-	 */
+		* Get cache metadata
+		*
+		* @param	string	$key	Cache key
+		* @return	array
+		*/
 	public function get_metadata($key)
 	{
 		$value = $this->get($key);
@@ -300,10 +300,10 @@ class CI_Cache_redis extends CI_Driver
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Check if Redis driver is supported
-	 *
-	 * @return	bool
-	 */
+		* Check if Redis driver is supported
+		*
+		* @return	bool
+		*/
 	public function is_supported()
 	{
 		return extension_loaded('redis');
@@ -312,12 +312,12 @@ class CI_Cache_redis extends CI_Driver
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Class destructor
-	 *
-	 * Closes the connection to Redis if present.
-	 *
-	 * @return	void
-	 */
+		* Class destructor
+		*
+		* Closes the connection to Redis if present.
+		*
+		* @return	void
+		*/
 	public function __destruct()
 	{
 		if ($this->_redis)

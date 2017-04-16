@@ -1,101 +1,101 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Shopping Cart Class
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Shopping Cart
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/libraries/cart.html
- * @deprecated	3.0.0	This class is too specific for CI.
- */
+	* Shopping Cart Class
+	*
+	* @package		CodeIgniter
+	* @subpackage	Libraries
+	* @category	Shopping Cart
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/libraries/cart.html
+	* @deprecated	3.0.0	This class is too specific for CI.
+	*/
 class CI_Cart {
 
 	/**
-	 * These are the regular expression rules that we use to validate the product ID and product name
-	 * alpha-numeric, dashes, underscores, or periods
-	 *
-	 * @var string
-	 */
+		* These are the regular expression rules that we use to validate the product ID and product name
+		* alpha-numeric, dashes, underscores, or periods
+		*
+		* @var string
+		*/
 	public $product_id_rules = '\.a-z0-9_-';
 
 	/**
-	 * These are the regular expression rules that we use to validate the product ID and product name
-	 * alpha-numeric, dashes, underscores, colons or periods
-	 *
-	 * @var string
-	 */
+		* These are the regular expression rules that we use to validate the product ID and product name
+		* alpha-numeric, dashes, underscores, colons or periods
+		*
+		* @var string
+		*/
 	public $product_name_rules = '\w \-\.\:';
 
 	/**
-	 * only allow safe product names
-	 *
-	 * @var bool
-	 */
+		* only allow safe product names
+		*
+		* @var bool
+		*/
 	public $product_name_safe = TRUE;
 
 	// --------------------------------------------------------------------------
 
 	/**
-	 * Reference to CodeIgniter instance
-	 *
-	 * @var object
-	 */
+		* Reference to CodeIgniter instance
+		*
+		* @var object
+		*/
 	protected $CI;
 
 	/**
-	 * Contents of the cart
-	 *
-	 * @var array
-	 */
+		* Contents of the cart
+		*
+		* @var array
+		*/
 	protected $_cart_contents = array();
 
 	/**
-	 * Shopping Class Constructor
-	 *
-	 * The constructor loads the Session class, used to store the shopping cart contents.
-	 *
-	 * @param	array
-	 * @return	void
-	 */
+		* Shopping Class Constructor
+		*
+		* The constructor loads the Session class, used to store the shopping cart contents.
+		*
+		* @param	array
+		* @return	void
+		*/
 	public function __construct($params = array())
 	{
 		// Set the super object to a local variable for use later
@@ -121,11 +121,11 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Insert items into the cart and save it to the session table
-	 *
-	 * @param	array
-	 * @return	bool
-	 */
+		* Insert items into the cart and save it to the session table
+		*
+		* @param	array
+		* @return	bool
+		*/
 	public function insert($items = array())
 	{
 		// Was any cart data passed? No? Bah...
@@ -175,11 +175,11 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Insert
-	 *
-	 * @param	array
-	 * @return	bool
-	 */
+		* Insert
+		*
+		* @param	array
+		* @return	bool
+		*/
 	protected function _insert($items = array())
 	{
 		// Was any cart data passed? No? Bah...
@@ -274,16 +274,16 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Update the cart
-	 *
-	 * This function permits the quantity of a given item to be changed.
-	 * Typically it is called from the "view cart" page if a user makes
-	 * changes to the quantity before checkout. That array must contain the
-	 * product ID and quantity for each item.
-	 *
-	 * @param	array
-	 * @return	bool
-	 */
+		* Update the cart
+		*
+		* This function permits the quantity of a given item to be changed.
+		* Typically it is called from the "view cart" page if a user makes
+		* changes to the quantity before checkout. That array must contain the
+		* product ID and quantity for each item.
+		*
+		* @param	array
+		* @return	bool
+		*/
 	public function update($items = array())
 	{
 		// Was any cart data passed?
@@ -331,16 +331,16 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Update the cart
-	 *
-	 * This function permits changing item properties.
-	 * Typically it is called from the "view cart" page if a user makes
-	 * changes to the quantity before checkout. That array must contain the
-	 * rowid and quantity for each item.
-	 *
-	 * @param	array
-	 * @return	bool
-	 */
+		* Update the cart
+		*
+		* This function permits changing item properties.
+		* Typically it is called from the "view cart" page if a user makes
+		* changes to the quantity before checkout. That array must contain the
+		* rowid and quantity for each item.
+		*
+		* @param	array
+		* @return	bool
+		*/
 	protected function _update($items = array())
 	{
 		// Without these array indexes there is nothing we can do
@@ -382,10 +382,10 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Save the cart array to the session DB
-	 *
-	 * @return	bool
-	 */
+		* Save the cart array to the session DB
+		*
+		* @return	bool
+		*/
 	protected function _save_cart()
 	{
 		// Let's add up the individual prices and set the cart sub-total
@@ -423,10 +423,10 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Cart Total
-	 *
-	 * @return	int
-	 */
+		* Cart Total
+		*
+		* @return	int
+		*/
 	public function total()
 	{
 		return $this->_cart_contents['cart_total'];
@@ -435,30 +435,30 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Remove Item
-	 *
-	 * Removes an item from the cart
-	 *
-	 * @param	int
-	 * @return	bool
-	 */
-	 public function remove($rowid)
-	 {
+		* Remove Item
+		*
+		* Removes an item from the cart
+		*
+		* @param	int
+		* @return	bool
+		*/
+		public function remove($rowid)
+		{
 		// unset & save
 		unset($this->_cart_contents[$rowid]);
 		$this->_save_cart();
 		return TRUE;
-	 }
+		}
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Total Items
-	 *
-	 * Returns the total item count
-	 *
-	 * @return	int
-	 */
+		* Total Items
+		*
+		* Returns the total item count
+		*
+		* @return	int
+		*/
 	public function total_items()
 	{
 		return $this->_cart_contents['total_items'];
@@ -467,13 +467,13 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Cart Contents
-	 *
-	 * Returns the entire cart array
-	 *
-	 * @param	bool
-	 * @return	array
-	 */
+		* Cart Contents
+		*
+		* Returns the entire cart array
+		*
+		* @param	bool
+		* @return	array
+		*/
 	public function contents($newest_first = FALSE)
 	{
 		// do we want the newest first?
@@ -489,13 +489,13 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get cart item
-	 *
-	 * Returns the details of a specific item in the cart
-	 *
-	 * @param	string	$row_id
-	 * @return	array
-	 */
+		* Get cart item
+		*
+		* Returns the details of a specific item in the cart
+		*
+		* @param	string	$row_id
+		* @return	array
+		*/
 	public function get_item($row_id)
 	{
 		return (in_array($row_id, array('total_items', 'cart_total'), TRUE) OR ! isset($this->_cart_contents[$row_id]))
@@ -506,14 +506,14 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Has options
-	 *
-	 * Returns TRUE if the rowid passed to this function correlates to an item
-	 * that has options associated with it.
-	 *
-	 * @param	string	$row_id = ''
-	 * @return	bool
-	 */
+		* Has options
+		*
+		* Returns TRUE if the rowid passed to this function correlates to an item
+		* that has options associated with it.
+		*
+		* @param	string	$row_id = ''
+		* @return	bool
+		*/
 	public function has_options($row_id = '')
 	{
 		return (isset($this->_cart_contents[$row_id]['options']) && count($this->_cart_contents[$row_id]['options']) !== 0);
@@ -522,13 +522,13 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Product options
-	 *
-	 * Returns the an array of options, for a particular product row ID
-	 *
-	 * @param	string	$row_id = ''
-	 * @return	array
-	 */
+		* Product options
+		*
+		* Returns the an array of options, for a particular product row ID
+		*
+		* @param	string	$row_id = ''
+		* @return	array
+		*/
 	public function product_options($row_id = '')
 	{
 		return isset($this->_cart_contents[$row_id]['options']) ? $this->_cart_contents[$row_id]['options'] : array();
@@ -537,13 +537,13 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Format Number
-	 *
-	 * Returns the supplied number with commas and a decimal point.
-	 *
-	 * @param	float
-	 * @return	string
-	 */
+		* Format Number
+		*
+		* Returns the supplied number with commas and a decimal point.
+		*
+		* @param	float
+		* @return	string
+		*/
 	public function format_number($n = '')
 	{
 		return ($n === '') ? '' : number_format( (float) $n, 2, '.', ',');
@@ -552,12 +552,12 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Destroy the cart
-	 *
-	 * Empties the cart and kills the session
-	 *
-	 * @return	void
-	 */
+		* Destroy the cart
+		*
+		* Empties the cart and kills the session
+		*
+		* @return	void
+		*/
 	public function destroy()
 	{
 		$this->_cart_contents = array('cart_total' => 0, 'total_items' => 0);

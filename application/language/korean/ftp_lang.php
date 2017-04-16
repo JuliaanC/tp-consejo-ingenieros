@@ -1,13 +1,13 @@
 <?php
 /**
- * System messages translation for CodeIgniter(tm)
- *
- * @author CodeIgniter community
- * @author HyeongJoo Kwon
- * @copyright Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license http://opensource.org/licenses/MIT MIT License
- * @link https://codeigniter.com
- */
+	* System messages translation for CodeIgniter(tm)
+	*
+	* @author CodeIgniter community
+	* @author HyeongJoo Kwon
+	* @copyright Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license http://opensource.org/licenses/MIT MIT License
+	* @link https://codeigniter.com
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['ftp_no_connection']		= 'FTP connection에 연결할 수 없습니다. 계정정보를 확인하거나 서버상태를 확인하세요.';

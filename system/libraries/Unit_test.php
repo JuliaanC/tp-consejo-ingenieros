@@ -1,97 +1,97 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.3.1
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.3.1
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Unit Testing Class
- *
- * Simple testing class
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	UnitTesting
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/libraries/unit_testing.html
- */
+	* Unit Testing Class
+	*
+	* Simple testing class
+	*
+	* @package		CodeIgniter
+	* @subpackage	Libraries
+	* @category	UnitTesting
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/libraries/unit_testing.html
+	*/
 class CI_Unit_test {
 
 	/**
-	 * Active flag
-	 *
-	 * @var	bool
-	 */
+		* Active flag
+		*
+		* @var	bool
+		*/
 	public $active = TRUE;
 
 	/**
-	 * Test results
-	 *
-	 * @var	array
-	 */
+		* Test results
+		*
+		* @var	array
+		*/
 	public $results = array();
 
 	/**
-	 * Strict comparison flag
-	 *
-	 * Whether to use === or == when comparing
-	 *
-	 * @var	bool
-	 */
+		* Strict comparison flag
+		*
+		* Whether to use === or == when comparing
+		*
+		* @var	bool
+		*/
 	public $strict = FALSE;
 
 	/**
-	 * Template
-	 *
-	 * @var	string
-	 */
+		* Template
+		*
+		* @var	string
+		*/
 	protected $_template = NULL;
 
 	/**
-	 * Template rows
-	 *
-	 * @var	string
-	 */
+		* Template rows
+		*
+		* @var	string
+		*/
 	protected $_template_rows = NULL;
 
 	/**
-	 * List of visible test items
-	 *
-	 * @var	array
-	 */
+		* List of visible test items
+		*
+		* @var	array
+		*/
 	protected $_test_items_visible	= array(
 		'test_name',
 		'test_datatype',
@@ -105,10 +105,10 @@ class CI_Unit_test {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Constructor
-	 *
-	 * @return	void
-	 */
+		* Constructor
+		*
+		* @return	void
+		*/
 	public function __construct()
 	{
 		log_message('info', 'Unit Testing Class Initialized');
@@ -117,13 +117,13 @@ class CI_Unit_test {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Run the tests
-	 *
-	 * Runs the supplied tests
-	 *
-	 * @param	array	$items
-	 * @return	void
-	 */
+		* Run the tests
+		*
+		* Runs the supplied tests
+		*
+		* @param	array	$items
+		* @return	void
+		*/
 	public function set_test_items($items)
 	{
 		if ( ! empty($items) && is_array($items))
@@ -135,16 +135,16 @@ class CI_Unit_test {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Run the tests
-	 *
-	 * Runs the supplied tests
-	 *
-	 * @param	mixed	$test
-	 * @param	mixed	$expected
-	 * @param	string	$test_name
-	 * @param	string	$notes
-	 * @return	string
-	 */
+		* Run the tests
+		*
+		* Runs the supplied tests
+		*
+		* @param	mixed	$test
+		* @param	mixed	$expected
+		* @param	string	$test_name
+		* @param	string	$notes
+		* @return	string
+		*/
 	public function run($test, $expected = TRUE, $test_name = 'undefined', $notes = '')
 	{
 		if ($this->active === FALSE)
@@ -183,13 +183,13 @@ class CI_Unit_test {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Generate a report
-	 *
-	 * Displays a table with the test data
-	 *
-	 * @param	array	 $result
-	 * @return	string
-	 */
+		* Generate a report
+		*
+		* Displays a table with the test data
+		*
+		* @param	array	 $result
+		* @return	string
+		*/
 	public function report($result = array())
 	{
 		if (count($result) === 0)
@@ -233,13 +233,13 @@ class CI_Unit_test {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Use strict comparison
-	 *
-	 * Causes the evaluation to use === rather than ==
-	 *
-	 * @param	bool	$state
-	 * @return	void
-	 */
+		* Use strict comparison
+		*
+		* Causes the evaluation to use === rather than ==
+		*
+		* @param	bool	$state
+		* @return	void
+		*/
 	public function use_strict($state = TRUE)
 	{
 		$this->strict = (bool) $state;
@@ -248,13 +248,13 @@ class CI_Unit_test {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Make Unit testing active
-	 *
-	 * Enables/disables unit testing
-	 *
-	 * @param	bool
-	 * @return	void
-	 */
+		* Make Unit testing active
+		*
+		* Enables/disables unit testing
+		*
+		* @param	bool
+		* @return	void
+		*/
 	public function active($state = TRUE)
 	{
 		$this->active = (bool) $state;
@@ -263,13 +263,13 @@ class CI_Unit_test {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Result Array
-	 *
-	 * Returns the raw result data
-	 *
-	 * @param	array	$results
-	 * @return	array
-	 */
+		* Result Array
+		*
+		* Returns the raw result data
+		*
+		* @param	array	$results
+		* @return	array
+		*/
 	public function result($results = array())
 	{
 		$CI =& get_instance();
@@ -310,13 +310,13 @@ class CI_Unit_test {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set the template
-	 *
-	 * This lets us set the template to be used to display results
-	 *
-	 * @param	string
-	 * @return	void
-	 */
+		* Set the template
+		*
+		* This lets us set the template to be used to display results
+		*
+		* @param	string
+		* @return	void
+		*/
 	public function set_template($template)
 	{
 		$this->_template = $template;
@@ -325,12 +325,12 @@ class CI_Unit_test {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Generate a backtrace
-	 *
-	 * This lets us show file names and line numbers
-	 *
-	 * @return	array
-	 */
+		* Generate a backtrace
+		*
+		* This lets us show file names and line numbers
+		*
+		* @return	array
+		*/
 	protected function _backtrace()
 	{
 		$back = debug_backtrace();
@@ -343,10 +343,10 @@ class CI_Unit_test {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get Default Template
-	 *
-	 * @return	string
-	 */
+		* Get Default Template
+		*
+		* @return	string
+		*/
 	protected function _default_template()
 	{
 		$this->_template = "\n".'<table style="width:100%; font-size:small; margin:10px 0; border-collapse:collapse; border:1px solid #CCC;">{rows}'."\n</table>";
@@ -358,12 +358,12 @@ class CI_Unit_test {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Parse Template
-	 *
-	 * Harvests the data within the template {pseudo-variables}
-	 *
-	 * @return	void
-	 */
+		* Parse Template
+		*
+		* Harvests the data within the template {pseudo-variables}
+		*
+		* @return	void
+		*/
 	protected function _parse_template()
 	{
 		if ($this->_template_rows !== NULL)
@@ -384,22 +384,22 @@ class CI_Unit_test {
 }
 
 /**
- * Helper function to test boolean TRUE
- *
- * @param	mixed	$test
- * @return	bool
- */
+	* Helper function to test boolean TRUE
+	*
+	* @param	mixed	$test
+	* @return	bool
+	*/
 function is_true($test)
 {
 	return ($test === TRUE);
 }
 
 /**
- * Helper function to test boolean FALSE
- *
- * @param	mixed	$test
- * @return	bool
- */
+	* Helper function to test boolean FALSE
+	*
+	* @param	mixed	$test
+	* @return	bool
+	*/
 function is_false($test)
 {
 	return ($test === FALSE);

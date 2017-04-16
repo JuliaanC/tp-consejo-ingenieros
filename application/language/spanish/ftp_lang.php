@@ -1,13 +1,13 @@
 <?php
 /**
- * System messages translation for CodeIgniter(tm)
- *
- * @author	CodeIgniter community
- * @author	Iban Eguia
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- */
+	* System messages translation for CodeIgniter(tm)
+	*
+	* @author	CodeIgniter community
+	* @author	Iban Eguia
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['ftp_no_connection']		= 'No ha sido posible localizar una ID de conexión válida. Por favor, asegúrate de que estás conectado antes de realizar cualquier rutina de archivos.';

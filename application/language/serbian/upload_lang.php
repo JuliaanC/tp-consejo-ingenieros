@@ -1,13 +1,13 @@
 <?php
- /**
- * System messages translation for CodeIgniter(tm)
- *
- * @author	CodeIgniter community
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @copyright	Novak Urošević
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- */
+	/**
+	* System messages translation for CodeIgniter(tm)
+	*
+	* @author	CodeIgniter community
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @copyright	Novak Urošević
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	*/
 defined('BASEPATH') OR exit('Nije dozvoljen direktan pristup');
 
 $lang['upload_userfile_not_set'] = 'Ne mogu se naći post vrednosti koje poziva korisnički fajl.';

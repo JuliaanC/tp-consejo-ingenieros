@@ -1,89 +1,89 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Database Utility Class
- *
- * @category	Database
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/database/
- */
+	* Database Utility Class
+	*
+	* @category	Database
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/database/
+	*/
 abstract class CI_DB_utility {
 
 	/**
-	 * Database object
-	 *
-	 * @var	object
-	 */
+		* Database object
+		*
+		* @var	object
+		*/
 	protected $db;
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * List databases statement
-	 *
-	 * @var	string
-	 */
+		* List databases statement
+		*
+		* @var	string
+		*/
 	protected $_list_databases		= FALSE;
 
 	/**
-	 * OPTIMIZE TABLE statement
-	 *
-	 * @var	string
-	 */
+		* OPTIMIZE TABLE statement
+		*
+		* @var	string
+		*/
 	protected $_optimize_table	= FALSE;
 
 	/**
-	 * REPAIR TABLE statement
-	 *
-	 * @var	string
-	 */
+		* REPAIR TABLE statement
+		*
+		* @var	string
+		*/
 	protected $_repair_table	= FALSE;
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Class constructor
-	 *
-	 * @param	object	&$db	Database object
-	 * @return	void
-	 */
+		* Class constructor
+		*
+		* @param	object	&$db	Database object
+		* @return	void
+		*/
 	public function __construct(&$db)
 	{
 		$this->db =& $db;
@@ -93,10 +93,10 @@ abstract class CI_DB_utility {
 	// --------------------------------------------------------------------
 
 	/**
-	 * List databases
-	 *
-	 * @return	array
-	 */
+		* List databases
+		*
+		* @return	array
+		*/
 	public function list_databases()
 	{
 		// Is there a cached result?
@@ -128,11 +128,11 @@ abstract class CI_DB_utility {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Determine if a particular database exists
-	 *
-	 * @param	string	$database_name
-	 * @return	bool
-	 */
+		* Determine if a particular database exists
+		*
+		* @param	string	$database_name
+		* @return	bool
+		*/
 	public function database_exists($database_name)
 	{
 		return in_array($database_name, $this->list_databases());
@@ -141,11 +141,11 @@ abstract class CI_DB_utility {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Optimize Table
-	 *
-	 * @param	string	$table_name
-	 * @return	mixed
-	 */
+		* Optimize Table
+		*
+		* @param	string	$table_name
+		* @return	mixed
+		*/
 	public function optimize_table($table_name)
 	{
 		if ($this->_optimize_table === FALSE)
@@ -166,10 +166,10 @@ abstract class CI_DB_utility {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Optimize Database
-	 *
-	 * @return	mixed
-	 */
+		* Optimize Database
+		*
+		* @return	mixed
+		*/
 	public function optimize_database()
 	{
 		if ($this->_optimize_table === FALSE)
@@ -202,11 +202,11 @@ abstract class CI_DB_utility {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Repair Table
-	 *
-	 * @param	string	$table_name
-	 * @return	mixed
-	 */
+		* Repair Table
+		*
+		* @param	string	$table_name
+		* @return	mixed
+		*/
 	public function repair_table($table_name)
 	{
 		if ($this->_repair_table === FALSE)
@@ -227,14 +227,14 @@ abstract class CI_DB_utility {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Generate CSV from a query result object
-	 *
-	 * @param	object	$query		Query result object
-	 * @param	string	$delim		Delimiter (default: ,)
-	 * @param	string	$newline	Newline character (default: \n)
-	 * @param	string	$enclosure	Enclosure (default: ")
-	 * @return	string
-	 */
+		* Generate CSV from a query result object
+		*
+		* @param	object	$query		Query result object
+		* @param	string	$delim		Delimiter (default: ,)
+		* @param	string	$newline	Newline character (default: \n)
+		* @param	string	$enclosure	Enclosure (default: ")
+		* @return	string
+		*/
 	public function csv_from_result($query, $delim = ',', $newline = "\n", $enclosure = '"')
 	{
 		if ( ! is_object($query) OR ! method_exists($query, 'list_fields'))
@@ -268,12 +268,12 @@ abstract class CI_DB_utility {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Generate XML data from a query result object
-	 *
-	 * @param	object	$query	Query result object
-	 * @param	array	$params	Any preferences
-	 * @return	string
-	 */
+		* Generate XML data from a query result object
+		*
+		* @param	object	$query	Query result object
+		* @param	array	$params	Any preferences
+		* @return	string
+		*/
 	public function xml_from_result($query, $params = array())
 	{
 		if ( ! is_object($query) OR ! method_exists($query, 'list_fields'))
@@ -314,11 +314,11 @@ abstract class CI_DB_utility {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Database Backup
-	 *
-	 * @param	array	$params
-	 * @return	string
-	 */
+		* Database Backup
+		*
+		* @param	array	$params
+		* @return	string
+		*/
 	public function backup($params = array())
 	{
 		// If the parameters have not been submitted as an

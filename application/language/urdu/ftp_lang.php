@@ -1,13 +1,13 @@
 <?php
 /**
- * System messages translation for CodeIgniter(tm)
- *
- * @author CodeIgniter community
- * @author Muhammad Ali
- * @copyright Copyright (c) 2014 - 2016, British Columbia Institute of Technology (http://bcit.ca/)
- * @license http://opensource.org/licenses/MIT MIT License
- * @link http://codeigniter.com
- */
+	* System messages translation for CodeIgniter(tm)
+	*
+	* @author CodeIgniter community
+	* @author Muhammad Ali
+	* @copyright Copyright (c) 2014 - 2016, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license http://opensource.org/licenses/MIT MIT License
+	* @link http://codeigniter.com
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['ftp_no_connection']		= '.پتہ لگانے سے قاصر. لہذا درخواست ہے کے آپ اس بات کو یقینی بنا لیں کے فائلز کے معمولات سے پہلے آپ کنیکٹیڈ ہوں ID درست کنکشن';

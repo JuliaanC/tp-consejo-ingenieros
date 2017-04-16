@@ -1,66 +1,66 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CodeIgniter Text Helpers
- *
- * @package		CodeIgniter
- * @subpackage	Helpers
- * @category	Helpers
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/helpers/text_helper.html
- */
+	* CodeIgniter Text Helpers
+	*
+	* @package		CodeIgniter
+	* @subpackage	Helpers
+	* @category	Helpers
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/helpers/text_helper.html
+	*/
 
 // ------------------------------------------------------------------------
 
 if ( ! function_exists('word_limiter'))
 {
 	/**
-	 * Word Limiter
-	 *
-	 * Limits a string to X number of words.
-	 *
-	 * @param	string
-	 * @param	int
-	 * @param	string	the end character. Usually an ellipsis
-	 * @return	string
-	 */
+		* Word Limiter
+		*
+		* Limits a string to X number of words.
+		*
+		* @param	string
+		* @param	int
+		* @param	string	the end character. Usually an ellipsis
+		* @return	string
+		*/
 	function word_limiter($str, $limit = 100, $end_char = '&#8230;')
 	{
 		if (trim($str) === '')
@@ -84,16 +84,16 @@ if ( ! function_exists('word_limiter'))
 if ( ! function_exists('character_limiter'))
 {
 	/**
-	 * Character Limiter
-	 *
-	 * Limits the string based on the character count.  Preserves complete words
-	 * so the character count may not be exactly as specified.
-	 *
-	 * @param	string
-	 * @param	int
-	 * @param	string	the end character. Usually an ellipsis
-	 * @return	string
-	 */
+		* Character Limiter
+		*
+		* Limits the string based on the character count.  Preserves complete words
+		* so the character count may not be exactly as specified.
+		*
+		* @param	string
+		* @param	int
+		* @param	string	the end character. Usually an ellipsis
+		* @return	string
+		*/
 	function character_limiter($str, $n = 500, $end_char = '&#8230;')
 	{
 		if (mb_strlen($str) < $n)
@@ -128,13 +128,13 @@ if ( ! function_exists('character_limiter'))
 if ( ! function_exists('ascii_to_entities'))
 {
 	/**
-	 * High ASCII to Entities
-	 *
-	 * Converts high ASCII text and MS Word special characters to character entities
-	 *
-	 * @param	string	$str
-	 * @return	string
-	 */
+		* High ASCII to Entities
+		*
+		* Converts high ASCII text and MS Word special characters to character entities
+		*
+		* @param	string	$str
+		* @return	string
+		*/
 	function ascii_to_entities($str)
 	{
 		$out = '';
@@ -195,14 +195,14 @@ if ( ! function_exists('ascii_to_entities'))
 if ( ! function_exists('entities_to_ascii'))
 {
 	/**
-	 * Entities to ASCII
-	 *
-	 * Converts character entities back to ASCII
-	 *
-	 * @param	string
-	 * @param	bool
-	 * @return	string
-	 */
+		* Entities to ASCII
+		*
+		* Converts character entities back to ASCII
+		*
+		* @param	string
+		* @param	bool
+		* @return	string
+		*/
 	function entities_to_ascii($str, $all = TRUE)
 	{
 		if (preg_match_all('/\&#(\d+)\;/', $str, $matches))
@@ -250,17 +250,17 @@ if ( ! function_exists('entities_to_ascii'))
 if ( ! function_exists('word_censor'))
 {
 	/**
-	 * Word Censoring Function
-	 *
-	 * Supply a string and an array of disallowed words and any
-	 * matched words will be converted to #### or to the replacement
-	 * word you've submitted.
-	 *
-	 * @param	string	the text string
-	 * @param	string	the array of censored words
-	 * @param	string	the optional replacement value
-	 * @return	string
-	 */
+		* Word Censoring Function
+		*
+		* Supply a string and an array of disallowed words and any
+		* matched words will be converted to #### or to the replacement
+		* word you've submitted.
+		*
+		* @param	string	the text string
+		* @param	string	the array of censored words
+		* @param	string	the optional replacement value
+		* @return	string
+		*/
 	function word_censor($str, $censored, $replacement = '')
 	{
 		if ( ! is_array($censored))
@@ -312,22 +312,22 @@ if ( ! function_exists('word_censor'))
 if ( ! function_exists('highlight_code'))
 {
 	/**
-	 * Code Highlighter
-	 *
-	 * Colorizes code strings
-	 *
-	 * @param	string	the text string
-	 * @return	string
-	 */
+		* Code Highlighter
+		*
+		* Colorizes code strings
+		*
+		* @param	string	the text string
+		* @return	string
+		*/
 	function highlight_code($str)
 	{
 		/* The highlight string function encodes and highlights
-		 * brackets so we need them to start raw.
-		 *
-		 * Also replace any existing PHP tags to temporary markers
-		 * so they don't accidentally break the string out of PHP,
-		 * and thus, thwart the highlighting.
-		 */
+			* brackets so we need them to start raw.
+			*
+			* Also replace any existing PHP tags to temporary markers
+			* so they don't accidentally break the string out of PHP,
+			* and thus, thwart the highlighting.
+			*/
 		$str = str_replace(
 			array('&lt;', '&gt;', '<?', '?>', '<%', '%>', '\\', '</script>'),
 			array('<', '>', 'phptagopen', 'phptagclose', 'asptagopen', 'asptagclose', 'backslashtmp', 'scriptclose'),
@@ -367,16 +367,16 @@ if ( ! function_exists('highlight_code'))
 if ( ! function_exists('highlight_phrase'))
 {
 	/**
-	 * Phrase Highlighter
-	 *
-	 * Highlights a phrase within a text string
-	 *
-	 * @param	string	$str		the text string
-	 * @param	string	$phrase		the phrase you'd like to highlight
-	 * @param	string	$tag_open	the openging tag to precede the phrase with
-	 * @param	string	$tag_close	the closing tag to end the phrase with
-	 * @return	string
-	 */
+		* Phrase Highlighter
+		*
+		* Highlights a phrase within a text string
+		*
+		* @param	string	$str		the text string
+		* @param	string	$phrase		the phrase you'd like to highlight
+		* @param	string	$tag_open	the openging tag to precede the phrase with
+		* @param	string	$tag_close	the closing tag to end the phrase with
+		* @return	string
+		*/
 	function highlight_phrase($str, $phrase, $tag_open = '<mark>', $tag_close = '</mark>')
 	{
 		return ($str !== '' && $phrase !== '')
@@ -390,11 +390,11 @@ if ( ! function_exists('highlight_phrase'))
 if ( ! function_exists('convert_accented_characters'))
 {
 	/**
-	 * Convert Accented Foreign Characters to ASCII
-	 *
-	 * @param	string	$str	Input string
-	 * @return	string
-	 */
+		* Convert Accented Foreign Characters to ASCII
+		*
+		* @param	string	$str	Input string
+		* @return	string
+		*/
 	function convert_accented_characters($str)
 	{
 		static $array_from, $array_to;
@@ -432,16 +432,16 @@ if ( ! function_exists('convert_accented_characters'))
 if ( ! function_exists('word_wrap'))
 {
 	/**
-	 * Word Wrap
-	 *
-	 * Wraps text at the specified character. Maintains the integrity of words.
-	 * Anything placed between {unwrap}{/unwrap} will not be word wrapped, nor
-	 * will URLs.
-	 *
-	 * @param	string	$str		the text string
-	 * @param	int	$charlim = 76	the number of characters to wrap at
-	 * @return	string
-	 */
+		* Word Wrap
+		*
+		* Wraps text at the specified character. Maintains the integrity of words.
+		* Anything placed between {unwrap}{/unwrap} will not be word wrapped, nor
+		* will URLs.
+		*
+		* @param	string	$str		the text string
+		* @param	int	$charlim = 76	the number of characters to wrap at
+		* @return	string
+		*/
 	function word_wrap($str, $charlim = 76)
 	{
 		// Set the character limit
@@ -529,16 +529,16 @@ if ( ! function_exists('word_wrap'))
 if ( ! function_exists('ellipsize'))
 {
 	/**
-	 * Ellipsize String
-	 *
-	 * This function will strip tags from a string, split it at its max_length and ellipsize
-	 *
-	 * @param	string	string to ellipsize
-	 * @param	int	max length of string
-	 * @param	mixed	int (1|0) or float, .5, .2, etc for position to split
-	 * @param	string	ellipsis ; Default '...'
-	 * @return	string	ellipsized string
-	 */
+		* Ellipsize String
+		*
+		* This function will strip tags from a string, split it at its max_length and ellipsize
+		*
+		* @param	string	string to ellipsize
+		* @param	int	max length of string
+		* @param	mixed	int (1|0) or float, .5, .2, etc for position to split
+		* @param	string	ellipsis ; Default '...'
+		* @return	string	ellipsized string
+		*/
 	function ellipsize($str, $max_length, $position = 1, $ellipsis = '&hellip;')
 	{
 		// Strip tags

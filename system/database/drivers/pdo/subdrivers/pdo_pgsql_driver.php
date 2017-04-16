@@ -1,90 +1,90 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 3.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 3.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * PDO PostgreSQL Database Adapter Class
- *
- * Note: _DB is an extender class that the app controller
- * creates dynamically based on whether the query builder
- * class is being used or not.
- *
- * @package		CodeIgniter
- * @subpackage	Drivers
- * @category	Database
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/database/
- */
+	* PDO PostgreSQL Database Adapter Class
+	*
+	* Note: _DB is an extender class that the app controller
+	* creates dynamically based on whether the query builder
+	* class is being used or not.
+	*
+	* @package		CodeIgniter
+	* @subpackage	Drivers
+	* @category	Database
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/database/
+	*/
 class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 
 	/**
-	 * Sub-driver
-	 *
-	 * @var	string
-	 */
+		* Sub-driver
+		*
+		* @var	string
+		*/
 	public $subdriver = 'pgsql';
 
 	/**
-	 * Database schema
-	 *
-	 * @var	string
-	 */
+		* Database schema
+		*
+		* @var	string
+		*/
 	public $schema = 'public';
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * ORDER BY random keyword
-	 *
-	 * @var	array
-	 */
+		* ORDER BY random keyword
+		*
+		* @var	array
+		*/
 	protected $_random_keyword = array('RANDOM()', 'RANDOM()');
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Class constructor
-	 *
-	 * Builds the DSN if not already set.
-	 *
-	 * @param	array	$params
-	 * @return	void
-	 */
+		* Class constructor
+		*
+		* Builds the DSN if not already set.
+		*
+		* @param	array	$params
+		* @return	void
+		*/
 	public function __construct($params)
 	{
 		parent::__construct($params);
@@ -107,11 +107,11 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Database connection
-	 *
-	 * @param	bool	$persistent
-	 * @return	object
-	 */
+		* Database connection
+		*
+		* @param	bool	$persistent
+		* @return	object
+		*/
 	public function db_connect($persistent = FALSE)
 	{
 		$this->conn_id = parent::db_connect($persistent);
@@ -127,11 +127,11 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Insert ID
-	 *
-	 * @param	string	$name
-	 * @return	int
-	 */
+		* Insert ID
+		*
+		* @param	string	$name
+		* @return	int
+		*/
 	public function insert_id($name = NULL)
 	{
 		if ($name === NULL && version_compare($this->version(), '8.1', '>='))
@@ -147,11 +147,11 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Determines if a query is a "write" type.
-	 *
-	 * @param	string	An SQL query string
-	 * @return	bool
-	 */
+		* Determines if a query is a "write" type.
+		*
+		* @param	string	An SQL query string
+		* @return	bool
+		*/
 	public function is_write_type($sql)
 	{
 		if (preg_match('#^(INSERT|UPDATE).*RETURNING\s.+(\,\s?.+)*$#is', $sql))
@@ -165,13 +165,13 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * "Smart" Escape String
-	 *
-	 * Escapes data based on type
-	 *
-	 * @param	string	$str
-	 * @return	mixed
-	 */
+		* "Smart" Escape String
+		*
+		* Escapes data based on type
+		*
+		* @param	string	$str
+		* @return	mixed
+		*/
 	public function escape($str)
 	{
 		if (is_bool($str))
@@ -185,13 +185,13 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * ORDER BY
-	 *
-	 * @param	string	$orderby
-	 * @param	string	$direction	ASC, DESC or RANDOM
-	 * @param	bool	$escape
-	 * @return	object
-	 */
+		* ORDER BY
+		*
+		* @param	string	$orderby
+		* @param	string	$direction	ASC, DESC or RANDOM
+		* @param	bool	$escape
+		* @return	object
+		*/
 	public function order_by($orderby, $direction = '', $escape = NULL)
 	{
 		$direction = strtoupper(trim($direction));
@@ -220,13 +220,13 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Show table query
-	 *
-	 * Generates a platform-specific query string so that the table names can be fetched
-	 *
-	 * @param	bool	$prefix_limit
-	 * @return	string
-	 */
+		* Show table query
+		*
+		* Generates a platform-specific query string so that the table names can be fetched
+		*
+		* @param	bool	$prefix_limit
+		* @return	string
+		*/
 	protected function _list_tables($prefix_limit = FALSE)
 	{
 		$sql = 'SELECT "table_name" FROM "information_schema"."tables" WHERE "table_schema" = \''.$this->schema."'";
@@ -244,13 +244,13 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * List column query
-	 *
-	 * Generates a platform-specific query string so that the column names can be fetched
-	 *
-	 * @param	string	$table
-	 * @return	string
-	 */
+		* List column query
+		*
+		* Generates a platform-specific query string so that the column names can be fetched
+		*
+		* @param	string	$table
+		* @return	string
+		*/
 	protected function _list_columns($table = '')
 	{
 		return 'SELECT "column_name"
@@ -261,11 +261,11 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Returns an object with field data
-	 *
-	 * @param	string	$table
-	 * @return	array
-	 */
+		* Returns an object with field data
+		*
+		* @param	string	$table
+		* @return	array
+		*/
 	public function field_data($table)
 	{
 		$sql = 'SELECT "column_name", "data_type", "character_maximum_length", "numeric_precision", "column_default"
@@ -294,14 +294,14 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Update statement
-	 *
-	 * Generates a platform-specific update string from the supplied data
-	 *
-	 * @param	string	$table
-	 * @param	array	$values
-	 * @return	string
-	 */
+		* Update statement
+		*
+		* Generates a platform-specific update string from the supplied data
+		*
+		* @param	string	$table
+		* @param	array	$values
+		* @return	string
+		*/
 	protected function _update($table, $values)
 	{
 		$this->qb_limit = FALSE;
@@ -312,15 +312,15 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Update_Batch statement
-	 *
-	 * Generates a platform-specific batch update string from the supplied data
-	 *
-	 * @param	string	$table	Table name
-	 * @param	array	$values	Update data
-	 * @param	string	$index	WHERE key
-	 * @return	string
-	 */
+		* Update_Batch statement
+		*
+		* Generates a platform-specific batch update string from the supplied data
+		*
+		* @param	string	$table	Table name
+		* @param	array	$values	Update data
+		* @param	string	$index	WHERE key
+		* @return	string
+		*/
 	protected function _update_batch($table, $values, $index)
 	{
 		$ids = array();
@@ -353,13 +353,13 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Delete statement
-	 *
-	 * Generates a platform-specific delete string from the supplied data
-	 *
-	 * @param	string	$table
-	 * @return	string
-	 */
+		* Delete statement
+		*
+		* Generates a platform-specific delete string from the supplied data
+		*
+		* @param	string	$table
+		* @return	string
+		*/
 	protected function _delete($table)
 	{
 		$this->qb_limit = FALSE;
@@ -369,13 +369,13 @@ class CI_DB_pdo_pgsql_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * LIMIT
-	 *
-	 * Generates a platform-specific LIMIT clause
-	 *
-	 * @param	string	$sql	SQL Query
-	 * @return	string
-	 */
+		* LIMIT
+		*
+		* Generates a platform-specific LIMIT clause
+		*
+		* @param	string	$sql	SQL Query
+		* @return	string
+		*/
 	protected function _limit($sql)
 	{
 		return $sql.' LIMIT '.$this->qb_limit.($this->qb_offset ? ' OFFSET '.$this->qb_offset : '');

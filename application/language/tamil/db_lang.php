@@ -1,12 +1,12 @@
 <?php
 /**
- * System messages translation for CodeIgniter(tm)
- *
- * @author	CodeIgniter community
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- */
+	* System messages translation for CodeIgniter(tm)
+	*
+	* @author	CodeIgniter community
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['db_invalid_connection_str'] = 'நீங்கள் சமர்ப்பித்த இணைப்பு சரம் அடிப்படையில் தரவுத்தள அமைப்புகளை தீர்மானிக்க முடியவில்லை';

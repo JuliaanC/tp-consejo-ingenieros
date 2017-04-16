@@ -1,81 +1,81 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 3.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 3.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * SQLite3 Database Adapter Class
- *
- * Note: _DB is an extender class that the app controller
- * creates dynamically based on whether the query builder
- * class is being used or not.
- *
- * @package		CodeIgniter
- * @subpackage	Drivers
- * @category	Database
- * @author		Andrey Andreev
- * @link		https://codeigniter.com/user_guide/database/
- */
+	* SQLite3 Database Adapter Class
+	*
+	* Note: _DB is an extender class that the app controller
+	* creates dynamically based on whether the query builder
+	* class is being used or not.
+	*
+	* @package		CodeIgniter
+	* @subpackage	Drivers
+	* @category	Database
+	* @author		Andrey Andreev
+	* @link		https://codeigniter.com/user_guide/database/
+	*/
 class CI_DB_sqlite3_driver extends CI_DB {
 
 	/**
-	 * Database driver
-	 *
-	 * @var	string
-	 */
+		* Database driver
+		*
+		* @var	string
+		*/
 	public $dbdriver = 'sqlite3';
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * ORDER BY random keyword
-	 *
-	 * @var	array
-	 */
+		* ORDER BY random keyword
+		*
+		* @var	array
+		*/
 	protected $_random_keyword = array('RANDOM()', 'RANDOM()');
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Non-persistent database connection
-	 *
-	 * @param	bool	$persistent
-	 * @return	SQLite3
-	 */
+		* Non-persistent database connection
+		*
+		* @param	bool	$persistent
+		* @return	SQLite3
+		*/
 	public function db_connect($persistent = FALSE)
 	{
 		if ($persistent)
@@ -98,10 +98,10 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Database version number
-	 *
-	 * @return	string
-	 */
+		* Database version number
+		*
+		* @return	string
+		*/
 	public function version()
 	{
 		if (isset($this->data_cache['version']))
@@ -116,12 +116,12 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Execute the query
-	 *
-	 * @todo	Implement use of SQLite3::querySingle(), if needed
-	 * @param	string	$sql
-	 * @return	mixed	SQLite3Result object or bool
-	 */
+		* Execute the query
+		*
+		* @todo	Implement use of SQLite3::querySingle(), if needed
+		* @param	string	$sql
+		* @return	mixed	SQLite3Result object or bool
+		*/
 	protected function _execute($sql)
 	{
 		return $this->is_write_type($sql)
@@ -132,10 +132,10 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Begin Transaction
-	 *
-	 * @return	bool
-	 */
+		* Begin Transaction
+		*
+		* @return	bool
+		*/
 	protected function _trans_begin()
 	{
 		return $this->conn_id->exec('BEGIN TRANSACTION');
@@ -144,10 +144,10 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Commit Transaction
-	 *
-	 * @return	bool
-	 */
+		* Commit Transaction
+		*
+		* @return	bool
+		*/
 	protected function _trans_commit()
 	{
 		return $this->conn_id->exec('END TRANSACTION');
@@ -156,10 +156,10 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Rollback Transaction
-	 *
-	 * @return	bool
-	 */
+		* Rollback Transaction
+		*
+		* @return	bool
+		*/
 	protected function _trans_rollback()
 	{
 		return $this->conn_id->exec('ROLLBACK');
@@ -168,11 +168,11 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Platform-dependent string escape
-	 *
-	 * @param	string
-	 * @return	string
-	 */
+		* Platform-dependent string escape
+		*
+		* @param	string
+		* @return	string
+		*/
 	protected function _escape_str($str)
 	{
 		return $this->conn_id->escapeString($str);
@@ -181,10 +181,10 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Affected Rows
-	 *
-	 * @return	int
-	 */
+		* Affected Rows
+		*
+		* @return	int
+		*/
 	public function affected_rows()
 	{
 		return $this->conn_id->changes();
@@ -193,10 +193,10 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Insert ID
-	 *
-	 * @return	int
-	 */
+		* Insert ID
+		*
+		* @return	int
+		*/
 	public function insert_id()
 	{
 		return $this->conn_id->lastInsertRowID();
@@ -205,13 +205,13 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Show table query
-	 *
-	 * Generates a platform-specific query string so that the table names can be fetched
-	 *
-	 * @param	bool	$prefix_limit
-	 * @return	string
-	 */
+		* Show table query
+		*
+		* Generates a platform-specific query string so that the table names can be fetched
+		*
+		* @param	bool	$prefix_limit
+		* @return	string
+		*/
 	protected function _list_tables($prefix_limit = FALSE)
 	{
 		return 'SELECT "NAME" FROM "SQLITE_MASTER" WHERE "TYPE" = \'table\''
@@ -223,11 +223,11 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Fetch Field Names
-	 *
-	 * @param	string	$table	Table name
-	 * @return	array
-	 */
+		* Fetch Field Names
+		*
+		* @param	string	$table	Table name
+		* @return	array
+		*/
 	public function list_fields($table)
 	{
 		// Is there a cached result?
@@ -253,11 +253,11 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Returns an object with field data
-	 *
-	 * @param	string	$table
-	 * @return	array
-	 */
+		* Returns an object with field data
+		*
+		* @param	string	$table
+		* @return	array
+		*/
 	public function field_data($table)
 	{
 		if (($query = $this->query('PRAGMA TABLE_INFO('.$this->protect_identifiers($table, TRUE, NULL, FALSE).')')) === FALSE)
@@ -288,13 +288,13 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Error
-	 *
-	 * Returns an array containing code and message of the last
-	 * database error that has occurred.
-	 *
-	 * @return	array
-	 */
+		* Error
+		*
+		* Returns an array containing code and message of the last
+		* database error that has occurred.
+		*
+		* @return	array
+		*/
 	public function error()
 	{
 		return array('code' => $this->conn_id->lastErrorCode(), 'message' => $this->conn_id->lastErrorMsg());
@@ -303,15 +303,15 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Replace statement
-	 *
-	 * Generates a platform-specific replace string from the supplied data
-	 *
-	 * @param	string	$table	Table name
-	 * @param	array	$keys	INSERT keys
-	 * @param	array	$values	INSERT values
-	 * @return	string
-	 */
+		* Replace statement
+		*
+		* Generates a platform-specific replace string from the supplied data
+		*
+		* @param	string	$table	Table name
+		* @param	array	$keys	INSERT keys
+		* @param	array	$values	INSERT values
+		* @return	string
+		*/
 	protected function _replace($table, $keys, $values)
 	{
 		return 'INSERT OR '.parent::_replace($table, $keys, $values);
@@ -320,16 +320,16 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Truncate statement
-	 *
-	 * Generates a platform-specific truncate string from the supplied data
-	 *
-	 * If the database does not support the TRUNCATE statement,
-	 * then this method maps to 'DELETE FROM table'
-	 *
-	 * @param	string	$table
-	 * @return	string
-	 */
+		* Truncate statement
+		*
+		* Generates a platform-specific truncate string from the supplied data
+		*
+		* If the database does not support the TRUNCATE statement,
+		* then this method maps to 'DELETE FROM table'
+		*
+		* @param	string	$table
+		* @return	string
+		*/
 	protected function _truncate($table)
 	{
 		return 'DELETE FROM '.$table;
@@ -338,10 +338,10 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Close DB Connection
-	 *
-	 * @return	void
-	 */
+		* Close DB Connection
+		*
+		* @return	void
+		*/
 	protected function _close()
 	{
 		$this->conn_id->close();

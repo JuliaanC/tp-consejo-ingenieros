@@ -1,122 +1,122 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Zip Compression Class
- *
- * This class is based on a library I found at Zend:
- * http://www.zend.com/codex.php?id=696&single=1
- *
- * The original library is a little rough around the edges so I
- * refactored it and added several additional methods -- Rick Ellis
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Encryption
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/libraries/zip.html
- */
+	* Zip Compression Class
+	*
+	* This class is based on a library I found at Zend:
+	* http://www.zend.com/codex.php?id=696&single=1
+	*
+	* The original library is a little rough around the edges so I
+	* refactored it and added several additional methods -- Rick Ellis
+	*
+	* @package		CodeIgniter
+	* @subpackage	Libraries
+	* @category	Encryption
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/libraries/zip.html
+	*/
 class CI_Zip {
 
 	/**
-	 * Zip data in string form
-	 *
-	 * @var string
-	 */
+		* Zip data in string form
+		*
+		* @var string
+		*/
 	public $zipdata = '';
 
 	/**
-	 * Zip data for a directory in string form
-	 *
-	 * @var string
-	 */
+		* Zip data for a directory in string form
+		*
+		* @var string
+		*/
 	public $directory = '';
 
 	/**
-	 * Number of files/folder in zip file
-	 *
-	 * @var int
-	 */
+		* Number of files/folder in zip file
+		*
+		* @var int
+		*/
 	public $entries = 0;
 
 	/**
-	 * Number of files in zip
-	 *
-	 * @var int
-	 */
+		* Number of files in zip
+		*
+		* @var int
+		*/
 	public $file_num = 0;
 
 	/**
-	 * relative offset of local header
-	 *
-	 * @var int
-	 */
+		* relative offset of local header
+		*
+		* @var int
+		*/
 	public $offset = 0;
 
 	/**
-	 * Reference to time at init
-	 *
-	 * @var int
-	 */
+		* Reference to time at init
+		*
+		* @var int
+		*/
 	public $now;
 
 	/**
-	 * The level of compression
-	 *
-	 * Ranges from 0 to 9, with 9 being the highest level.
-	 *
-	 * @var	int
-	 */
+		* The level of compression
+		*
+		* Ranges from 0 to 9, with 9 being the highest level.
+		*
+		* @var	int
+		*/
 	public $compression_level = 2;
 
 	/**
-	 * mbstring.func_overload flag
-	 *
-	 * @var	bool
-	 */
+		* mbstring.func_overload flag
+		*
+		* @var	bool
+		*/
 	protected static $func_overload;
 
 	/**
-	 * Initialize zip compression class
-	 *
-	 * @return	void
-	 */
+		* Initialize zip compression class
+		*
+		* @return	void
+		*/
 	public function __construct()
 	{
 		isset(self::$func_overload) OR self::$func_overload = (extension_loaded('mbstring') && ini_get('mbstring.func_overload'));
@@ -128,13 +128,13 @@ class CI_Zip {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Add Directory
-	 *
-	 * Lets you add a virtual directory into which you can place files.
-	 *
-	 * @param	mixed	$directory	the directory name. Can be string or array
-	 * @return	void
-	 */
+		* Add Directory
+		*
+		* Lets you add a virtual directory into which you can place files.
+		*
+		* @param	mixed	$directory	the directory name. Can be string or array
+		* @return	void
+		*/
 	public function add_dir($directory)
 	{
 		foreach ((array) $directory as $dir)
@@ -152,13 +152,13 @@ class CI_Zip {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get file/directory modification time
-	 *
-	 * If this is a newly created file/dir, we will set the time to 'now'
-	 *
-	 * @param	string	$dir	path to file
-	 * @return	array	filemtime/filemdate
-	 */
+		* Get file/directory modification time
+		*
+		* If this is a newly created file/dir, we will set the time to 'now'
+		*
+		* @param	string	$dir	path to file
+		* @return	array	filemtime/filemdate
+		*/
 	protected function _get_mod_time($dir)
 	{
 		// filemtime() may return false, but raises an error for non-existing files
@@ -173,13 +173,13 @@ class CI_Zip {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Add Directory
-	 *
-	 * @param	string	$dir	the directory name
-	 * @param	int	$file_mtime
-	 * @param	int	$file_mdate
-	 * @return	void
-	 */
+		* Add Directory
+		*
+		* @param	string	$dir	the directory name
+		* @param	int	$file_mtime
+		* @param	int	$file_mdate
+		* @return	void
+		*/
 	protected function _add_dir($dir, $file_mtime, $file_mdate)
 	{
 		$dir = str_replace('\\', '/', $dir);
@@ -222,16 +222,16 @@ class CI_Zip {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Add Data to Zip
-	 *
-	 * Lets you add files to the archive. If the path is included
-	 * in the filename it will be placed within a directory. Make
-	 * sure you use add_dir() first to create the folder.
-	 *
-	 * @param	mixed	$filepath	A single filepath or an array of file => data pairs
-	 * @param	string	$data		Single file contents
-	 * @return	void
-	 */
+		* Add Data to Zip
+		*
+		* Lets you add files to the archive. If the path is included
+		* in the filename it will be placed within a directory. Make
+		* sure you use add_dir() first to create the folder.
+		*
+		* @param	mixed	$filepath	A single filepath or an array of file => data pairs
+		* @param	string	$data		Single file contents
+		* @return	void
+		*/
 	public function add_data($filepath, $data = NULL)
 	{
 		if (is_array($filepath))
@@ -252,14 +252,14 @@ class CI_Zip {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Add Data to Zip
-	 *
-	 * @param	string	$filepath	the file name/path
-	 * @param	string	$data	the data to be encoded
-	 * @param	int	$file_mtime
-	 * @param	int	$file_mdate
-	 * @return	void
-	 */
+		* Add Data to Zip
+		*
+		* @param	string	$filepath	the file name/path
+		* @param	string	$data	the data to be encoded
+		* @param	int	$file_mtime
+		* @param	int	$file_mdate
+		* @return	void
+		*/
 	protected function _add_data($filepath, $data, $file_mtime, $file_mdate)
 	{
 		$filepath = str_replace('\\', '/', $filepath);
@@ -305,12 +305,12 @@ class CI_Zip {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Read the contents of a file and add it to the zip
-	 *
-	 * @param	string	$path
-	 * @param	bool	$archive_filepath
-	 * @return	bool
-	 */
+		* Read the contents of a file and add it to the zip
+		*
+		* @param	string	$path
+		* @param	bool	$archive_filepath
+		* @return	bool
+		*/
 	public function read_file($path, $archive_filepath = FALSE)
 	{
 		if (file_exists($path) && FALSE !== ($data = file_get_contents($path)))
@@ -339,17 +339,17 @@ class CI_Zip {
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Read a directory and add it to the zip.
-	 *
-	 * This function recursively reads a folder and everything it contains (including
-	 * sub-folders) and creates a zip based on it. Whatever directory structure
-	 * is in the original file path will be recreated in the zip file.
-	 *
-	 * @param	string	$path	path to source directory
-	 * @param	bool	$preserve_filepath
-	 * @param	string	$root_path
-	 * @return	bool
-	 */
+		* Read a directory and add it to the zip.
+		*
+		* This function recursively reads a folder and everything it contains (including
+		* sub-folders) and creates a zip based on it. Whatever directory structure
+		* is in the original file path will be recreated in the zip file.
+		*
+		* @param	string	$path	path to source directory
+		* @param	bool	$preserve_filepath
+		* @param	string	$root_path
+		* @return	bool
+		*/
 	public function read_dir($path, $preserve_filepath = TRUE, $root_path = NULL)
 	{
 		$path = rtrim($path, '/\\').DIRECTORY_SEPARATOR;
@@ -394,10 +394,10 @@ class CI_Zip {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get the Zip file
-	 *
-	 * @return	string	(binary encoded)
-	 */
+		* Get the Zip file
+		*
+		* @return	string	(binary encoded)
+		*/
 	public function get_zip()
 	{
 		// Is there any data to return?
@@ -418,13 +418,13 @@ class CI_Zip {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Write File to the specified directory
-	 *
-	 * Lets you write a file
-	 *
-	 * @param	string	$filepath	the file name
-	 * @return	bool
-	 */
+		* Write File to the specified directory
+		*
+		* Lets you write a file
+		*
+		* @param	string	$filepath	the file name
+		* @return	bool
+		*/
 	public function archive($filepath)
 	{
 		if ( ! ($fp = @fopen($filepath, 'w+b')))
@@ -451,11 +451,11 @@ class CI_Zip {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Download
-	 *
-	 * @param	string	$filename	the file name
-	 * @return	void
-	 */
+		* Download
+		*
+		* @param	string	$filename	the file name
+		* @return	void
+		*/
 	public function download($filename = 'backup.zip')
 	{
 		if ( ! preg_match('|.+?\.zip$|', $filename))
@@ -473,13 +473,13 @@ class CI_Zip {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Initialize Data
-	 *
-	 * Lets you clear current zip data. Useful if you need to create
-	 * multiple zips with different data.
-	 *
-	 * @return	CI_Zip
-	 */
+		* Initialize Data
+		*
+		* Lets you clear current zip data. Useful if you need to create
+		* multiple zips with different data.
+		*
+		* @return	CI_Zip
+		*/
 	public function clear_data()
 	{
 		$this->zipdata = '';
@@ -493,11 +493,11 @@ class CI_Zip {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Byte-safe strlen()
-	 *
-	 * @param	string	$str
-	 * @return	int
-	 */
+		* Byte-safe strlen()
+		*
+		* @param	string	$str
+		* @return	int
+		*/
 	protected static function strlen($str)
 	{
 		return (self::$func_overload)
@@ -508,13 +508,13 @@ class CI_Zip {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Byte-safe substr()
-	 *
-	 * @param	string	$str
-	 * @param	int	$start
-	 * @param	int	$length
-	 * @return	string
-	 */
+		* Byte-safe substr()
+		*
+		* @param	string	$str
+		* @param	int	$start
+		* @param	int	$length
+		* @return	string
+		*/
 	protected static function substr($str, $start, $length = NULL)
 	{
 		if (self::$func_overload)

@@ -1,126 +1,126 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Router Class
- *
- * Parses URIs and determines routing
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Libraries
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/general/routing.html
- */
+	* Router Class
+	*
+	* Parses URIs and determines routing
+	*
+	* @package		CodeIgniter
+	* @subpackage	Libraries
+	* @category	Libraries
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/general/routing.html
+	*/
 class CI_Router {
 
 	/**
-	 * CI_Config class object
-	 *
-	 * @var	object
-	 */
+		* CI_Config class object
+		*
+		* @var	object
+		*/
 	public $config;
 
 	/**
-	 * List of routes
-	 *
-	 * @var	array
-	 */
+		* List of routes
+		*
+		* @var	array
+		*/
 	public $routes =	array();
 
 	/**
-	 * Current class name
-	 *
-	 * @var	string
-	 */
+		* Current class name
+		*
+		* @var	string
+		*/
 	public $class =		'';
 
 	/**
-	 * Current method name
-	 *
-	 * @var	string
-	 */
+		* Current method name
+		*
+		* @var	string
+		*/
 	public $method =	'index';
 
 	/**
-	 * Sub-directory that contains the requested controller class
-	 *
-	 * @var	string
-	 */
+		* Sub-directory that contains the requested controller class
+		*
+		* @var	string
+		*/
 	public $directory;
 
 	/**
-	 * Default controller (and method if specific)
-	 *
-	 * @var	string
-	 */
+		* Default controller (and method if specific)
+		*
+		* @var	string
+		*/
 	public $default_controller;
 
 	/**
-	 * Translate URI dashes
-	 *
-	 * Determines whether dashes in controller & method segments
-	 * should be automatically replaced by underscores.
-	 *
-	 * @var	bool
-	 */
+		* Translate URI dashes
+		*
+		* Determines whether dashes in controller & method segments
+		* should be automatically replaced by underscores.
+		*
+		* @var	bool
+		*/
 	public $translate_uri_dashes = FALSE;
 
 	/**
-	 * Enable query strings flag
-	 *
-	 * Determines whether to use GET parameters or segment URIs
-	 *
-	 * @var	bool
-	 */
+		* Enable query strings flag
+		*
+		* Determines whether to use GET parameters or segment URIs
+		*
+		* @var	bool
+		*/
 	public $enable_query_strings = FALSE;
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Class constructor
-	 *
-	 * Runs the route mapping function.
-	 *
-	 * @param	array	$routing
-	 * @return	void
-	 */
+		* Class constructor
+		*
+		* Runs the route mapping function.
+		*
+		* @param	array	$routing
+		* @return	void
+		*/
 	public function __construct($routing = NULL)
 	{
 		$this->config =& load_class('Config', 'core');
@@ -145,13 +145,13 @@ class CI_Router {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set route mapping
-	 *
-	 * Determines what should be served based on the URI request,
-	 * as well as any "routes" that have been set in the routing config file.
-	 *
-	 * @return	void
-	 */
+		* Set route mapping
+		*
+		* Determines what should be served based on the URI request,
+		* as well as any "routes" that have been set in the routing config file.
+		*
+		* @return	void
+		*/
 	protected function _set_routing()
 	{
 		// Load the routes.php file. It would be great if we could
@@ -236,15 +236,15 @@ class CI_Router {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set request route
-	 *
-	 * Takes an array of URI segments as input and sets the class/method
-	 * to be called.
-	 *
-	 * @used-by	CI_Router::_parse_routes()
-	 * @param	array	$segments	URI segments
-	 * @return	void
-	 */
+		* Set request route
+		*
+		* Takes an array of URI segments as input and sets the class/method
+		* to be called.
+		*
+		* @used-by	CI_Router::_parse_routes()
+		* @param	array	$segments	URI segments
+		* @return	void
+		*/
 	protected function _set_request($segments = array())
 	{
 		$segments = $this->_validate_request($segments);
@@ -283,10 +283,10 @@ class CI_Router {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set default controller
-	 *
-	 * @return	void
-	 */
+		* Set default controller
+		*
+		* @return	void
+		*/
 	protected function _set_default_controller()
 	{
 		if (empty($this->default_controller))
@@ -321,14 +321,14 @@ class CI_Router {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Validate request
-	 *
-	 * Attempts validate the URI request and determine the controller path.
-	 *
-	 * @used-by	CI_Router::_set_request()
-	 * @param	array	$segments	URI segments
-	 * @return	mixed	URI segments
-	 */
+		* Validate request
+		*
+		* Attempts validate the URI request and determine the controller path.
+		*
+		* @used-by	CI_Router::_set_request()
+		* @param	array	$segments	URI segments
+		* @return	mixed	URI segments
+		*/
 	protected function _validate_request($segments)
 	{
 		$c = count($segments);
@@ -360,13 +360,13 @@ class CI_Router {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Parse Routes
-	 *
-	 * Matches any routes that may exist in the config/routes.php file
-	 * against the URI to determine if the class/method need to be remapped.
-	 *
-	 * @return	void
-	 */
+		* Parse Routes
+		*
+		* Matches any routes that may exist in the config/routes.php file
+		* against the URI to determine if the class/method need to be remapped.
+		*
+		* @return	void
+		*/
 	protected function _parse_routes()
 	{
 		// Turn the segment array into a URI string
@@ -426,11 +426,11 @@ class CI_Router {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set class name
-	 *
-	 * @param	string	$class	Class name
-	 * @return	void
-	 */
+		* Set class name
+		*
+		* @param	string	$class	Class name
+		* @return	void
+		*/
 	public function set_class($class)
 	{
 		$this->class = str_replace(array('/', '.'), '', $class);
@@ -439,11 +439,11 @@ class CI_Router {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Fetch the current class
-	 *
-	 * @deprecated	3.0.0	Read the 'class' property instead
-	 * @return	string
-	 */
+		* Fetch the current class
+		*
+		* @deprecated	3.0.0	Read the 'class' property instead
+		* @return	string
+		*/
 	public function fetch_class()
 	{
 		return $this->class;
@@ -452,11 +452,11 @@ class CI_Router {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set method name
-	 *
-	 * @param	string	$method	Method name
-	 * @return	void
-	 */
+		* Set method name
+		*
+		* @param	string	$method	Method name
+		* @return	void
+		*/
 	public function set_method($method)
 	{
 		$this->method = $method;
@@ -465,11 +465,11 @@ class CI_Router {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Fetch the current method
-	 *
-	 * @deprecated	3.0.0	Read the 'method' property instead
-	 * @return	string
-	 */
+		* Fetch the current method
+		*
+		* @deprecated	3.0.0	Read the 'method' property instead
+		* @return	string
+		*/
 	public function fetch_method()
 	{
 		return $this->method;
@@ -478,12 +478,12 @@ class CI_Router {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set directory name
-	 *
-	 * @param	string	$dir	Directory name
-	 * @param	bool	$append	Whether we're appending rather than setting the full value
-	 * @return	void
-	 */
+		* Set directory name
+		*
+		* @param	string	$dir	Directory name
+		* @param	bool	$append	Whether we're appending rather than setting the full value
+		* @return	void
+		*/
 	public function set_directory($dir, $append = FALSE)
 	{
 		if ($append !== TRUE OR empty($this->directory))
@@ -499,14 +499,14 @@ class CI_Router {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Fetch directory
-	 *
-	 * Feches the sub-directory (if any) that contains the requested
-	 * controller class.
-	 *
-	 * @deprecated	3.0.0	Read the 'directory' property instead
-	 * @return	string
-	 */
+		* Fetch directory
+		*
+		* Feches the sub-directory (if any) that contains the requested
+		* controller class.
+		*
+		* @deprecated	3.0.0	Read the 'directory' property instead
+		* @return	string
+		*/
 	public function fetch_directory()
 	{
 		return $this->directory;

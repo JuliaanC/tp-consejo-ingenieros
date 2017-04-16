@@ -1,80 +1,80 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.3.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.3.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * SQLite Forge Class
- *
- * @category	Database
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/database/
- */
+	* SQLite Forge Class
+	*
+	* @category	Database
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/database/
+	*/
 class CI_DB_sqlite_forge extends CI_DB_forge {
 
 	/**
-	 * CREATE TABLE IF statement
-	 *
-	 * @var	string
-	 */
+		* CREATE TABLE IF statement
+		*
+		* @var	string
+		*/
 	protected $_create_table_if	= FALSE;
 
 	/**
-	 * UNSIGNED support
-	 *
-	 * @var	bool|array
-	 */
+		* UNSIGNED support
+		*
+		* @var	bool|array
+		*/
 	protected $_unsigned		= FALSE;
 
 	/**
-	 * NULL value representation in CREATE/ALTER TABLE statements
-	 *
-	 * @var	string
-	 */
+		* NULL value representation in CREATE/ALTER TABLE statements
+		*
+		* @var	string
+		*/
 	protected $_null		= 'NULL';
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Create database
-	 *
-	 * @param	string	$db_name	(ignored)
-	 * @return	bool
-	 */
+		* Create database
+		*
+		* @param	string	$db_name	(ignored)
+		* @return	bool
+		*/
 	public function create_database($db_name)
 	{
 		// In SQLite, a database is created when you connect to the database.
@@ -85,11 +85,11 @@ class CI_DB_sqlite_forge extends CI_DB_forge {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Drop database
-	 *
-	 * @param	string	$db_name	(ignored)
-	 * @return	bool
-	 */
+		* Drop database
+		*
+		* @param	string	$db_name	(ignored)
+		* @return	bool
+		*/
 	public function drop_database($db_name)
 	{
 		if ( ! file_exists($this->db->database) OR ! @unlink($this->db->database))
@@ -111,14 +111,14 @@ class CI_DB_sqlite_forge extends CI_DB_forge {
 	// --------------------------------------------------------------------
 
 	/**
-	 * ALTER TABLE
-	 *
-	 * @todo	implement drop_column(), modify_column()
-	 * @param	string	$alter_type	ALTER type
-	 * @param	string	$table		Table name
-	 * @param	mixed	$field		Column definition
-	 * @return	string|string[]
-	 */
+		* ALTER TABLE
+		*
+		* @todo	implement drop_column(), modify_column()
+		* @param	string	$alter_type	ALTER type
+		* @param	string	$table		Table name
+		* @param	mixed	$field		Column definition
+		* @return	string|string[]
+		*/
 	protected function _alter_table($alter_type, $table, $field)
 	{
 		if ($alter_type === 'DROP' OR $alter_type === 'CHANGE')
@@ -142,11 +142,11 @@ class CI_DB_sqlite_forge extends CI_DB_forge {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Process column
-	 *
-	 * @param	array	$field
-	 * @return	string
-	 */
+		* Process column
+		*
+		* @param	array	$field
+		* @return	string
+		*/
 	protected function _process_column($field)
 	{
 		return $this->db->escape_identifiers($field['name'])
@@ -160,13 +160,13 @@ class CI_DB_sqlite_forge extends CI_DB_forge {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Field attribute TYPE
-	 *
-	 * Performs a data type mapping between different databases.
-	 *
-	 * @param	array	&$attributes
-	 * @return	void
-	 */
+		* Field attribute TYPE
+		*
+		* Performs a data type mapping between different databases.
+		*
+		* @param	array	&$attributes
+		* @return	void
+		*/
 	protected function _attr_type(&$attributes)
 	{
 		switch (strtoupper($attributes['TYPE']))
@@ -182,12 +182,12 @@ class CI_DB_sqlite_forge extends CI_DB_forge {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Field attribute AUTO_INCREMENT
-	 *
-	 * @param	array	&$attributes
-	 * @param	array	&$field
-	 * @return	void
-	 */
+		* Field attribute AUTO_INCREMENT
+		*
+		* @param	array	&$attributes
+		* @param	array	&$field
+		* @return	void
+		*/
 	protected function _attr_auto_increment(&$attributes, &$field)
 	{
 		if ( ! empty($attributes['AUTO_INCREMENT']) && $attributes['AUTO_INCREMENT'] === TRUE && stripos($field['type'], 'int') !== FALSE)

@@ -1,132 +1,132 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CodeIgniter Calendar Class
- *
- * This class enables the creation of calendars
- *
- * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Libraries
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/libraries/calendar.html
- */
+	* CodeIgniter Calendar Class
+	*
+	* This class enables the creation of calendars
+	*
+	* @package		CodeIgniter
+	* @subpackage	Libraries
+	* @category	Libraries
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/libraries/calendar.html
+	*/
 class CI_Calendar {
 
 	/**
-	 * Calendar layout template
-	 *
-	 * @var mixed
-	 */
+		* Calendar layout template
+		*
+		* @var mixed
+		*/
 	public $template = '';
 
 	/**
-	 * Replacements array for template
-	 *
-	 * @var array
-	 */
+		* Replacements array for template
+		*
+		* @var array
+		*/
 	public $replacements = array();
 
 	/**
-	 * Day of the week to start the calendar on
-	 *
-	 * @var string
-	 */
+		* Day of the week to start the calendar on
+		*
+		* @var string
+		*/
 	public $start_day = 'sunday';
 
 	/**
-	 * How to display months
-	 *
-	 * @var string
-	 */
+		* How to display months
+		*
+		* @var string
+		*/
 	public $month_type = 'long';
 
 	/**
-	 * How to display names of days
-	 *
-	 * @var string
-	 */
+		* How to display names of days
+		*
+		* @var string
+		*/
 	public $day_type = 'abr';
 
 	/**
-	 * Whether to show next/prev month links
-	 *
-	 * @var bool
-	 */
+		* Whether to show next/prev month links
+		*
+		* @var bool
+		*/
 	public $show_next_prev = FALSE;
 
 	/**
-	 * Url base to use for next/prev month links
-	 *
-	 * @var bool
-	 */
+		* Url base to use for next/prev month links
+		*
+		* @var bool
+		*/
 	public $next_prev_url = '';
 
 	/**
-	 * Show days of other months
-	 *
-	 * @var bool
-	 */
+		* Show days of other months
+		*
+		* @var bool
+		*/
 	public $show_other_days = FALSE;
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * CI Singleton
-	 *
-	 * @var object
-	 */
+		* CI Singleton
+		*
+		* @var object
+		*/
 	protected $CI;
 
 	// --------------------------------------------------------------------
 
 	/**
-	 * Class constructor
-	 *
-	 * Loads the calendar language file and sets the default time reference.
-	 *
-	 * @uses	CI_Lang::$is_loaded
-	 *
-	 * @param	array	$config	Calendar options
-	 * @return	void
-	 */
+		* Class constructor
+		*
+		* Loads the calendar language file and sets the default time reference.
+		*
+		* @uses	CI_Lang::$is_loaded
+		*
+		* @param	array	$config	Calendar options
+		* @return	void
+		*/
 	public function __construct($config = array())
 	{
 		$this->CI =& get_instance();
@@ -140,13 +140,13 @@ class CI_Calendar {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Initialize the user preferences
-	 *
-	 * Accepts an associative array as input, containing display preferences
-	 *
-	 * @param	array	config preferences
-	 * @return	CI_Calendar
-	 */
+		* Initialize the user preferences
+		*
+		* Accepts an associative array as input, containing display preferences
+		*
+		* @param	array	config preferences
+		* @return	CI_Calendar
+		*/
 	public function initialize($config = array())
 	{
 		foreach ($config as $key => $val)
@@ -169,13 +169,13 @@ class CI_Calendar {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Generate the calendar
-	 *
-	 * @param	int	the year
-	 * @param	int	the month
-	 * @param	array	the data to be shown in the calendar cells
-	 * @return	string
-	 */
+		* Generate the calendar
+		*
+		* @param	int	the year
+		* @param	int	the month
+		* @param	array	the data to be shown in the calendar cells
+		* @return	string
+		*/
 	public function generate($year = '', $month = '', $data = array())
 	{
 		$local_time = time();
@@ -342,14 +342,14 @@ class CI_Calendar {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get Month Name
-	 *
-	 * Generates a textual month name based on the numeric
-	 * month provided.
-	 *
-	 * @param	int	the month
-	 * @return	string
-	 */
+		* Get Month Name
+		*
+		* Generates a textual month name based on the numeric
+		* month provided.
+		*
+		* @param	int	the month
+		* @return	string
+		*/
 	public function get_month_name($month)
 	{
 		if ($this->month_type === 'short')
@@ -369,14 +369,14 @@ class CI_Calendar {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Get Day Names
-	 *
-	 * Returns an array of day names (Sunday, Monday, etc.) based
-	 * on the type. Options: long, short, abr
-	 *
-	 * @param	string
-	 * @return	array
-	 */
+		* Get Day Names
+		*
+		* Returns an array of day names (Sunday, Monday, etc.) based
+		* on the type. Options: long, short, abr
+		*
+		* @param	string
+		* @return	array
+		*/
 	public function get_day_names($day_type = '')
 	{
 		if ($day_type !== '')
@@ -409,16 +409,16 @@ class CI_Calendar {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Adjust Date
-	 *
-	 * This function makes sure that we have a valid month/year.
-	 * For example, if you submit 13 as the month, the year will
-	 * increment and the month will become January.
-	 *
-	 * @param	int	the month
-	 * @param	int	the year
-	 * @return	array
-	 */
+		* Adjust Date
+		*
+		* This function makes sure that we have a valid month/year.
+		* For example, if you submit 13 as the month, the year will
+		* increment and the month will become January.
+		*
+		* @param	int	the month
+		* @param	int	the year
+		* @return	array
+		*/
 	public function adjust_date($month, $year)
 	{
 		$date = array();
@@ -449,12 +449,12 @@ class CI_Calendar {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Total days in a given month
-	 *
-	 * @param	int	the month
-	 * @param	int	the year
-	 * @return	int
-	 */
+		* Total days in a given month
+		*
+		* @param	int	the month
+		* @param	int	the year
+		* @return	int
+		*/
 	public function get_total_days($month, $year)
 	{
 		$this->CI->load->helper('date');
@@ -464,12 +464,12 @@ class CI_Calendar {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set Default Template Data
-	 *
-	 * This is used in the event that the user has not created their own template
-	 *
-	 * @return	array
-	 */
+		* Set Default Template Data
+		*
+		* This is used in the event that the user has not created their own template
+		*
+		* @return	array
+		*/
 	public function default_template()
 	{
 		return array(
@@ -503,13 +503,13 @@ class CI_Calendar {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Parse Template
-	 *
-	 * Harvests the data within the template {pseudo-variables}
-	 * used to display the calendar
-	 *
-	 * @return	CI_Calendar
-	 */
+		* Parse Template
+		*
+		* Harvests the data within the template {pseudo-variables}
+		* used to display the calendar
+		*
+		* @return	CI_Calendar
+		*/
 	public function parse_template()
 	{
 		$this->replacements = $this->default_template();

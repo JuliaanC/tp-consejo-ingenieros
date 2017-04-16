@@ -1,65 +1,65 @@
 <?php
 /**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
+	* CodeIgniter
+	*
+	* An open source application development framework for PHP
+	*
+	* This content is released under the MIT License (MIT)
+	*
+	* Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+	*
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	*
+	* The above copyright notice and this permission notice shall be included in
+	* all copies or substantial portions of the Software.
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*
+	* @package	CodeIgniter
+	* @author	EllisLab Dev Team
+	* @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+	* @copyright	Copyright (c) 2014 - 2017, British Columbia Institute of Technology (http://bcit.ca/)
+	* @license	http://opensource.org/licenses/MIT	MIT License
+	* @link	https://codeigniter.com
+	* @since	Version 1.0.0
+	* @filesource
+	*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CodeIgniter Date Helpers
- *
- * @package		CodeIgniter
- * @subpackage	Helpers
- * @category	Helpers
- * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/user_guide/helpers/date_helper.html
- */
+	* CodeIgniter Date Helpers
+	*
+	* @package		CodeIgniter
+	* @subpackage	Helpers
+	* @category	Helpers
+	* @author		EllisLab Dev Team
+	* @link		https://codeigniter.com/user_guide/helpers/date_helper.html
+	*/
 
 // ------------------------------------------------------------------------
 
 if ( ! function_exists('now'))
 {
 	/**
-	 * Get "now" time
-	 *
-	 * Returns time() based on the timezone parameter or on the
-	 * "time_reference" setting
-	 *
-	 * @param	string
-	 * @return	int
-	 */
+		* Get "now" time
+		*
+		* Returns time() based on the timezone parameter or on the
+		* "time_reference" setting
+		*
+		* @param	string
+		* @return	int
+		*/
 	function now($timezone = NULL)
 	{
 		if (empty($timezone))
@@ -84,21 +84,21 @@ if ( ! function_exists('now'))
 if ( ! function_exists('mdate'))
 {
 	/**
-	 * Convert MySQL Style Datecodes
-	 *
-	 * This function is identical to PHPs date() function,
-	 * except that it allows date codes to be formatted using
-	 * the MySQL style, where each code letter is preceded
-	 * with a percent sign:  %Y %m %d etc...
-	 *
-	 * The benefit of doing dates this way is that you don't
-	 * have to worry about escaping your text letters that
-	 * match the date codes.
-	 *
-	 * @param	string
-	 * @param	int
-	 * @return	int
-	 */
+		* Convert MySQL Style Datecodes
+		*
+		* This function is identical to PHPs date() function,
+		* except that it allows date codes to be formatted using
+		* the MySQL style, where each code letter is preceded
+		* with a percent sign:  %Y %m %d etc...
+		*
+		* The benefit of doing dates this way is that you don't
+		* have to worry about escaping your text letters that
+		* match the date codes.
+		*
+		* @param	string
+		* @param	int
+		* @return	int
+		*/
 	function mdate($datestr = '', $time = '')
 	{
 		if ($datestr === '')
@@ -125,24 +125,24 @@ if ( ! function_exists('mdate'))
 if ( ! function_exists('standard_date'))
 {
 	/**
-	 * Standard Date
-	 *
-	 * Returns a date formatted according to the submitted standard.
-	 *
-	 * As of PHP 5.2, the DateTime extension provides constants that
-	 * serve for the exact same purpose and are used with date().
-	 *
-	 * @todo	Remove in version 3.1+.
-	 * @deprecated	3.0.0	Use PHP's native date() instead.
-	 * @link	http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
-	 *
-	 * @example	date(DATE_RFC822, now()); // default
-	 * @example	date(DATE_W3C, $time); // a different format and time
-	 *
-	 * @param	string	$fmt = 'DATE_RFC822'	the chosen format
-	 * @param	int	$time = NULL		Unix timestamp
-	 * @return	string
-	 */
+		* Standard Date
+		*
+		* Returns a date formatted according to the submitted standard.
+		*
+		* As of PHP 5.2, the DateTime extension provides constants that
+		* serve for the exact same purpose and are used with date().
+		*
+		* @todo	Remove in version 3.1+.
+		* @deprecated	3.0.0	Use PHP's native date() instead.
+		* @link	http://www.php.net/manual/en/class.datetime.php#datetime.constants.types
+		*
+		* @example	date(DATE_RFC822, now()); // default
+		* @example	date(DATE_W3C, $time); // a different format and time
+		*
+		* @param	string	$fmt = 'DATE_RFC822'	the chosen format
+		* @param	int	$time = NULL		Unix timestamp
+		* @return	string
+		*/
 	function standard_date($fmt = 'DATE_RFC822', $time = NULL)
 	{
 		if (empty($time))
@@ -165,16 +165,16 @@ if ( ! function_exists('standard_date'))
 if ( ! function_exists('timespan'))
 {
 	/**
-	 * Timespan
-	 *
-	 * Returns a span of seconds in this format:
-	 *	10 days 14 hours 36 minutes 47 seconds
-	 *
-	 * @param	int	a number of seconds
-	 * @param	int	Unix timestamp
-	 * @param	int	a number of display units
-	 * @return	string
-	 */
+		* Timespan
+		*
+		* Returns a span of seconds in this format:
+		*	10 days 14 hours 36 minutes 47 seconds
+		*
+		* @param	int	a number of seconds
+		* @param	int	Unix timestamp
+		* @param	int	a number of display units
+		* @return	string
+		*/
 	function timespan($seconds = 1, $time = '', $units = 7)
 	{
 		$CI =& get_instance();
@@ -269,15 +269,15 @@ if ( ! function_exists('timespan'))
 if ( ! function_exists('days_in_month'))
 {
 	/**
-	 * Number of days in a month
-	 *
-	 * Takes a month/year as input and returns the number of days
-	 * for the given month/year. Takes leap years into consideration.
-	 *
-	 * @param	int	a numeric month
-	 * @param	int	a numeric year
-	 * @return	int
-	 */
+		* Number of days in a month
+		*
+		* Takes a month/year as input and returns the number of days
+		* for the given month/year. Takes leap years into consideration.
+		*
+		* @param	int	a numeric month
+		* @param	int	a numeric year
+		* @return	int
+		*/
 	function days_in_month($month = 0, $year = '')
 	{
 		if ($month < 1 OR $month > 12)
@@ -317,11 +317,11 @@ if ( ! function_exists('days_in_month'))
 if ( ! function_exists('local_to_gmt'))
 {
 	/**
-	 * Converts a local Unix timestamp to GMT
-	 *
-	 * @param	int	Unix timestamp
-	 * @return	int
-	 */
+		* Converts a local Unix timestamp to GMT
+		*
+		* @param	int	Unix timestamp
+		* @return	int
+		*/
 	function local_to_gmt($time = '')
 	{
 		if ($time === '')
@@ -345,17 +345,17 @@ if ( ! function_exists('local_to_gmt'))
 if ( ! function_exists('gmt_to_local'))
 {
 	/**
-	 * Converts GMT time to a localized value
-	 *
-	 * Takes a Unix timestamp (in GMT) as input, and returns
-	 * at the local value based on the timezone and DST setting
-	 * submitted
-	 *
-	 * @param	int	Unix timestamp
-	 * @param	string	timezone
-	 * @param	bool	whether DST is active
-	 * @return	int
-	 */
+		* Converts GMT time to a localized value
+		*
+		* Takes a Unix timestamp (in GMT) as input, and returns
+		* at the local value based on the timezone and DST setting
+		* submitted
+		*
+		* @param	int	Unix timestamp
+		* @param	string	timezone
+		* @param	bool	whether DST is active
+		* @return	int
+		*/
 	function gmt_to_local($time = '', $timezone = 'UTC', $dst = FALSE)
 	{
 		if ($time === '')
@@ -374,11 +374,11 @@ if ( ! function_exists('gmt_to_local'))
 if ( ! function_exists('mysql_to_unix'))
 {
 	/**
-	 * Converts a MySQL Timestamp to Unix
-	 *
-	 * @param	int	MySQL timestamp YYYY-MM-DD HH:MM:SS
-	 * @return	int	Unix timstamp
-	 */
+		* Converts a MySQL Timestamp to Unix
+		*
+		* @param	int	MySQL timestamp YYYY-MM-DD HH:MM:SS
+		* @return	int	Unix timstamp
+		*/
 	function mysql_to_unix($time = '')
 	{
 		// We'll remove certain characters for backward compatibility
@@ -404,15 +404,15 @@ if ( ! function_exists('mysql_to_unix'))
 if ( ! function_exists('unix_to_human'))
 {
 	/**
-	 * Unix to "Human"
-	 *
-	 * Formats Unix timestamp to the following prototype: 2006-08-21 11:35 PM
-	 *
-	 * @param	int	Unix timestamp
-	 * @param	bool	whether to show seconds
-	 * @param	string	format: us or euro
-	 * @return	string
-	 */
+		* Unix to "Human"
+		*
+		* Formats Unix timestamp to the following prototype: 2006-08-21 11:35 PM
+		*
+		* @param	int	Unix timestamp
+		* @param	bool	whether to show seconds
+		* @param	string	format: us or euro
+		* @return	string
+		*/
 	function unix_to_human($time = '', $seconds = FALSE, $fmt = 'us')
 	{
 		$r = date('Y', $time).'-'.date('m', $time).'-'.date('d', $time).' ';
@@ -445,13 +445,13 @@ if ( ! function_exists('unix_to_human'))
 if ( ! function_exists('human_to_unix'))
 {
 	/**
-	 * Convert "human" date to GMT
-	 *
-	 * Reverses the above process
-	 *
-	 * @param	string	format: us or euro
-	 * @return	int
-	 */
+		* Convert "human" date to GMT
+		*
+		* Reverses the above process
+		*
+		* @param	string	format: us or euro
+		* @return	int
+		*/
 	function human_to_unix($datestr = '')
 	{
 		if ($datestr === '')
@@ -493,14 +493,14 @@ if ( ! function_exists('human_to_unix'))
 if ( ! function_exists('nice_date'))
 {
 	/**
-	 * Turns many "reasonably-date-like" strings into something
-	 * that is actually useful. This only works for dates after unix epoch.
-	 *
-	 * @deprecated	3.1.3	Use DateTime::createFromFormat($input_format, $input)->format($output_format);
-	 * @param	string	The terribly formatted date-like string
-	 * @param	string	Date format to return (same as php date function)
-	 * @return	string
-	 */
+		* Turns many "reasonably-date-like" strings into something
+		* that is actually useful. This only works for dates after unix epoch.
+		*
+		* @deprecated	3.1.3	Use DateTime::createFromFormat($input_format, $input)->format($output_format);
+		* @param	string	The terribly formatted date-like string
+		* @param	string	Date format to return (same as php date function)
+		* @return	string
+		*/
 	function nice_date($bad_date = '', $format = FALSE)
 	{
 		if (empty($bad_date))
@@ -559,16 +559,16 @@ if ( ! function_exists('nice_date'))
 if ( ! function_exists('timezone_menu'))
 {
 	/**
-	 * Timezone Menu
-	 *
-	 * Generates a drop-down menu of timezones.
-	 *
-	 * @param	string	timezone
-	 * @param	string	classname
-	 * @param	string	menu name
-	 * @param	mixed	attributes
-	 * @return	string
-	 */
+		* Timezone Menu
+		*
+		* Generates a drop-down menu of timezones.
+		*
+		* @param	string	timezone
+		* @param	string	classname
+		* @param	string	menu name
+		* @param	mixed	attributes
+		* @return	string
+		*/
 	function timezone_menu($default = 'UTC', $class = '', $name = 'timezones', $attributes = '')
 	{
 		$CI =& get_instance();
@@ -600,14 +600,14 @@ if ( ! function_exists('timezone_menu'))
 if ( ! function_exists('timezones'))
 {
 	/**
-	 * Timezones
-	 *
-	 * Returns an array of timezones. This is a helper function
-	 * for various other ones in this library
-	 *
-	 * @param	string	timezone
-	 * @return	string
-	 */
+		* Timezones
+		*
+		* Returns an array of timezones. This is a helper function
+		* for various other ones in this library
+		*
+		* @param	string	timezone
+		* @return	string
+		*/
 	function timezones($tz = '')
 	{
 		// Note: Don't change the order of these even though
@@ -670,20 +670,20 @@ if ( ! function_exists('timezones'))
 if ( ! function_exists('date_range'))
 {
 	/**
-	 * Date range
-	 *
-	 * Returns a list of dates within a specified period.
-	 *
-	 * @param	int	unix_start	UNIX timestamp of period start date
-	 * @param	int	unix_end|days	UNIX timestamp of period end date
-	 *					or interval in days.
-	 * @param	mixed	is_unix		Specifies whether the second parameter
-	 *					is a UNIX timestamp or a day interval
-	 *					 - TRUE or 'unix' for a timestamp
-	 *					 - FALSE or 'days' for an interval
-	 * @param	string  date_format	Output date format, same as in date()
-	 * @return	array
-	 */
+		* Date range
+		*
+		* Returns a list of dates within a specified period.
+		*
+		* @param	int	unix_start	UNIX timestamp of period start date
+		* @param	int	unix_end|days	UNIX timestamp of period end date
+		*					or interval in days.
+		* @param	mixed	is_unix		Specifies whether the second parameter
+		*					is a UNIX timestamp or a day interval
+		*					 - TRUE or 'unix' for a timestamp
+		*					 - FALSE or 'days' for an interval
+		* @param	string  date_format	Output date format, same as in date()
+		* @return	array
+		*/
 	function date_range($unix_start = '', $mixed = '', $is_unix = TRUE, $format = 'Y-m-d')
 	{
 		if ($unix_start == '' OR $mixed == '' OR $format == '')
@@ -728,10 +728,10 @@ if ( ! function_exists('date_range'))
 		}
 
 		/* If a period end date was passed to the DatePeriod constructor, it might not
-		 * be in our results. Not sure if this is a bug or it's just possible because
-		 * the end date might actually be less than 24 hours away from the previously
-		 * generated DateTime object, but either way - we have to append it manually.
-		 */
+			* be in our results. Not sure if this is a bug or it's just possible because
+			* the end date might actually be less than 24 hours away from the previously
+			* generated DateTime object, but either way - we have to append it manually.
+			*/
 		if ( ! is_int($arg) && $range[count($range) - 1] !== $arg->format($format))
 		{
 			$range[] = $arg->format($format);
