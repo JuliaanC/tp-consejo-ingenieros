@@ -1,24 +1,24 @@
 {
-  "name": "tp-consejo-ingenieros",
-  "homepage": "https://github.com/francipvb/tp-consejo-ingenieros",
-  "authors": [
-    "Francisco R. Del Roio <francipvb@hotmail.com>"
-  ],
-  "description": "",
-  "main": "",
-  "license": "None",
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "libs",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "bootstrap": "^3.3.7",
-    "jquery": "^3.2.1",
-    "jquery-validation": "jquery-validate#^1.16.0",
-    "jquery-validation-unobtrusive": "^3.2.6"
-  }
+		"name": "tp-consejo-ingenieros",
+		"homepage": "https://github.com/francipvb/tp-consejo-ingenieros",
+		"authors": [
+				"Francisco R. Del Roio <francipvb@hotmail.com>"
+		],
+		"description": "",
+		"main": "",
+		"license": "None",
+		"private": true,
+		"ignore": [
+				"**/.*",
+				"node_modules",
+				"libs",
+				"test",
+				"tests"
+		],
+		"dependencies": {
+				"bootstrap": "^3.3.7",
+				"jquery": "^3.2.1",
+				"jquery-validation": "jquery-validate#^1.16.0",
+				"jquery-validation-unobtrusive": "^3.2.6"
+		}
 }
